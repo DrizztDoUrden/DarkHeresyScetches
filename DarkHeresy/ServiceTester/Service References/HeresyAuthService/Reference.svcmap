@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="229499fc-c2b7-40ec-adf2-1aa2785edba2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54244/Services/HeresyAuthService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HeresyAuthService.xsd" MetadataType="Schema" ID="73c1c0d0-e979-44bb-aeef-6164e6269bda" SourceId="1" SourceUrl="http://localhost:54244/Services/HeresyAuthService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HeresyAuthService1.xsd" MetadataType="Schema" ID="6009afa8-f6fc-4afc-94df-676c3eab4fdb" SourceId="1" SourceUrl="http://localhost:54244/Services/HeresyAuthService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HeresyAuthService.disco" MetadataType="Disco" ID="6135a1c6-ccc7-4cbd-9378-abd37f667bb0" SourceId="1" SourceUrl="http://localhost:54244/Services/HeresyAuthService.svc?disco" />
+    <MetadataFile FileName="HeresyAuthService.wsdl" MetadataType="Wsdl" ID="5214eab7-2079-40a5-93ba-6ca90027c92c" SourceId="1" SourceUrl="http://localhost:54244/Services/HeresyAuthService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

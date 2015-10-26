@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e1a5e158-83e1-42be-9657-8a57ae0844b1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50305/HeresyService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HeresyService2.xsd" MetadataType="Schema" ID="a42ef8cc-3bd7-4d2a-a267-8b4c7515f4c4" SourceId="1" SourceUrl="http://localhost:50305/HeresyService.svc?xsd=xsd3" />
+    <MetadataFile FileName="HeresyService21.xsd" MetadataType="Schema" ID="8c148917-824b-4e3e-a8a4-2fb61d38e2a7" SourceId="1" SourceUrl="http://localhost:50305/HeresyService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HeresyService.wsdl" MetadataType="Wsdl" ID="414a54eb-7920-423f-9667-e4c3327addd3" SourceId="1" SourceUrl="http://localhost:50305/HeresyService.svc?wsdl" />
+    <MetadataFile FileName="HeresyService.disco" MetadataType="Disco" ID="2aed1f23-4339-4a9f-b1c3-d31517e3fbc1" SourceId="1" SourceUrl="http://localhost:50305/HeresyService.svc?disco" />
+    <MetadataFile FileName="HeresyService.xsd" MetadataType="Schema" ID="3762c7fe-ee42-434e-b586-c60542212b99" SourceId="1" SourceUrl="http://localhost:50305/HeresyService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HeresyService1.xsd" MetadataType="Schema" ID="aefc5fd3-3a04-4fa3-84d0-20e4cc3e767f" SourceId="1" SourceUrl="http://localhost:50305/HeresyService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
