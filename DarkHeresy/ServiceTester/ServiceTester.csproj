@@ -52,6 +52,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\HeresyInternalAuthService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\HeresyService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -60,11 +65,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\HeresyAuthService\HeresyAuthService.wsdl" />
-    <None Include="Service References\HeresyAuthService\HeresyAuthService.xsd">
+    <None Include="Properties\DataSources\HeresyCore.Entities.Character.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Entities.Token.datasource" />
+    <None Include="Service References\HeresyAuthService\AuthService.wsdl" />
+    <None Include="Service References\HeresyAuthService\AuthService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\HeresyAuthService\HeresyAuthService1.xsd">
+    <None Include="Service References\HeresyAuthService\AuthService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyAuthService\AuthService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyInternalAuthService\InternalAuthService.wsdl" />
+    <None Include="Service References\HeresyInternalAuthService\InternalAuthService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyInternalAuthService\InternalAuthService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyInternalAuthService\InternalAuthService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\HeresyService\HeresyService.wsdl" />
@@ -77,11 +97,8 @@
     <None Include="Service References\HeresyService\HeresyService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\HeresyService\HeresyService21.xsd">
+    <None Include="Service References\HeresyService\HeresyService3.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\HeresyService\ServiceTester.HeresyService.Character.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -89,7 +106,44 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\HeresyAuthService\" />
+    <WCFMetadataStorage Include="Service References\HeresyInternalAuthService\" />
     <WCFMetadataStorage Include="Service References\HeresyService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeresyAuthService\AuthService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeresyAuthService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeresyAuthService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeresyAuthService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeresyInternalAuthService\InternalAuthService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeresyInternalAuthService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeresyInternalAuthService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HeresyInternalAuthService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HeresyCore\HeresyCore.csproj">
+      <Project>{604947f5-5f1d-4a60-a3d0-949841cba083}</Project>
+      <Name>HeresyCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\HeresyService\HeresyService.disco" />
@@ -102,21 +156,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\HeresyService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\HeresyAuthService\HeresyAuthService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\HeresyAuthService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\HeresyAuthService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\HeresyAuthService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServiceTester.HeresyAuthService {
+namespace ServiceTester.HeresyInternalAuthService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HeresyAuthService.IAuthService")]
-    public interface IAuthService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HeresyInternalAuthService.IInternalAuthService")]
+    public interface IInternalAuthService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/Register", ReplyAction="http://tempuri.org/IAuthService/RegisterResponse")]
         bool Register(string loginHash, string passHash);
@@ -38,32 +38,38 @@ namespace ServiceTester.HeresyAuthService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/IsLogged", ReplyAction="http://tempuri.org/IAuthService/IsLoggedResponse")]
         System.Threading.Tasks.Task<bool> IsLoggedAsync(HeresyCore.Entities.Token token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalAuthService/GetId", ReplyAction="http://tempuri.org/IInternalAuthService/GetIdResponse")]
+        string GetId(HeresyCore.Entities.Token token, string appSecret);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalAuthService/GetId", ReplyAction="http://tempuri.org/IInternalAuthService/GetIdResponse")]
+        System.Threading.Tasks.Task<string> GetIdAsync(HeresyCore.Entities.Token token, string appSecret);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAuthServiceChannel : ServiceTester.HeresyAuthService.IAuthService, System.ServiceModel.IClientChannel {
+    public interface IInternalAuthServiceChannel : ServiceTester.HeresyInternalAuthService.IInternalAuthService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AuthServiceClient : System.ServiceModel.ClientBase<ServiceTester.HeresyAuthService.IAuthService>, ServiceTester.HeresyAuthService.IAuthService {
+    public partial class InternalAuthServiceClient : System.ServiceModel.ClientBase<ServiceTester.HeresyInternalAuthService.IInternalAuthService>, ServiceTester.HeresyInternalAuthService.IInternalAuthService {
         
-        public AuthServiceClient() {
+        public InternalAuthServiceClient() {
         }
         
-        public AuthServiceClient(string endpointConfigurationName) : 
+        public InternalAuthServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public AuthServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public InternalAuthServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AuthServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public InternalAuthServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AuthServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public InternalAuthServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -97,6 +103,14 @@ namespace ServiceTester.HeresyAuthService {
         
         public System.Threading.Tasks.Task<bool> IsLoggedAsync(HeresyCore.Entities.Token token) {
             return base.Channel.IsLoggedAsync(token);
+        }
+        
+        public string GetId(HeresyCore.Entities.Token token, string appSecret) {
+            return base.Channel.GetId(token, appSecret);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetIdAsync(HeresyCore.Entities.Token token, string appSecret) {
+            return base.Channel.GetIdAsync(token, appSecret);
         }
     }
 }

@@ -9,112 +9,17 @@
 //------------------------------------------------------------------------------
 
 namespace ServiceTester.HeresyService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Character", Namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities")]
-    [System.SerializableAttribute()]
-    public partial class Character : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MaxWoundsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int WoundsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MaxWounds {
-            get {
-                return this.MaxWoundsField;
-            }
-            set {
-                if ((this.MaxWoundsField.Equals(value) != true)) {
-                    this.MaxWoundsField = value;
-                    this.RaisePropertyChanged("MaxWounds");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Wounds {
-            get {
-                return this.WoundsField;
-            }
-            set {
-                if ((this.WoundsField.Equals(value) != true)) {
-                    this.WoundsField = value;
-                    this.RaisePropertyChanged("Wounds");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HeresyService.IHeresyService")]
     public interface IHeresyService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetCharacterList", ReplyAction="http://tempuri.org/IHeresyService/GetCharacterListResponse")]
-        System.Collections.Generic.Dictionary<string, ServiceTester.HeresyService.Character> GetCharacterList(string token);
+        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character> GetCharacterList(HeresyCore.Entities.Token token);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetCharacterList", ReplyAction="http://tempuri.org/IHeresyService/GetCharacterListResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, ServiceTester.HeresyService.Character>> GetCharacterListAsync(string token);
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character>> GetCharacterListAsync(HeresyCore.Entities.Token token);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -144,11 +49,11 @@ namespace ServiceTester.HeresyService {
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.Generic.Dictionary<string, ServiceTester.HeresyService.Character> GetCharacterList(string token) {
+        public System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character> GetCharacterList(HeresyCore.Entities.Token token) {
             return base.Channel.GetCharacterList(token);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, ServiceTester.HeresyService.Character>> GetCharacterListAsync(string token) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character>> GetCharacterListAsync(HeresyCore.Entities.Token token) {
             return base.Channel.GetCharacterListAsync(token);
         }
     }

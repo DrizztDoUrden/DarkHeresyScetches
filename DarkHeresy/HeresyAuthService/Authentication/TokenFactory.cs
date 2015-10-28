@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeresyCore.Entities;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -36,7 +37,7 @@ namespace HeresyAuthService.Authentication
             var baseStr = $"{seed}@{time}@{StaticSeed}";
             var baseBytes = Encoding.Unicode.GetBytes(baseStr);
             var tokenBytes = HashGenerator.ComputeHash(baseBytes);
-            var token = Encoding.Unicode.GetString(tokenBytes);
+            var token = Convert.ToBase64String(tokenBytes);
 
             return new Token(token, time + lifeTime);
         }
