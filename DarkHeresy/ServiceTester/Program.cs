@@ -2,13 +2,14 @@
 using ServiceTester.HeresyAuthService;
 using ServiceTester.HeresyService;
 using System;
+using System.Configuration;
 
 namespace ServiceTester
 {
     public class Program
     {
-        private static string _testLogin = "user";
-        private static string _testPassword = "password";
+        private static string _testLogin = ConfigurationManager.AppSettings["TestLogin"];
+        private static string _testPassword = ConfigurationManager.AppSettings["TestPassword"];
 
         public static void Main()
         {

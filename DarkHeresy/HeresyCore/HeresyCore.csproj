@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Entities\Character.cs" />
     <Compile Include="Entities\Token.cs" />
-    <Compile Include="Entities\UserSettings.cs" />
+    <Compile Include="Entities\LoginSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

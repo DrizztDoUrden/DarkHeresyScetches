@@ -69,10 +69,10 @@
     <Compile Include="Authorization\AppSecretManager.cs" />
     <Compile Include="Authentication\LoginHandler.cs" />
     <Compile Include="Authentication\TokenFactory.cs" />
-    <Compile Include="Authentication\User.cs" />
+    <Compile Include="Authentication\Login.cs" />
     <Compile Include="Authorization\Rights.cs" />
-    <Compile Include="ServiceInterfaces\IHeresyAuthInternalService.cs" />
-    <Compile Include="ServiceInterfaces\IHeresyAuthService.cs" />
+    <Compile Include="ServiceInterfaces\IInternalAuthService.cs" />
+    <Compile Include="ServiceInterfaces\IAuthService.cs" />
     <Compile Include="Services\InternalAuthService.svc.cs">
       <DependentUpon>InternalAuthService.svc</DependentUpon>
     </Compile>

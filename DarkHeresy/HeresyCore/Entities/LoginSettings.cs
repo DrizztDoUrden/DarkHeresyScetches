@@ -2,17 +2,17 @@
 
 namespace HeresyCore.Entities
 {
-    public class UserSettings
+    public class LoginSettings
     {
         public TimeSpan TokenLifeTime { get; set; }
         public bool AutoResetToken { get; set; }
 
-        public UserSettings()
+        public LoginSettings()
         {
 
         }
 
-        public UserSettings(UserSettings defaults)
+        public LoginSettings(LoginSettings defaults)
         {
             TokenLifeTime = defaults.TokenLifeTime;
             AutoResetToken = defaults.AutoResetToken;

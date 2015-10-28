@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 
 namespace HeresyAuthService.Authorization
@@ -77,10 +78,13 @@ namespace HeresyAuthService.Authorization
 
         #endregion
 
-        private static IDictionary<string, ICollection<string>> DefaultRightsProvider => new Dictionary<string, ICollection<string>>
-        {
-            ["ServiceTester_SuperSecret"] = Rights.FullRights.ToList(),
-            ["HeresyService_SuperSecret"] = Rights.FullRights.ToList(),
-        };
+        private static IDictionary<string, ICollection<string>> DefaultRightsProvider =>
+            ConfigurationManager.AppSettings["FullRightApps"]
+            .Split(';', ',')
+            .Select(s => s.Trim())
+            .ToDictionary(
+                appSecret => appSecret,
+                appSecret => (ICollection<string>)Rights.FullRights.ToList()
+            );
     }
 }

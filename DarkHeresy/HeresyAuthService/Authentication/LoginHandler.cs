@@ -7,10 +7,10 @@ namespace HeresyAuthService.Authentication
 {
     public class LoginHandler
     {
-        private IDictionary<string, User> _users;
-        private IDictionary<string, User> _usersByTokens;
+        private IDictionary<string, Login> _users;
+        private IDictionary<string, Login> _usersByTokens;
 
-        public UserSettings DefaultUserSettings { get; set; }
+        public LoginSettings DefaultUserSettings { get; set; }
 
         #region Singleton
 
@@ -39,8 +39,8 @@ namespace HeresyAuthService.Authentication
 
         private void Init()
         {
-            _usersByTokens = new Dictionary<string, User>();
-            DefaultUserSettings = new UserSettings
+            _usersByTokens = new Dictionary<string, Login>();
+            DefaultUserSettings = new LoginSettings
             {
                 AutoResetToken = true,
                 TokenLifeTime = new TimeSpan(72, 0, 0),
@@ -51,11 +51,11 @@ namespace HeresyAuthService.Authentication
         public LoginHandler()
         {
             Init();
-            _users = new Dictionary<string, User>();
+            _users = new Dictionary<string, Login>();
         }
 
         [DebuggerStepThrough]
-        public LoginHandler(IDictionary<string, User> userProvider)
+        public LoginHandler(IDictionary<string, Login> userProvider)
         {
             Init();
             _users = userProvider;
@@ -67,7 +67,7 @@ namespace HeresyAuthService.Authentication
 
         public Token Login(string loginHash, string passHash)
         {
-            User user;
+            Login user;
 
             if (string.IsNullOrEmpty(loginHash)
                 || string.IsNullOrEmpty(passHash)
@@ -86,7 +86,7 @@ namespace HeresyAuthService.Authentication
                 || _users.ContainsKey(loginHash))
                 return false;
 
-            _users.Add(loginHash, new User(loginHash, passHash, DefaultUserSettings));
+            _users.Add(loginHash, new Login(loginHash, passHash, DefaultUserSettings));
 
             return true;
         }
@@ -110,9 +110,9 @@ namespace HeresyAuthService.Authentication
 
         #endregion
 
-        public User GetUserByToken(Token token)
+        public Login GetUserByToken(Token token)
         {
-            User user;
+            Login user;
 
             if (!_usersByTokens.TryGetValue(token, out user))
                 return null;

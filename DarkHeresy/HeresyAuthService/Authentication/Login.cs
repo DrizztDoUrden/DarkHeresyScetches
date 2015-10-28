@@ -3,22 +3,22 @@ using System;
 
 namespace HeresyAuthService.Authentication
 {
-    public class User
+    public class Login
     {
         public string ID { get; set; }
         public string LoginHash { get; set; }
         public string PasswordHash { get; set; }
         public Token Token { get; set; }
-        public UserSettings Settings { get; set; }
+        public LoginSettings Settings { get; set; }
 
         #region Constructors
 
-        public User(string loginHash, string passHash, UserSettings defaults)
+        public Login(string loginHash, string passHash, LoginSettings defaults)
         {
             LoginHash = loginHash;
             PasswordHash = passHash;
 
-            Settings = new UserSettings(defaults);
+            Settings = new LoginSettings(defaults);
             ID = Guid.NewGuid().ToString("D");
         }
 
