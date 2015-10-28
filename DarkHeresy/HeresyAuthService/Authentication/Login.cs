@@ -5,7 +5,7 @@ namespace HeresyAuthService.Authentication
 {
     public class Login
     {
-        public string ID { get; set; }
+        public string Id { get; set; }
         public string LoginHash { get; set; }
         public string PasswordHash { get; set; }
         public Token Token { get; set; }
@@ -19,7 +19,7 @@ namespace HeresyAuthService.Authentication
             PasswordHash = passHash;
 
             Settings = new LoginSettings(defaults);
-            ID = Guid.NewGuid().ToString("D");
+            Id = Guid.NewGuid().ToString("D");
         }
 
         #endregion
@@ -32,7 +32,7 @@ namespace HeresyAuthService.Authentication
             var now = DateTime.Now;
             if (Token == null || Token.Expiration < now)
             {
-                var tokenBase = $"{ID}@{LoginHash}";
+                var tokenBase = $"{Id}@{LoginHash}";
                 Token = TokenFactory.Default.GenerateToken(tokenBase, now, Settings.TokenLifeTime);
             }
             

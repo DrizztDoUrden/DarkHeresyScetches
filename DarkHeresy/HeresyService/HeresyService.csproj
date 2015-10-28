@@ -68,6 +68,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Services\InternalHeresyService.svc" />
     <Content Include="Services\HeresyService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -77,6 +78,10 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceInterfaces\IInternalHeresyService.cs" />
+    <Compile Include="Services\InternalHeresyService.svc.cs">
+      <DependentUpon>InternalHeresyService.svc</DependentUpon>
     </Compile>
     <Compile Include="Services\HeresyService.svc.cs">
       <DependentUpon>HeresyService.svc</DependentUpon>

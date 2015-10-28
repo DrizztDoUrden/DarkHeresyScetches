@@ -11,12 +11,15 @@ namespace HeresyAuthService.Services
     {
         public string GetId(Token token, string appSecret)
         {
-            if (!AppSecretManager.Default.HasRight(appSecret, Rights.InternalAuth.Common))
+            if (!ValidateAppSecret(appSecret, Rights.InternalAuth.Common))
                 return null;
 
-            var user = LoginHandler.GetUserByToken(token);
+            var user = LoginHandler.GetLoginByToken(token);
 
-            return user?.ID;
+            return user?.Id;
         }
+
+        public bool ValidateAppSecret(string appSecret, string right) =>
+            AppSecretManager.Default.HasRight(appSecret, right);
     }
 }

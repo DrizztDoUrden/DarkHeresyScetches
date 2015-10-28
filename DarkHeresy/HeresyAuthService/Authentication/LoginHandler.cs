@@ -1,4 +1,6 @@
-﻿using HeresyCore.Entities;
+﻿using HeresyAuthService.InternalHeresyService;
+using HeresyCore.Entities;
+using HeresyCore.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,10 +9,10 @@ namespace HeresyAuthService.Authentication
 {
     public class LoginHandler
     {
-        private IDictionary<string, Login> _users;
-        private IDictionary<string, Login> _usersByTokens;
+        private IDictionary<string, Login> _logins;
+        private IDictionary<string, Login> _loginsByTokens;
 
-        public LoginSettings DefaultUserSettings { get; set; }
+        public LoginSettings DefaultLoginSettings { get; set; }
 
         #region Singleton
 
@@ -39,8 +41,8 @@ namespace HeresyAuthService.Authentication
 
         private void Init()
         {
-            _usersByTokens = new Dictionary<string, Login>();
-            DefaultUserSettings = new LoginSettings
+            _loginsByTokens = new Dictionary<string, Login>();
+            DefaultLoginSettings = new LoginSettings
             {
                 AutoResetToken = true,
                 TokenLifeTime = new TimeSpan(72, 0, 0),
@@ -51,14 +53,14 @@ namespace HeresyAuthService.Authentication
         public LoginHandler()
         {
             Init();
-            _users = new Dictionary<string, Login>();
+            _logins = new Dictionary<string, Login>();
         }
 
         [DebuggerStepThrough]
-        public LoginHandler(IDictionary<string, Login> userProvider)
+        public LoginHandler(IDictionary<string, Login> loginProvider)
         {
             Init();
-            _users = userProvider;
+            _logins = loginProvider;
         }
 
         #endregion
@@ -67,71 +69,77 @@ namespace HeresyAuthService.Authentication
 
         public Token Login(string loginHash, string passHash)
         {
-            Login user;
+            Login login;
 
             if (string.IsNullOrEmpty(loginHash)
                 || string.IsNullOrEmpty(passHash)
-                || !_users.TryGetValue(loginHash, out user)
-                || !user.Authorize(loginHash, passHash))
+                || !_logins.TryGetValue(loginHash, out login)
+                || !login.Authorize(loginHash, passHash))
                 return null;
 
-            _usersByTokens[user.Token] = user;
-            return user.Token;
+            _loginsByTokens[login.Token] = login;
+            return login.Token;
         }
 
         public bool Register(string loginHash, string passHash)
         {
             if (string.IsNullOrEmpty(loginHash)
                 || string.IsNullOrEmpty(passHash)
-                || _users.ContainsKey(loginHash))
+                || _logins.ContainsKey(loginHash))
                 return false;
 
-            _users.Add(loginHash, new Login(loginHash, passHash, DefaultUserSettings));
+            var login = new Login(loginHash, passHash, DefaultLoginSettings);
+            _logins.Add(loginHash, login);
+
+            using (var heresyService = new InternalHeresyServiceClient())
+            {
+                heresyService.RegisterUser(login.Id, AppSecret.Get());
+            }
 
             return true;
         }
 
         public bool Logout(Token token)
         {
-            var user = GetUserByToken(token);
+            var login = GetLoginByToken(token);
 
-            if (user == null)
+            if (login == null)
                 return false;
 
-            user.Token = null;
-            _usersByTokens.Remove(token);
+            login.Token = null;
+            _loginsByTokens.Remove(token);
             return true;
         }
 
         public bool IsLogged(Token token)
         {
-            return GetUserByToken(token) != null;
+            return GetLoginByToken(token) != null;
         }
 
         #endregion
 
-        public Login GetUserByToken(Token token)
+        public Login GetLoginByToken(Token token)
         {
-            Login user;
+            Login login;
 
-            if (!_usersByTokens.TryGetValue(token, out user))
+            if (!_loginsByTokens.TryGetValue(token, out login))
                 return null;
 
-            if (user.Token != token)
+            if (login.Token != token)
             {
-                _usersByTokens.Remove(token);
+                _loginsByTokens.Remove(token);
                 return null;
             }
 
             var now = DateTime.Now;
-            if (user.Token <= now)
+            if (login.Token <= now)
             {
-                user.Token = null;
-                _usersByTokens.Remove(token);
+                login.Token = null;
+                _loginsByTokens.Remove(token);
                 return null;
             }
 
-            return user;
+            return login;
         }
     }
 }

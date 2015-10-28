@@ -61,6 +61,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Properties\DataSources\HeresyCore.Entities.Character.datasource" />
+    <None Include="Service References\InternalHeresyService\InternalHeresyService.disco" />
+    <None Include="Service References\InternalHeresyService\configuration91.svcinfo" />
+    <None Include="Service References\InternalHeresyService\configuration.svcinfo" />
+    <None Include="Service References\InternalHeresyService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Services\InternalAuthService.svc" />
     <Content Include="Services\AuthService.svc" />
     <Content Include="Web.config" />
@@ -70,7 +78,11 @@
     <Compile Include="Authentication\LoginHandler.cs" />
     <Compile Include="Authentication\TokenFactory.cs" />
     <Compile Include="Authentication\Login.cs" />
-    <Compile Include="Authorization\Rights.cs" />
+    <Compile Include="Service References\InternalHeresyService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ServiceInterfaces\IInternalAuthService.cs" />
     <Compile Include="ServiceInterfaces\IAuthService.cs" />
     <Compile Include="Services\InternalAuthService.svc.cs">
@@ -88,12 +100,31 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService.wsdl" />
+    <None Include="Service References\InternalHeresyService\InternalHeresyService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\InternalHeresyService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

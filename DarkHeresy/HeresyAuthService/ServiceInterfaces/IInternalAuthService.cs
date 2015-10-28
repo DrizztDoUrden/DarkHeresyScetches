@@ -9,5 +9,8 @@ namespace HeresyAuthService.ServiceInterfaces
     {
         [OperationContract]
         string GetId(Token token, string appSecret);
+
+        [OperationContract]
+        bool ValidateAppSecret(string appSecret, string right);
     }
 }

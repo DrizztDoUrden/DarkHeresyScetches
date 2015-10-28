@@ -25,11 +25,11 @@ namespace ServiceTester
                         throw new Exception("Не удалось зарегистрироваться");
 
                     token = auth.Login(_testLogin, _testPassword);
-
-                    if (token == null)
-                        throw new Exception("Не удалось войти после регистрации");
                 }
             }
+
+            if (token == null)
+                throw new Exception("Не удалось войти");
 
             using (var service = new HeresyServiceClient())
             {

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8acfaf47-1556-40d9-b44b-98bf982e2e3d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50305/Services/InternalHeresyService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InternalHeresyService.xsd" MetadataType="Schema" ID="42d6dd36-2e51-4fe7-a4fd-e103258d088e" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd0" />
+    <MetadataFile FileName="InternalHeresyService1.xsd" MetadataType="Schema" ID="c63a95ff-b33b-4bf8-8fa0-d962d4457a1f" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd1" />
+    <MetadataFile FileName="InternalHeresyService2.xsd" MetadataType="Schema" ID="804a6906-e82d-48b6-93e5-89ed2d947cfe" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd2" />
+    <MetadataFile FileName="InternalHeresyService3.xsd" MetadataType="Schema" ID="9b6c19f3-f10b-4d60-9ab1-c12a1b96dee5" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd3" />
+    <MetadataFile FileName="InternalHeresyService.wsdl" MetadataType="Wsdl" ID="78bd1f0e-949b-4e64-9652-12927c8e08bf" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?wsdl" />
+    <MetadataFile FileName="InternalHeresyService.disco" MetadataType="Disco" ID="785a788d-ac3a-4f8f-bb92-4b0f2d0dbca5" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

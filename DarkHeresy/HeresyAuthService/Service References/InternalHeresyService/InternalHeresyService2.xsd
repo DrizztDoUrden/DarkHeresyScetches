@@ -7,4 +7,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Token" nillable="true" type="tns:Token" />
+  <xs:complexType name="Character">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxWounds" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wounds" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Character" nillable="true" type="tns:Character" />
 </xs:schema>

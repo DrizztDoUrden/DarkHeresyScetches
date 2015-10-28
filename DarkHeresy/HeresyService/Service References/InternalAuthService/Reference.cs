@@ -44,6 +44,12 @@ namespace HeresyService.InternalAuthService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalAuthService/GetId", ReplyAction="http://tempuri.org/IInternalAuthService/GetIdResponse")]
         System.Threading.Tasks.Task<string> GetIdAsync(HeresyCore.Entities.Token token, string appSecret);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalAuthService/ValidateAppSecret", ReplyAction="http://tempuri.org/IInternalAuthService/ValidateAppSecretResponse")]
+        bool ValidateAppSecret(string appSecret, string right);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalAuthService/ValidateAppSecret", ReplyAction="http://tempuri.org/IInternalAuthService/ValidateAppSecretResponse")]
+        System.Threading.Tasks.Task<bool> ValidateAppSecretAsync(string appSecret, string right);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +117,14 @@ namespace HeresyService.InternalAuthService {
         
         public System.Threading.Tasks.Task<string> GetIdAsync(HeresyCore.Entities.Token token, string appSecret) {
             return base.Channel.GetIdAsync(token, appSecret);
+        }
+        
+        public bool ValidateAppSecret(string appSecret, string right) {
+            return base.Channel.ValidateAppSecret(appSecret, right);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidateAppSecretAsync(string appSecret, string right) {
+            return base.Channel.ValidateAppSecretAsync(appSecret, right);
         }
     }
 }

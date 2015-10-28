@@ -53,11 +53,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\HeresyInternalAuthService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\HeresyService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,16 +71,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\HeresyAuthService\AuthService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\HeresyInternalAuthService\InternalAuthService.wsdl" />
-    <None Include="Service References\HeresyInternalAuthService\InternalAuthService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\HeresyInternalAuthService\InternalAuthService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\HeresyInternalAuthService\InternalAuthService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\HeresyService\HeresyService.wsdl" />
@@ -107,7 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\HeresyAuthService\" />
-    <WCFMetadataStorage Include="Service References\HeresyInternalAuthService\" />
     <WCFMetadataStorage Include="Service References\HeresyService\" />
   </ItemGroup>
   <ItemGroup>
@@ -121,21 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\HeresyAuthService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\HeresyInternalAuthService\InternalAuthService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\HeresyInternalAuthService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\HeresyInternalAuthService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\HeresyInternalAuthService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -37,6 +37,12 @@
   <wsdl:message name="IInternalAuthService_GetId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IInternalAuthService_ValidateAppSecret_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAppSecret" />
+  </wsdl:message>
+  <wsdl:message name="IInternalAuthService_ValidateAppSecret_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAppSecretResponse" />
+  </wsdl:message>
   <wsdl:portType name="IInternalAuthService">
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthService/Register" message="tns:IInternalAuthService_Register_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="GetId">
       <wsdl:input wsaw:Action="http://tempuri.org/IInternalAuthService/GetId" message="tns:IInternalAuthService_GetId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IInternalAuthService/GetIdResponse" message="tns:IInternalAuthService_GetId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAppSecret">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalAuthService/ValidateAppSecret" message="tns:IInternalAuthService_ValidateAppSecret_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalAuthService/ValidateAppSecretResponse" message="tns:IInternalAuthService_ValidateAppSecret_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IInternalAuthService" type="tns:IInternalAuthService">
@@ -99,6 +109,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetId">
       <soap:operation soapAction="http://tempuri.org/IInternalAuthService/GetId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAppSecret">
+      <soap:operation soapAction="http://tempuri.org/IInternalAuthService/ValidateAppSecret" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

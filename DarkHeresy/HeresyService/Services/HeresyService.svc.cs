@@ -1,31 +1,31 @@
 ﻿using HeresyCore.Entities;
+using HeresyCore.Utilities;
 using HeresyService.Entities;
 using HeresyService.InternalAuthService;
 using HeresyService.ServiceInterfaces;
 using System.Collections.Generic;
-using System.Configuration;
 
 namespace HeresyService.Services
 {
     public class HeresyService: IHeresyService
     {
-        private static object _lock = new object();
+        #region Users
+
+        protected static object _lock = new object();
 
         private static IDictionary<string, User> _users;
-        private static IDictionary<string, User> Users
+        protected static IDictionary<string, User> Users
         {
             get
             {
                 lock (_lock)
                 {
-                    if (_users == null)
-                    {
-                        _users = TestUsers;
-                    }
+                    return _users ?? (_users = new Dictionary<string, User>());
                 }
-                return _users;
             }
         }
+
+        #endregion
 
         public IDictionary<string, Character> GetCharacterList(Token token)
         {
@@ -34,7 +34,7 @@ namespace HeresyService.Services
 
             using (var auth = new InternalAuthServiceClient())
             {
-                id = auth.GetId(token, ConfigurationManager.AppSettings["AppSecret"]);
+                id = auth.GetId(token, AppSecret.Get());
             }
 
             if (id == null
@@ -43,16 +43,5 @@ namespace HeresyService.Services
 
             return user.Characters;
         }
-
-        private static IDictionary<string, User> TestUsers => new Dictionary<string, User>
-        {
-            ["Test"] = new User
-            {
-                Characters = new Dictionary<string, Character>
-                {
-                    { "Test", new Character() },
-                },
-            },
-        };
     }
 }

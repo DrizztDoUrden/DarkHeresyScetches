@@ -74,4 +74,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ValidateAppSecret">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appSecret" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="right" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateAppSecretResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidateAppSecretResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
