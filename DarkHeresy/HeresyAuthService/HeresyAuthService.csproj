@@ -66,9 +66,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorization\AppSecretManager.cs" />
     <Compile Include="Authentication\LoginHandler.cs" />
     <Compile Include="Authentication\TokenFactory.cs" />
     <Compile Include="Authentication\User.cs" />
+    <Compile Include="Authorization\Rights.cs" />
     <Compile Include="ServiceInterfaces\IHeresyAuthInternalService.cs" />
     <Compile Include="ServiceInterfaces\IHeresyAuthService.cs" />
     <Compile Include="Services\InternalAuthService.svc.cs">

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1dd0f0c0-9f6e-42d1-b8fc-042d47d8a35e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54244/Services/InternalAuthService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InternalAuthService.xsd" MetadataType="Schema" ID="3a611ac4-9be9-4741-9904-b60b8c2c010b" SourceId="1" SourceUrl="http://localhost:54244/Services/InternalAuthService.svc?xsd=xsd2" />
+    <MetadataFile FileName="InternalAuthService.disco" MetadataType="Disco" ID="72296bd5-1b28-46c2-8a7d-6b471cb860f2" SourceId="1" SourceUrl="http://localhost:54244/Services/InternalAuthService.svc?disco" />
+    <MetadataFile FileName="InternalAuthService1.xsd" MetadataType="Schema" ID="598fc188-3d2b-49f2-b782-79c7bf5a1fa3" SourceId="1" SourceUrl="http://localhost:54244/Services/InternalAuthService.svc?xsd=xsd0" />
+    <MetadataFile FileName="InternalAuthService.wsdl" MetadataType="Wsdl" ID="ad773e6e-a7b5-4b37-afa3-3bd7a4d52720" SourceId="1" SourceUrl="http://localhost:54244/Services/InternalAuthService.svc?wsdl" />
+    <MetadataFile FileName="InternalAuthService2.xsd" MetadataType="Schema" ID="ce49b617-4046-4797-83cd-3a6fa66f6e0f" SourceId="1" SourceUrl="http://localhost:54244/Services/InternalAuthService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

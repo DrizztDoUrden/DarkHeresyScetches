@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeresyService", "HeresyService\HeresyService.csproj", "{637CC14A-FB3C-47D7-BB2D-FAE7B5316BDB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4A95C89A-D93B-43EE-B3F3-7B9079E243AD} = {4A95C89A-D93B-43EE-B3F3-7B9079E243AD}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeresyCore", "HeresyCore\HeresyCore.csproj", "{604947F5-5F1D-4A60-A3D0-949841CBA083}"
 EndProject
