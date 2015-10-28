@@ -42,6 +42,11 @@
   <ItemGroup>
     <Compile Include="Authorization\Rights.cs" />
     <Compile Include="Entities\Character.cs" />
+    <Compile Include="Entities\Enums\ECharacterStat.cs" />
+    <Compile Include="Entities\Enums\ESkillMastery.cs" />
+    <Compile Include="Entities\Properties\Moddifiers\CustomPropertyModdifier.cs" />
+    <Compile Include="Entities\Properties\Property.cs" />
+    <Compile Include="Entities\Properties\PropertyModdifier.cs" />
     <Compile Include="Entities\Token.cs" />
     <Compile Include="Entities\LoginSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
