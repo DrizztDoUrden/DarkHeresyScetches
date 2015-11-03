@@ -1,4 +1,5 @@
 ﻿using HeresyAuthService.Authorization;
+using HeresyCore.Utilities;
 using HeresyService.Entities;
 using HeresyService.InternalAuthService;
 using HeresyService.ServiceInterfaces;
@@ -9,11 +10,14 @@ namespace HeresyService.Services
     {
         public void RegisterUser(string id, string appSecret)
         {
-            using (var auth = new InternalAuthServiceClient())
-            {
-                if (!auth.ValidateAppSecret(appSecret, Rights.CoreService.Common))
-                    return;
-            }
+            var succes = false;
+
+            WcfExtensions.Using<InternalAuthServiceClient>(auth =>
+                succes = auth.ValidateAppSecret(appSecret, Rights.CoreService.Common)
+            );
+
+            if (!succes)
+                return;
 
             var user = new User(id);
             Users.Add(id, user);

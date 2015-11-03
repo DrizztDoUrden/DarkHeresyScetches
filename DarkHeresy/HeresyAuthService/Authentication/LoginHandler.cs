@@ -91,10 +91,9 @@ namespace HeresyAuthService.Authentication
             var login = new Login(loginHash, passHash, DefaultLoginSettings);
             _logins.Add(loginHash, login);
 
-            using (var heresyService = new InternalHeresyServiceClient())
-            {
-                heresyService.RegisterUser(login.Id, AppSecret.Get());
-            }
+            WcfExtensions.Using<InternalHeresyServiceClient>(heresyService =>
+                heresyService.RegisterUser(login.Id, AppSecret.Get())
+            );
 
             return true;
         }

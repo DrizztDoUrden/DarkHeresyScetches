@@ -6,12 +6,10 @@ using System.Runtime.Serialization;
 namespace HeresyCore.Entities
 {
     [DataContract]
-    public class Character
+    public class Character : Entity
     {
         #region Properties
 
-        [DataMember]
-        public string Id { get; set; }
         [DataMember]
         public string Name { get; set; }
 
