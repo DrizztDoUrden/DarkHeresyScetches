@@ -9,12 +9,12 @@ using System.Configuration;
 
 namespace ServiceTester
 {
-    public class Program
+    public static class Program
     {
-        private static string _testLogin = ConfigurationManager.AppSettings["TestLogin"];
-        private static string _testPassword = ConfigurationManager.AppSettings["TestPassword"];
+        private static readonly string _testLogin = ConfigurationManager.AppSettings["TestLogin"];
+        private static readonly string _testPassword = ConfigurationManager.AppSettings["TestPassword"];
 
-        public static int TestWoundModdifier(int baseValue, ICollection<string> conditions) => baseValue + 1;
+        private static int TestWoundModdifier(int baseValue, ICollection<string> conditions) => baseValue + 1;
 
         private static Token TestAuth()
         {

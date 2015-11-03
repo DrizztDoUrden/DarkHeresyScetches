@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using HeresyCore.Authorization;
 
 namespace HeresyAuthService.Authorization
 {
@@ -10,7 +11,7 @@ namespace HeresyAuthService.Authorization
 
         #region Singleton
 
-        private static object _lock = new object();
+        private static readonly object _lock = new object();
         private static AppSecretManager _default;
 
         public static AppSecretManager Default

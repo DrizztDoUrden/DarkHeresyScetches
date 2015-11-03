@@ -125,6 +125,12 @@
     <None Include="Service References\HeresyService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\HeresyService\HeresyService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyService\HeresyService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\HeresyService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

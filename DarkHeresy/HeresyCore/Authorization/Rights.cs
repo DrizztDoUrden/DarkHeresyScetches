@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace HeresyAuthService.Authorization
+namespace HeresyCore.Authorization
 {
     public static class Rights
     {
