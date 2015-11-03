@@ -29,13 +29,12 @@ namespace HeresyService.Services
 
         public IDictionary<string, Character> GetCharacterList(Token token)
         {
-            string id;
+            string id = null;
             User user;
 
-            using (var auth = new InternalAuthServiceClient())
-            {
-                id = auth.GetId(token, AppSecret.Get());
-            }
+            WcfExtensions.Using<InternalAuthServiceClient>(auth =>
+                id = auth.GetId(token, AppSecret.Get())
+            );
 
             if (id == null
                 || !Users.TryGetValue(id, out user))

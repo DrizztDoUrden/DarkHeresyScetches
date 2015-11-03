@@ -1,6 +1,7 @@
 ﻿using HeresyCore.Entities;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties;
+using HeresyCore.Utilities;
 using ServiceTester.HeresyAuthService;
 using ServiceTester.HeresyService;
 using System;
@@ -18,9 +19,9 @@ namespace ServiceTester
 
         private static Token TestAuth()
         {
-            Token token;
+            Token token = null;
 
-            using (var auth = new AuthServiceClient())
+            WcfExtensions.Using<AuthServiceClient>(auth =>
             {
                 token = auth.Login(_testLogin, _testPassword);
 
@@ -31,7 +32,7 @@ namespace ServiceTester
 
                     token = auth.Login(_testLogin, _testPassword);
                 }
-            }
+            });
 
             if (token == null)
                 throw new Exception("Не удалось войти");
@@ -41,13 +42,13 @@ namespace ServiceTester
 
         private static void TestService(Token token)
         {
-            using (var service = new HeresyServiceClient())
+            WcfExtensions.Using<HeresyServiceClient>(service =>
             {
                 var chars = service.GetCharacterList(token);
 
                 if (chars == null)
                     throw new Exception("Не удалось получить список персонажей");
-            }
+            });
         }
 
         private static void TestCore()
