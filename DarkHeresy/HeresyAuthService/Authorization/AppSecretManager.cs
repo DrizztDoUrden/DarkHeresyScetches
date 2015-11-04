@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using HeresyCore.Authorization;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using HeresyCore.Authorization;
 
 namespace HeresyAuthService.Authorization
 {
     public class AppSecretManager
     {
-        private IDictionary<string, ICollection<string>> _rights;
+        private readonly IDictionary<string, ICollection<string>> _rights;
 
         #region Singleton
 
@@ -51,8 +51,7 @@ namespace HeresyAuthService.Authorization
         {
             ICollection<string> appRights;
 
-            if (!_rights.TryGetValue(appSecret, out appRights))
-                return null;
+            _rights.TryGetValue(appSecret, out appRights);
 
             return appRights;
         }
@@ -61,20 +60,15 @@ namespace HeresyAuthService.Authorization
         {
             var appRights = GetRights(appSecret);
 
-            if (appRights == null)
-                return false;
-
-            return appRights.Contains(right.ToLower());
+            return appRights != null
+                && appRights.Contains(right.ToLower());
         }
 
         public void AddRight(string appSecret, string right)
         {
             var appRights = GetRights(appSecret);
 
-            if (appRights == null)
-                return;
-
-            appRights.Add(right);
+            appRights?.Add(right);
         }
 
         #endregion

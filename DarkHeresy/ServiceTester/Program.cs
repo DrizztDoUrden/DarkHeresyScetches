@@ -25,13 +25,13 @@ namespace ServiceTester
             {
                 token = auth.Login(_testLogin, _testPassword);
 
-                if (token == null)
-                {
-                    if (!auth.Register(_testLogin, _testPassword))
-                        throw new Exception("Не удалось зарегистрироваться");
+                if (token != null)
+                    return;
 
-                    token = auth.Login(_testLogin, _testPassword);
-                }
+                if (!auth.Register(_testLogin, _testPassword))
+                    throw new Exception("Не удалось зарегистрироваться");
+
+                token = auth.Login(_testLogin, _testPassword);
             });
 
             if (token == null)

@@ -1,4 +1,4 @@
-﻿using HeresyAuthService.Authorization;
+﻿using HeresyCore.Authorization;
 using HeresyCore.Utilities;
 using HeresyService.Entities;
 using HeresyService.InternalAuthService;
@@ -17,7 +17,7 @@ namespace HeresyService.Services
             );
 
             if (!succes)
-                    return;
+                return;
 
             var user = new User(id);
             Users.Add(id, user);
