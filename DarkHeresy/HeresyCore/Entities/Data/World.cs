@@ -1,4 +1,5 @@
-﻿using HeresyCore.Entities.Enums;
+﻿using HeresyCore.Entities.Data.Traits;
+using HeresyCore.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,9 @@ namespace HeresyCore.Entities.Data
         [DataMember]
         public int[] FateRolls { get; private set; }
 
+        [DataMember]
+        public ICollection<Trait> Traits { get; private set; }
+
         public World()
         {
             Stats = Enum.GetValues(typeof(ECharacterStat))
@@ -28,6 +32,8 @@ namespace HeresyCore.Entities.Data
                     stat => stat,
                     stat => DefaultStatValue
                 );
+
+            Traits = new List<Trait>();
         }
     }
 }

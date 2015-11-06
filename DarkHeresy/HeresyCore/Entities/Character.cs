@@ -1,4 +1,5 @@
-﻿using HeresyCore.Entities.Enums;
+﻿using HeresyCore.Entities.Data.Traits;
+using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -26,6 +27,9 @@ namespace HeresyCore.Entities
 
         [DataMember]
         public IDictionary<string, Property<int>> TestBonuses { get; private set; }
+
+        [DataMember]
+        public IDictionary<string, TraitData> Traits { get; private set; }
 
         #endregion
 
@@ -58,6 +62,7 @@ namespace HeresyCore.Entities
             };
 
             TestBonuses = new Dictionary<string, Property<int>>();
+            Traits = new Dictionary<string, TraitData>();
         }
 
         #endregion

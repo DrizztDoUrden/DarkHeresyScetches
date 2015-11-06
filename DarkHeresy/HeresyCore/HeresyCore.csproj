@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Authorization\Rights.cs" />
     <Compile Include="Entities\Character.cs" />
+    <Compile Include="Entities\Data\Traits\Trait.cs" />
+    <Compile Include="Entities\Data\Traits\TraitData.cs" />
     <Compile Include="Entities\Data\World.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Enums\ECharacterStat.cs" />
