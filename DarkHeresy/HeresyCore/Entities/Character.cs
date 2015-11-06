@@ -15,9 +15,6 @@ namespace HeresyCore.Entities
         #region Properties
 
         [DataMember]
-        public string RaceId { get; set; }
-
-        [DataMember]
         public int Wounds { get; set; } = 1;
         [DataMember]
         public Property<int> MaxWounds { get; set; } = 1;
@@ -48,17 +45,9 @@ namespace HeresyCore.Entities
 
         #region helpers
 
-        public Character AddTrait(Trait trait)
-        {
-            trait.Add(this);
-            return this;
-        }
+        public Character AddTrait(Trait trait) => trait.Add(this);
 
-        public Character AddGroup(Group group)
-        {
-            group.Add(this);
-            return this;
-        }
+        public Character AddGroup(Group group) => group.Add(this);
 
         #endregion
     }

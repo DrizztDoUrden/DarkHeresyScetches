@@ -6,6 +6,8 @@ namespace HeresyCore.Entities.Data
     [DataContract]
     public class Dice
     {
+        private static Random _random = new Random();
+
         [DataMember]
         public int DieNumber { get; set; }
         [DataMember]
@@ -15,12 +17,11 @@ namespace HeresyCore.Entities.Data
 
         public Roll Roll()
         {
-            var roll = new Roll();
-            var rnd = new Random();
+            var roll = new Roll(this);
 
             for (var i = DieNumber; i > 0; i--)
             {
-                roll.Rolls.Add(rnd.Next(1, DieSides + 1));
+                roll.Rolls.Add(_random.Next(1, DieSides + 1));
             }
 
             return roll;

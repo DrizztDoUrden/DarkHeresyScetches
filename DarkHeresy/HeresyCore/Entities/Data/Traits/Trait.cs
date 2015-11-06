@@ -14,16 +14,18 @@ namespace HeresyCore.Entities.Data.Traits
 
         protected abstract TraitData GetData(object content);
 
-        public void Add(Character character)
+        public Character Add(Character character)
         {
             var newData = GetDefaultData();
             AddCore(character, newData);
+            return character;
         }
 
-        public void Add(Character character, object content)
+        public Character Add(Character character, object content)
         {
             var newData = GetData(content);
             AddCore(character, newData);
+            return character;
         }
 
         public void Remove(Character character)
@@ -80,10 +82,11 @@ namespace HeresyCore.Entities.Data.Traits
             return OnStack(character, (TraitData<TContent>)traitData, (TraitData<TContent>)oldData);
         }
 
-        public void Add(Character character, TContent content)
+        public Character Add(Character character, TContent content)
         {
             var newData = new TraitData<TContent>(this, content);
             AddCore(character, newData);
+            return character;
         }
     }
 }

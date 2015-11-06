@@ -12,7 +12,7 @@ namespace HeresyCore.Entities.Data.Extensions
                 var charStat = character.Stats[stat.Key];
                 var statRoll = stat.Value.Roll().Sum;
 
-                charStat.Moddifiers.Add("World", statRoll);
+                charStat.Moddifiers.Add(stats.GroupTypeName, statRoll);
             }
 
             return character;

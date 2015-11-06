@@ -1,4 +1,5 @@
 ﻿using HeresyCore.Entities;
+using HeresyCore.Entities.Data;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties;
 using HeresyCore.Utilities;
@@ -55,32 +56,42 @@ namespace ServiceTester
         private static void TestCore()
         {
             var rnd = new Random();
+            var sc = new SoundConstitution();
+            var c = new Character();
 
-            var c = new Character
+            var r = new Race
             {
-                MaxWounds = rnd.Next(1, 5),
+                Id = "Race-Human",
+                Name = "Человек",
+                WoundsBase = new Dice(1, 5),
 
-                Stats = {
-                    [ECharacterStat.WeaponSkill] = 40,
-                    [ECharacterStat.BallisticSkill] = 40,
-                },
-
-                Skills = {
-                    ["Lang_LowGothic"] = ESkillMastery.Common,
+                Skills =
+                {
+                    ["Climb"] = ESkillMastery.Basic,
+                    ["Swim"] = ESkillMastery.Basic,
+                    ["Inquiry"] = ESkillMastery.Basic,
+                    ["Intimidate"] = ESkillMastery.Basic,
+                    ["Charm"] = ESkillMastery.Basic,
+                    [@"Lang\LowGothic"] = ESkillMastery.Common,
                 },
             };
+
+            var w = new World
+            {
+                Id = "World-Imperial",
+                Name = "Имперский мир",
+                WoundsBase = 8,
+                FateRolls = { [0] = 1, [1] = 1, [2] = 1, [3] = 1, [4] = 1, [5] = 1, [6] = 1, [7] = 1, [8] = 1, [9] = 1, },
+                Stats = { [ECharacterStat.Willpower] = 3, },
+                Skills = { [@"CL\ImperialCreed"] = ESkillMastery.Common, },
+                Traits = { sc, },
+            };
+
+            c   .AddGroup(r)
+                .AddGroup(w);
             
             c.MaxWounds.Moddifiers.Add("Test", (PropertyModdifier<int>)TestWoundModdifier);
             c.MaxWounds.Moddifiers.Add("Test2", 1);
-            c.MaxWounds.Moddifiers.Add("Test2", 2);
-
-            var sc = new SoundConstitution();
-
-            c   .AddTrait(sc)
-                .AddTrait(sc)
-                .AddTrait(sc)
-                .AddTrait(sc)
-                .AddTrait(sc);
         }
 
         public static void Main()

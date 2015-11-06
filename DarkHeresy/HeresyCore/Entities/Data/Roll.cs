@@ -14,5 +14,10 @@ namespace HeresyCore.Entities.Data
         public ICollection<int> Rolls { get; } = new List<int>();
 
         public int Sum => Rolls.Sum() + Dice.Constant;
+
+        public Roll(Dice dice)
+        {
+            Dice = dice;
+        }
     }
 }
