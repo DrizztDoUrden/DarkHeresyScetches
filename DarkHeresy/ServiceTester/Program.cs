@@ -7,6 +7,7 @@ using ServiceTester.HeresyService;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using TestContent.Traits;
 
 namespace ServiceTester
 {
@@ -53,10 +54,11 @@ namespace ServiceTester
 
         private static void TestCore()
         {
+            var rnd = new Random();
+
             var c = new Character
             {
-                Wounds = 5,
-                MaxWounds = 5,
+                MaxWounds = rnd.Next(1, 5),
 
                 Stats = {
                     [ECharacterStat.WeaponSkill] = 40,
@@ -67,10 +69,18 @@ namespace ServiceTester
                     ["Lang_LowGothic"] = ESkillMastery.Common,
                 },
             };
-
-            c.Wounds.Moddifiers.Add("Test", (PropertyModdifier<int>)TestWoundModdifier);
+            
             c.MaxWounds.Moddifiers.Add("Test", (PropertyModdifier<int>)TestWoundModdifier);
-            c.MaxWounds.Moddifiers.Add("Test2", (PropertyModdifier<int>)TestWoundModdifier);
+            c.MaxWounds.Moddifiers.Add("Test2", 1);
+            c.MaxWounds.Moddifiers.Add("Test2", 2);
+
+            var sc = new SoundConstitution();
+
+            c   .AddTrait(sc)
+                .AddTrait(sc)
+                .AddTrait(sc)
+                .AddTrait(sc)
+                .AddTrait(sc);
         }
 
         public static void Main()

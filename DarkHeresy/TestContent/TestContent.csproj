@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{604947F5-5F1D-4A60-A3D0-949841CBA083}</ProjectGuid>
+    <ProjectGuid>{936A0357-212B-4803-8598-0C45D6CD48AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HeresyCore</RootNamespace>
-    <AssemblyName>HeresyCore</AssemblyName>
+    <RootNamespace>TestContent</RootNamespace>
+    <AssemblyName>TestContent</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,42 +31,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authorization\Rights.cs" />
-    <Compile Include="Entities\Character.cs" />
-    <Compile Include="Entities\Data\Dice.cs" />
-    <Compile Include="Entities\Data\Extensions\CharacterExtensions.cs" />
-    <Compile Include="Entities\Data\Group.cs" />
-    <Compile Include="Entities\Data\Interfaces\ISkillsContainer.cs" />
-    <Compile Include="Entities\Data\Interfaces\IStatsContainer.cs" />
-    <Compile Include="Entities\Data\Interfaces\ITraitsContainer.cs" />
-    <Compile Include="Entities\Data\Race.cs" />
-    <Compile Include="Entities\Data\Roll.cs" />
-    <Compile Include="Entities\Data\Traits\Trait.cs" />
-    <Compile Include="Entities\Data\Traits\TraitData.cs" />
-    <Compile Include="Entities\Data\World.cs" />
-    <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Entities\Enums\ECharacterStat.cs" />
-    <Compile Include="Entities\Enums\ESkillMastery.cs" />
-    <Compile Include="Entities\Properties\Moddifiers\AddModdifier.cs" />
-    <Compile Include="Entities\Properties\Moddifiers\CustomPropertyModdifier.cs" />
-    <Compile Include="Entities\Properties\Property.cs" />
-    <Compile Include="Entities\Properties\PropertyModdifier.cs" />
-    <Compile Include="Entities\Token.cs" />
-    <Compile Include="Entities\LoginSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\AppSecret.cs" />
-    <Compile Include="Utilities\TypeComparer.cs" />
-    <Compile Include="Utilities\WcfExtensions.cs" />
+    <Compile Include="Traits\SoundConstitution.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HeresyCore\HeresyCore.csproj">
+      <Project>{604947f5-5f1d-4a60-a3d0-949841cba083}</Project>
+      <Name>HeresyCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

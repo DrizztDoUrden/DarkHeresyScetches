@@ -1,39 +1,22 @@
-﻿using HeresyCore.Entities.Data.Traits;
-using HeresyCore.Entities.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace HeresyCore.Entities.Data
 {
     [DataContract]
-    public class World : Entity
+    public class World : Group
     {
-        private const int DefaultStatValue = 20;
-
         [DataMember]
-        public IDictionary<ECharacterStat, int> Stats { get; private set; }
+        public Dice[] FateRolls { get; } = new Dice[10];
 
-        [DataMember]
-        public int WoundsBase { get; private set; }
+        protected override string GroupTypeName => "Мир";
 
-        [DataMember]
-        public int[] FateRolls { get; private set; }
-
-        [DataMember]
-        public ICollection<Trait> Traits { get; private set; }
-
-        public World()
+        protected override void AddCore(Character character)
         {
-            Stats = Enum.GetValues(typeof(ECharacterStat))
-                .Cast<ECharacterStat>()
-                .ToDictionary(
-                    stat => stat,
-                    stat => DefaultStatValue
-                );
-
-            Traits = new List<Trait>();
+            var fateRoll = new Random().Next(0, 9);
+            var fate = FateRolls?[fateRoll] ?? 0;
+            
+            character.MaxFatePoints.Moddifiers.Add("World", fate.Roll().Sum);
         }
     }
 }

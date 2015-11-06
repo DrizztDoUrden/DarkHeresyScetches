@@ -1,7 +1,10 @@
-﻿using HeresyCore.Entities.Data.Traits;
+﻿using HeresyCore.Entities.Data;
+using HeresyCore.Entities.Data.Traits;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace HeresyCore.Entities
@@ -12,57 +15,49 @@ namespace HeresyCore.Entities
         #region Properties
 
         [DataMember]
-        public string Name { get; set; }
+        public string RaceId { get; set; }
 
         [DataMember]
-        public Property<int> Wounds { get; set; }
+        public int Wounds { get; set; } = 1;
         [DataMember]
-        public Property<int> MaxWounds { get; set; }
+        public Property<int> MaxWounds { get; set; } = 1;
 
         [DataMember]
-        public IDictionary<ECharacterStat, Property<int>> Stats { get; private set; }
+        public int FatePoints { get; set; } = 0;
+        [DataMember]
+        public Property<int> MaxFatePoints { get; set; } = 0;
 
         [DataMember]
-        public IDictionary<string, ESkillMastery> Skills { get; private set; }
+        public IDictionary<ECharacterStat, Property<int>> Stats { get; } = Enum.GetValues(typeof(ECharacterStat))
+            .Cast<ECharacterStat>()
+            .ToDictionary(stat => stat, stat => new Property<int>());
 
         [DataMember]
-        public IDictionary<string, Property<int>> TestBonuses { get; private set; }
+        public IDictionary<string, string> Groups { get; } = new Dictionary<string, string>();
 
         [DataMember]
-        public IDictionary<string, TraitData> Traits { get; private set; }
+        public IDictionary<string, ESkillMastery> Skills { get; } = new Dictionary<string, ESkillMastery>();
+
+        [DataMember]
+        public IDictionary<string, Property<int>> TestBonuses { get; } = new Dictionary<string, Property<int>>();
+
+        [DataMember]
+        public IDictionary<string, TraitData> Traits { get; } = new Dictionary<string, TraitData>();
 
         #endregion
 
-        #region Constructors
+        #region helpers
 
-        public Character()
+        public Character AddTrait(Trait trait)
         {
-            Stats = new Dictionary<ECharacterStat, Property<int>>
-            {
-                [ECharacterStat.WeaponSkill] = 30,
-                [ECharacterStat.BallisticSkill] = 30,
+            trait.Add(this);
+            return this;
+        }
 
-                [ECharacterStat.Strength] = 30,
-                [ECharacterStat.Toughness] = 30,
-                [ECharacterStat.Agility] = 30,
-
-                [ECharacterStat.Intelligence] = 30,
-                [ECharacterStat.Perception] = 30,
-                [ECharacterStat.Willpower] = 30,
-                [ECharacterStat.Fellowship] = 30,
-            };
-
-            Skills = new Dictionary<string, ESkillMastery>
-            {
-                ["Swim"] = ESkillMastery.Basic,
-                ["Climb"] = ESkillMastery.Basic,
-                ["Inquiry"] = ESkillMastery.Basic,
-                ["Intimidate"] = ESkillMastery.Basic,
-                ["Charm"] = ESkillMastery.Basic,
-            };
-
-            TestBonuses = new Dictionary<string, Property<int>>();
-            Traits = new Dictionary<string, TraitData>();
+        public Character AddGroup(Group group)
+        {
+            group.Add(this);
+            return this;
         }
 
         #endregion

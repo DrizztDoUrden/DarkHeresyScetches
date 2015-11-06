@@ -26,7 +26,7 @@ namespace HeresyCore.Entities.Properties
 
         #endregion
 
-        #region Convertions
+        #region Conversions
 
         public static implicit operator TContent(Property<TContent> property) => property.Content;
         public static implicit operator Property<TContent>(TContent content) => new Property<TContent>(content);

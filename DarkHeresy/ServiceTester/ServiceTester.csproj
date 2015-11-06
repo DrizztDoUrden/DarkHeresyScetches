@@ -114,6 +114,10 @@
       <Project>{604947f5-5f1d-4a60-a3d0-949841cba083}</Project>
       <Name>HeresyCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TestContent\TestContent.csproj">
+      <Project>{936a0357-212b-4803-8598-0c45d6cd48aa}</Project>
+      <Name>TestContent</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\HeresyService\HeresyService.disco" />

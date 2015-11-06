@@ -4,29 +4,26 @@ using System.Runtime.Serialization;
 namespace HeresyCore.Entities.Data.Traits
 {
     [DataContract]
-    public abstract class Trait
+    public abstract class Trait : Entity
     {
-        [DataMember]
-        public abstract string Id { get; }
-        [DataMember]
-        public abstract string Name { get; }
-
         public abstract void OnAdd(Character character, TraitData traitData);
         public abstract void OnRemove(Character character, TraitData traitData);
         public virtual bool OnStack(Character character, TraitData traitData, TraitData oldData) => true;
 
-        public abstract void Add(Character character, object content);
+        protected abstract TraitData GetDefaultData();
 
-        public void Add<TContent>(Character character)
+        protected abstract TraitData GetData(object content);
+
+        public void Add(Character character)
         {
-            var newData = new TraitData<TContent>(this);
-            Add(character, newData);
+            var newData = GetDefaultData();
+            AddCore(character, newData);
         }
 
-        public void Add<TContent>(Character character, TContent content)
+        public void Add(Character character, object content)
         {
-            var newData = new TraitData<TContent>(this, content);
-            Add(character, newData);
+            var newData = GetData(content);
+            AddCore(character, newData);
         }
 
         public void Remove(Character character)
@@ -34,12 +31,13 @@ namespace HeresyCore.Entities.Data.Traits
             TraitData data;
 
             if (!character.Traits.TryGetValue(Id, out data))
-                throw new Exception($"У персонажа <{character.Name}[{character.Id}]> нет трейта <{Name}[{Id}]>");
+                throw new Exception($"У персонажа {character.GetDebugIdString()} нет трейта {GetDebugIdString()}");
 
             OnRemove(character, data);
+            character.Traits.Remove(Id);
         }
 
-        protected void Add(Character character, TraitData newData)
+        protected void AddCore(Character character, TraitData newData)
         {
             TraitData data;
             if (character.Traits.TryGetValue(Id, out data))
@@ -64,6 +62,9 @@ namespace HeresyCore.Entities.Data.Traits
         public abstract void OnRemove(Character character, TraitData<TContent> traitData);
         public virtual bool OnStack(Character character, TraitData<TContent> traitData, TraitData<TContent> oldData) => true;
 
+        protected override TraitData GetDefaultData() => new TraitData<TContent>(this);
+        protected override TraitData GetData(object content) => new TraitData<TContent>(this, content);
+
         public sealed override void OnAdd(Character character, TraitData traitData)
         {
             OnAdd(character, (TraitData<TContent>)traitData);
@@ -79,20 +80,10 @@ namespace HeresyCore.Entities.Data.Traits
             return OnStack(character, (TraitData<TContent>)traitData, (TraitData<TContent>)oldData);
         }
 
-        public void Add(Character character)
-        {
-            Add<TContent>(character);
-        }
-
         public void Add(Character character, TContent content)
         {
-            Add<TContent>(character, content);
-        }
-
-        public sealed override void Add(Character character, object content)
-        {
             var newData = new TraitData<TContent>(this, content);
-            Add(character, newData);
+            AddCore(character, newData);
         }
     }
 }

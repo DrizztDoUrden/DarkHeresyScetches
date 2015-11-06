@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTester", "ServiceTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeresyAuthService", "HeresyAuthService\HeresyAuthService.csproj", "{4A95C89A-D93B-43EE-B3F3-7B9079E243AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestContent", "TestContent\TestContent.csproj", "{936A0357-212B-4803-8598-0C45D6CD48AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{4A95C89A-D93B-43EE-B3F3-7B9079E243AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A95C89A-D93B-43EE-B3F3-7B9079E243AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A95C89A-D93B-43EE-B3F3-7B9079E243AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{936A0357-212B-4803-8598-0C45D6CD48AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{936A0357-212B-4803-8598-0C45D6CD48AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{936A0357-212B-4803-8598-0C45D6CD48AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{936A0357-212B-4803-8598-0C45D6CD48AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
