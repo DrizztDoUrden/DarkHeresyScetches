@@ -1,5 +1,6 @@
 ﻿using HeresyCore.Entities.Data.Interfaces;
 using HeresyCore.Entities.Enums;
+using HeresyCore.Entities.Properties.Moddifiers;
 
 namespace HeresyCore.Entities.Data.Extensions
 {
@@ -10,9 +11,15 @@ namespace HeresyCore.Entities.Data.Extensions
             foreach (var stat in stats.Stats)
             {
                 var charStat = character.Stats[stat.Key];
-                var statRoll = stat.Value.Roll().Sum;
+                var statDice = stat.Value;
 
-                charStat.Moddifiers.Add(stats.GroupTypeName, statRoll);
+                charStat.Moddifiers.Add(stats.GroupTypeName, stat.Value.Constant);
+
+                if (statDice.DieNumber == 0 || statDice.DieSides == 0)
+                    continue;
+
+                var statRoll = statDice.Roll().PureSum;
+                charStat.Moddifiers.Add($@"{stats.GroupTypeName}\StatRoll", statRoll);
             }
 
             return character;
@@ -38,6 +45,15 @@ namespace HeresyCore.Entities.Data.Extensions
                     || skill.Value > charSkill)
                     character.Skills[skill.Key] = skill.Value;
             }
+
+            return character;
+        }
+
+        public static Character RerollStat(this Character character, ECharacterStat stat)
+        {
+            var charStat = character.Stats[stat];
+
+            var roll = (IntAddModdifier)charStat.Moddifiers[Race.GroupType];
 
             return character;
         }

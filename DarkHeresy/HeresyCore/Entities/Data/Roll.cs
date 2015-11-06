@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 
@@ -12,9 +13,12 @@ namespace HeresyCore.Entities.Data
 
         [DataMember]
         public ICollection<int> Rolls { get; } = new List<int>();
+        
+        public int PureSum => Rolls.Sum();
+        
+        public int Sum => PureSum + Dice.Constant;
 
-        public int Sum => Rolls.Sum() + Dice.Constant;
-
+        [DebuggerStepThrough]
         public Roll(Dice dice)
         {
             Dice = dice;

@@ -7,10 +7,12 @@ namespace HeresyCore.Entities.Data
     [DataContract]
     public class World : Group
     {
+        public static string GroupType = "World";
+
         [DataMember]
         public IDictionary<int, Dice> FateRolls { get; } = new Dictionary<int, Dice>();
 
-        public override string GroupTypeName => "Мир";
+        public override string GroupTypeName => GroupType;
 
         protected override void AddCore(Character character)
         {
@@ -19,7 +21,7 @@ namespace HeresyCore.Entities.Data
 
             if (FateRolls.TryGetValue(fateRoll, out fate))
             {
-                character.MaxFatePoints.Moddifiers.Add("World", fate.Roll().Sum);
+                character.MaxFatePoints.Moddifiers.Add(GroupTypeName, fate.Roll().Sum);
             }
         }
     }

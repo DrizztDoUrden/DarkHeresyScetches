@@ -56,6 +56,7 @@
     <Compile Include="Entities\Data\World.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Enums\ECharacterStat.cs" />
+    <Compile Include="Entities\Enums\ECreationStage.cs" />
     <Compile Include="Entities\Enums\ESkillMastery.cs" />
     <Compile Include="Entities\Properties\Moddifiers\AddModdifier.cs" />
     <Compile Include="Entities\Properties\Moddifiers\CustomPropertyModdifier.cs" />
