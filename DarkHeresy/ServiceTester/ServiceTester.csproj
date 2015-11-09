@@ -62,6 +62,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Properties\DataSources\HeresyCore.Entities.Character.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Entities.Data.Background.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Entities.Data.Class.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Entities.Data.Race.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Entities.Data.World.datasource" />
     <None Include="Properties\DataSources\HeresyCore.Entities.Token.datasource" />
     <None Include="Service References\HeresyAuthService\AuthService.wsdl" />
     <None Include="Service References\HeresyAuthService\AuthService.xsd">
@@ -85,6 +89,30 @@
     </None>
     <None Include="Service References\HeresyService\HeresyService3.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyService\HeresyService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyService\HeresyService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyService\HeresyService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyService\HeresyService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetBackgroundResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetClassResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetRaceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -129,12 +157,6 @@
     <None Include="Service References\HeresyService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\HeresyService\HeresyService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\HeresyService\HeresyService41.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\HeresyService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

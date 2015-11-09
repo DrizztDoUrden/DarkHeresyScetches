@@ -1,46 +1,55 @@
 ﻿using HeresyCore.Entities;
-using HeresyCore.Utilities;
 using HeresyService.Entities;
-using HeresyService.InternalAuthService;
 using HeresyService.ServiceInterfaces;
+using HeresyService.Utilities;
 using System.Collections.Generic;
 
 namespace HeresyService.Services
 {
-    public class HeresyService: IHeresyService
+    public partial class HeresyService : IHeresyService
     {
-        #region Users
-
-        protected static object _lock = new object();
-
-        private static IDictionary<string, User> _users;
-        protected static IDictionary<string, User> Users
+        protected static class Users
         {
-            get
+            private static object _lock = new object();
+
+            private static IDictionary<string, User> _users;
+
+            public static IDictionary<string, User> All
             {
-                lock (_lock)
+                get
                 {
-                    return _users ?? (_users = new Dictionary<string, User>());
+                    lock (_lock)
+                    {
+                        return _users ?? (_users = new Dictionary<string, User>());
+                    }
                 }
             }
         }
 
+        #region Constructors
+
+        public HeresyService()
+        {
+            InitCharacterCreation();
+        }
+
         #endregion
 
-        public IDictionary<string, Character> GetCharacterList(Token token)
+        public IDictionary<string, Character> GetCharacterList(Token token) =>
+            Users.All
+                .GetUser(token)
+                ?.Characters;
+
+        public Character GetCharacter(Token token, string charId)
         {
-            string id = null;
-            User user;
+            var chars = GetCharacterList(token);
+            Character c;
 
-            WcfExtensions.Using<InternalAuthServiceClient>(auth =>
-                id = auth.GetId(token, AppSecret.Get())
-            );
-
-            if (id == null
-                || !Users.TryGetValue(id, out user))
+            if (chars == null
+                || !chars.TryGetValue(charId, out c))
                 return null;
 
-            return user.Characters;
+            return c;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace HeresyService.Services
                 return;
 
             var user = new User(id);
-            Users.Add(id, user);
+            Users.All.Add(id, user);
         }
     }
 }

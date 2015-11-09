@@ -80,6 +80,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ServiceInterfaces\IInternalHeresyService.cs" />
+    <Compile Include="Services\CharacterCreation.cs" />
+    <Compile Include="Services\CommonDataGetters.cs" />
     <Compile Include="Services\InternalHeresyService.svc.cs">
       <DependentUpon>InternalHeresyService.svc</DependentUpon>
     </Compile>
@@ -88,11 +90,16 @@
     </Compile>
     <Compile Include="ServiceInterfaces\IHeresyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\AuthExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HeresyCore\HeresyCore.csproj">
       <Project>{604947f5-5f1d-4a60-a3d0-949841cba083}</Project>
       <Name>HeresyCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestContent\TestContent.csproj">
+      <Project>{936a0357-212b-4803-8598-0c45d6cd48aa}</Project>
+      <Name>TestContent</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

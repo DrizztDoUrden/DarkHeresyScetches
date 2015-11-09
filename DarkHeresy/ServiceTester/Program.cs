@@ -1,6 +1,5 @@
 ﻿using HeresyCore.Entities;
 using HeresyCore.Entities.Data;
-using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties;
 using HeresyCore.Utilities;
 using ServiceTester.HeresyAuthService;
@@ -8,12 +7,13 @@ using ServiceTester.HeresyService;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using TestContent.Traits;
+using System.Linq;
 
 namespace ServiceTester
 {
     public static class Program
     {
+        private static readonly Random _rnd = new Random();
         private static readonly string _testLogin = ConfigurationManager.AppSettings["TestLogin"];
         private static readonly string _testPassword = ConfigurationManager.AppSettings["TestPassword"];
 
@@ -42,54 +42,29 @@ namespace ServiceTester
             return token;
         }
 
+        private static Group GetRndGroup<T>(IEnumerable<T> groups) where T : Group =>
+            groups.ElementAt(_rnd.Next(groups.Count()));
+
+        private static Character AddRndGroup<T>(this Character c, IDictionary<string, T> groups) where T : Group =>
+            c.AddGroup(GetRndGroup(groups.Values));
+
         private static void TestService(Token token)
         {
+            var c = new Character();
+
             WcfExtensions.Using<HeresyServiceClient>(service =>
             {
                 var chars = service.GetCharacterList(token);
 
                 if (chars == null)
                     throw new Exception("Не удалось получить список персонажей");
+
+                c.AddRndGroup(service.GetRaces());
+                c.AddRndGroup(service.GetWorlds());
+                c.AddRndGroup(service.GetClasses());
+                c.AddRndGroup(service.GetBackgrounds());
             });
-        }
 
-        private static void TestCore()
-        {
-            var rnd = new Random();
-            var sc = new SoundConstitution();
-            var c = new Character();
-
-            var r = new Race
-            {
-                Id = "Race-Human",
-                Name = "Человек",
-                WoundsBase = new Dice(1, 5),
-
-                Skills =
-                {
-                    ["Climb"] = ESkillMastery.Basic,
-                    ["Swim"] = ESkillMastery.Basic,
-                    ["Inquiry"] = ESkillMastery.Basic,
-                    ["Intimidate"] = ESkillMastery.Basic,
-                    ["Charm"] = ESkillMastery.Basic,
-                    [@"Lang\LowGothic"] = ESkillMastery.Common,
-                },
-            };
-
-            var w = new World
-            {
-                Id = "World-Imperial",
-                Name = "Имперский мир",
-                WoundsBase = 8,
-                FateRolls = { [0] = 1, [1] = 1, [2] = 1, [3] = 1, [4] = 1, [5] = 1, [6] = 1, [7] = 1, [8] = 1, [9] = 1, },
-                Stats = { [ECharacterStat.Willpower] = 3, },
-                Skills = { [@"CL\ImperialCreed"] = ESkillMastery.Common, },
-                Traits = { sc, },
-            };
-
-            c   .AddGroup(r)
-                .AddGroup(w);
-            
             c.MaxWounds.Moddifiers.Add("Test", (PropertyModdifier<int>)TestWoundModdifier);
             c.MaxWounds.Moddifiers.Add("Test2", 1);
         }
@@ -98,7 +73,6 @@ namespace ServiceTester
         {
             var token = TestAuth();
             TestService(token);
-            TestCore();
         }
     }
 }

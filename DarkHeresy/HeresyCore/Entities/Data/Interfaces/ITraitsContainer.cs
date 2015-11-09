@@ -5,6 +5,6 @@ namespace HeresyCore.Entities.Data.Interfaces
 {
     public interface ITraitsContainer
     {
-        ICollection<Trait> Traits { get; }
+        List<Trait> Traits { get; }
     }
 }

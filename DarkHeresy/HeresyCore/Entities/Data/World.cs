@@ -10,7 +10,7 @@ namespace HeresyCore.Entities.Data
         public static string GroupType = "World";
 
         [DataMember]
-        public IDictionary<int, Dice> FateRolls { get; } = new Dictionary<int, Dice>();
+        public Dictionary<int, Dice> FateRolls { get; set; } = new Dictionary<int, Dice>();
 
         public override string GroupTypeName => GroupType;
 

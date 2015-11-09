@@ -43,12 +43,16 @@
   <ItemGroup>
     <Compile Include="Authorization\Rights.cs" />
     <Compile Include="Entities\Character.cs" />
+    <Compile Include="Entities\Data\Background.cs" />
     <Compile Include="Entities\Data\Dice.cs" />
     <Compile Include="Entities\Data\Extensions\CharacterExtensions.cs" />
+    <Compile Include="Entities\Data\Freebie.cs" />
     <Compile Include="Entities\Data\Group.cs" />
     <Compile Include="Entities\Data\Interfaces\ISkillsContainer.cs" />
     <Compile Include="Entities\Data\Interfaces\IStatsContainer.cs" />
+    <Compile Include="Entities\Data\Interfaces\IFreebiesContainer.cs" />
     <Compile Include="Entities\Data\Interfaces\ITraitsContainer.cs" />
+    <Compile Include="Entities\Data\Class.cs" />
     <Compile Include="Entities\Data\Race.cs" />
     <Compile Include="Entities\Data\Roll.cs" />
     <Compile Include="Entities\Data\Traits\Trait.cs" />

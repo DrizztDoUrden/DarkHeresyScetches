@@ -15,6 +15,9 @@ namespace HeresyCore.Entities
         #region Properties
 
         [DataMember]
+        public ECreationStage CreationStage { get; set; } = ECreationStage.RaceSelection;
+
+        [DataMember]
         public int Wounds { get; set; } = 1;
         [DataMember]
         public Property<int> MaxWounds { get; set; } = 1;
@@ -40,6 +43,9 @@ namespace HeresyCore.Entities
 
         [DataMember]
         public IDictionary<string, TraitData> Traits { get; } = new Dictionary<string, TraitData>();
+        
+        [DataMember]
+        public ICollection<Freebie> Freebies { get; } = new List<Freebie>();
 
         #endregion
 

@@ -62,9 +62,37 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\DataSources\HeresyCore.Entities.Character.datasource" />
+    <Content Include="Properties\DataSources\HeresyCore.Entities.Data.Background.datasource" />
+    <Content Include="Properties\DataSources\HeresyCore.Entities.Data.Class.datasource" />
+    <Content Include="Properties\DataSources\HeresyCore.Entities.Data.Race.datasource" />
+    <Content Include="Properties\DataSources\HeresyCore.Entities.Data.World.datasource" />
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetBackgroundResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetClassResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetRaceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\InternalHeresyService\InternalHeresyService.disco" />
     <None Include="Service References\InternalHeresyService\configuration91.svcinfo" />
     <None Include="Service References\InternalHeresyService\configuration.svcinfo" />
+    <None Include="Service References\InternalHeresyService\InternalHeresyService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService43.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\InternalHeresyService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

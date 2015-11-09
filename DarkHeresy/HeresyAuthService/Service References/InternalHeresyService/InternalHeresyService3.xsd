@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities" />
+  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
+  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Properties" />
+  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" />
+  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" />
   <xs:complexType name="ArrayOfKeyValueOfstringCharacterLusTfN7o">
     <xs:annotation>
       <xs:appinfo>
@@ -19,4 +23,232 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfKeyValueOfstringCharacterLusTfN7o" nillable="true" type="tns:ArrayOfKeyValueOfstringCharacterLusTfN7o" />
+  <xs:complexType name="ArrayOfArrayOfanyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfanyType" nillable="true" type="tns:ArrayOfanyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArrayOfanyType" nillable="true" type="tns:ArrayOfArrayOfanyType" />
+  <xs:complexType name="ArrayOfanyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfanyType" nillable="true" type="tns:ArrayOfanyType" />
+  <xs:complexType name="ArrayOfKeyValueOfstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringstring">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element name="Value" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringstring" nillable="true" type="tns:ArrayOfKeyValueOfstringstring" />
+  <xs:complexType name="ArrayOfKeyValueOfstringESkillMasteryDXh3s7kc">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringESkillMasteryDXh3s7kc">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" name="Value" type="q2:ESkillMastery" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringESkillMasteryDXh3s7kc" nillable="true" type="tns:ArrayOfKeyValueOfstringESkillMasteryDXh3s7kc" />
+  <xs:complexType name="ArrayOfKeyValueOfECharacterStatPropertyOfintueUCGX5G">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfECharacterStatPropertyOfintueUCGX5G">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" name="Key" type="q3:ECharacterStat" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Properties" name="Value" nillable="true" type="q4:PropertyOfint" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfECharacterStatPropertyOfintueUCGX5G" nillable="true" type="tns:ArrayOfKeyValueOfECharacterStatPropertyOfintueUCGX5G" />
+  <xs:complexType name="ArrayOfKeyValueOfstringPropertyOfintvEnDB1Vu">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringPropertyOfintvEnDB1Vu">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Properties" name="Value" nillable="true" type="q5:PropertyOfint" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringPropertyOfintvEnDB1Vu" nillable="true" type="tns:ArrayOfKeyValueOfstringPropertyOfintvEnDB1Vu" />
+  <xs:complexType name="ArrayOfKeyValueOfstringTraitData7_SLKmF3Z">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringTraitData7_SLKmF3Z">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" name="Value" nillable="true" type="q6:TraitData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringTraitData7_SLKmF3Z" nillable="true" type="tns:ArrayOfKeyValueOfstringTraitData7_SLKmF3Z" />
+  <xs:complexType name="ArrayOfKeyValueOfstringWorld4VxRXZ4N">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringWorld4VxRXZ4N">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" name="Value" nillable="true" type="q7:World" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringWorld4VxRXZ4N" nillable="true" type="tns:ArrayOfKeyValueOfstringWorld4VxRXZ4N" />
+  <xs:complexType name="ArrayOfKeyValueOfECharacterStatDiceIqtKnE4l">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfECharacterStatDiceIqtKnE4l">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" name="Key" type="q8:ECharacterStat" />
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" name="Value" nillable="true" type="q9:Dice" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfECharacterStatDiceIqtKnE4l" nillable="true" type="tns:ArrayOfKeyValueOfECharacterStatDiceIqtKnE4l" />
+  <xs:complexType name="ArrayOfKeyValueOfintDice4VxRXZ4N">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfintDice4VxRXZ4N">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" type="xs:int" />
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" name="Value" nillable="true" type="q10:Dice" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfintDice4VxRXZ4N" nillable="true" type="tns:ArrayOfKeyValueOfintDice4VxRXZ4N" />
+  <xs:complexType name="ArrayOfKeyValueOfstringRace4VxRXZ4N">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringRace4VxRXZ4N">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" name="Value" nillable="true" type="q11:Race" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringRace4VxRXZ4N" nillable="true" type="tns:ArrayOfKeyValueOfstringRace4VxRXZ4N" />
+  <xs:complexType name="ArrayOfKeyValueOfstringClass4VxRXZ4N">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringClass4VxRXZ4N">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" name="Value" nillable="true" type="q12:Class" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringClass4VxRXZ4N" nillable="true" type="tns:ArrayOfKeyValueOfstringClass4VxRXZ4N" />
+  <xs:complexType name="ArrayOfKeyValueOfECharacterStatintDKGBQfRt">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfECharacterStatintDKGBQfRt">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" name="Key" type="q13:ECharacterStat" />
+            <xs:element name="Value" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfECharacterStatintDKGBQfRt" nillable="true" type="tns:ArrayOfKeyValueOfECharacterStatintDKGBQfRt" />
+  <xs:complexType name="ArrayOfKeyValueOfstringBackground4VxRXZ4N">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringBackground4VxRXZ4N">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" name="Value" nillable="true" type="q14:Background" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringBackground4VxRXZ4N" nillable="true" type="tns:ArrayOfKeyValueOfstringBackground4VxRXZ4N" />
 </xs:schema>
