@@ -1,5 +1,4 @@
-﻿using HeresyAuthService.Authentication;
-using HeresyAuthService.Authorization;
+﻿using HeresyAuthService.Authorization;
 using HeresyAuthService.ServiceInterfaces;
 using HeresyCore.Authorization;
 using HeresyCore.Entities;

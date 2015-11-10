@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 namespace HeresyCore.Entities.Data
 {
     [DataContract]
-    public class World : Group
+    public class World: Group
     {
-        public static string GroupType = "World";
+        public const string GroupType = "World";
 
         [DataMember]
         public Dictionary<int, Dice> FateRolls { get; set; } = new Dictionary<int, Dice>();
