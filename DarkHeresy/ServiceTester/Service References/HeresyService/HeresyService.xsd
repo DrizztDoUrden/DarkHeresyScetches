@@ -1,152 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:simpleType name="ECreationStage">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="RaceSelection">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="StatReroll">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="WorldSelection">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">30</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ClassSelection">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">40</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="BackgroundSelection">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">50</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Finished">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">100</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ECreationStage" nillable="true" type="tns:ECreationStage" />
-  <xs:simpleType name="ESkillMastery">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Basic">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Common">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Skilled">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">30</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Master">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">40</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ESkillMastery" nillable="true" type="tns:ESkillMastery" />
-  <xs:simpleType name="ECharacterStat">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="WeaponSkill">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="BallisticSkill">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Strength">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">30</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Toughness">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">40</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Agility">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">50</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Intelligence">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">60</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Perception">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">70</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Willpower">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">80</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Fellowship">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">90</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ECharacterStat" nillable="true" type="tns:ECharacterStat" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HeresyCore.Descriptions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HeresyCore.Descriptions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
+  <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" />
+  <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="CharacterDescription">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityDescription">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" minOccurs="0" name="CreationStage" type="q1:ECreationStage" />
+          <xs:element minOccurs="0" name="FatePoints" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" minOccurs="0" name="Freebies" nillable="true" type="q2:ArrayOfFreebie" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Groups" nillable="true" type="q3:ArrayOfKeyValueOfstringstring" />
+          <xs:element minOccurs="0" name="MaxFatePoints" type="xs:int" />
+          <xs:element minOccurs="0" name="MaxWounds" type="xs:int" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Skills" nillable="true" type="q4:ArrayOfKeyValueOfstringESkillMasteryDXh3s7kc" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Stats" nillable="true" type="q5:ArrayOfKeyValueOfECharacterStatintDKGBQfRt" />
+          <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TestBonuses" nillable="true" type="q6:ArrayOfKeyValueOfstringint" />
+          <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Traits" nillable="true" type="q7:ArrayOfKeyValueOfstringTraitData7_SLKmF3Z" />
+          <xs:element minOccurs="0" name="Wounds" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CharacterDescription" nillable="true" type="tns:CharacterDescription" />
+  <xs:complexType name="EntityDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityDescription" nillable="true" type="tns:EntityDescription" />
+  <xs:complexType name="WorldDescription">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GroupDescription">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FateRolls" nillable="true" type="q8:ArrayOfKeyValueOfintDice4VxRXZ4N" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WorldDescription" nillable="true" type="tns:WorldDescription" />
+  <xs:complexType name="GroupDescription">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityDescription">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" minOccurs="0" name="Freebies" nillable="true" type="q9:ArrayOfFreebie" />
+          <xs:element minOccurs="0" name="GroupTypeName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Skills" nillable="true" type="q10:ArrayOfKeyValueOfstringESkillMasteryDXh3s7kc" />
+          <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Stats" nillable="true" type="q11:ArrayOfKeyValueOfECharacterStatDiceIqtKnE4l" />
+          <xs:element minOccurs="0" name="Traits" nillable="true" type="tns:ArrayOfEntityDescription" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" minOccurs="0" name="WoundsBase" nillable="true" type="q12:Dice" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GroupDescription" nillable="true" type="tns:GroupDescription" />
+  <xs:complexType name="ArrayOfEntityDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityDescription" nillable="true" type="tns:EntityDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntityDescription" nillable="true" type="tns:ArrayOfEntityDescription" />
+  <xs:complexType name="RaceDescription">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GroupDescription">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RaceDescription" nillable="true" type="tns:RaceDescription" />
+  <xs:complexType name="ClassDescription">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GroupDescription">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatCosts" nillable="true" type="q13:ArrayOfKeyValueOfECharacterStatintDKGBQfRt" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClassDescription" nillable="true" type="tns:ClassDescription" />
+  <xs:complexType name="BackgroundDescription">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GroupDescription">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BackgroundDescription" nillable="true" type="tns:BackgroundDescription" />
 </xs:schema>

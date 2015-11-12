@@ -10,7 +10,7 @@ namespace HeresyCore.Entities.Data
         public const string GroupType = "Class";
 
         [DataMember]
-        public IDictionary<ECharacterStat, int> StatCosts { get; set; } = new Dictionary<ECharacterStat, int>();
+        public Dictionary<ECharacterStat, int> StatCosts { get; set; } = new Dictionary<ECharacterStat, int>();
 
         public override string GroupTypeName => GroupType;
 

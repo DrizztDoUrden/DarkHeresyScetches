@@ -22,16 +22,17 @@
     <MetadataSource Address="http://localhost:50305/Services/InternalHeresyService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="InternalHeresyService5.xsd" MetadataType="Schema" ID="78ce6128-083c-480a-8698-6bca5f31bb24" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd8" />
     <MetadataFile FileName="InternalHeresyService.xsd" MetadataType="Schema" ID="42d6dd36-2e51-4fe7-a4fd-e103258d088e" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd0" />
     <MetadataFile FileName="InternalHeresyService1.xsd" MetadataType="Schema" ID="c63a95ff-b33b-4bf8-8fa0-d962d4457a1f" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd1" />
     <MetadataFile FileName="InternalHeresyService2.xsd" MetadataType="Schema" ID="804a6906-e82d-48b6-93e5-89ed2d947cfe" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd2" />
     <MetadataFile FileName="InternalHeresyService3.xsd" MetadataType="Schema" ID="9b6c19f3-f10b-4d60-9ab1-c12a1b96dee5" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd3" />
-    <MetadataFile FileName="InternalHeresyService4.xsd" MetadataType="Schema" ID="3bda5db5-4ebd-4516-9320-542a053f92fa" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd4" />
+    <MetadataFile FileName="InternalHeresyService.wsdl" MetadataType="Wsdl" ID="78bd1f0e-949b-4e64-9652-12927c8e08bf" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?wsdl" />
     <MetadataFile FileName="InternalHeresyService41.xsd" MetadataType="Schema" ID="e576da89-9390-4ca5-9dff-c1852f68abc1" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd5" />
     <MetadataFile FileName="InternalHeresyService42.xsd" MetadataType="Schema" ID="0dbb167e-3730-4e33-96ae-1fd01acbbcda" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd6" />
     <MetadataFile FileName="InternalHeresyService43.xsd" MetadataType="Schema" ID="7e46da98-81dc-4017-a3cf-468b96c0f2fd" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd7" />
+    <MetadataFile FileName="InternalHeresyService4.xsd" MetadataType="Schema" ID="3bda5db5-4ebd-4516-9320-542a053f92fa" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd4" />
     <MetadataFile FileName="InternalHeresyService.disco" MetadataType="Disco" ID="785a788d-ac3a-4f8f-bb92-4b0f2d0dbca5" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?disco" />
-    <MetadataFile FileName="InternalHeresyService.wsdl" MetadataType="Wsdl" ID="78bd1f0e-949b-4e64-9652-12927c8e08bf" SourceId="1" SourceUrl="http://localhost:50305/Services/InternalHeresyService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

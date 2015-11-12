@@ -58,9 +58,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\AuthorizationContext.cs" />
+    <Compile Include="Utilities\CharacterContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Properties\DataSources\HeresyCore.Descriptions.BackgroundDescription.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Descriptions.CharacterDescription.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Descriptions.ClassDescription.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Descriptions.GroupDescription.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Descriptions.RaceDescription.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Descriptions.WorldDescription.datasource" />
     <None Include="Properties\DataSources\HeresyCore.Entities.Character.datasource" />
     <None Include="Properties\DataSources\HeresyCore.Entities.Data.Background.datasource" />
     <None Include="Properties\DataSources\HeresyCore.Entities.Data.Class.datasource" />
@@ -102,16 +110,16 @@
     <None Include="Service References\HeresyService\HeresyService7.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetBackgroundResponse.datasource">
+    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetBackgroundDescriptionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetClassResponse.datasource">
+    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetClassDescriptionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetRaceResponse.datasource">
+    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetRaceDescriptionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetWorldResponse.datasource">
+    <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetWorldDescriptionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

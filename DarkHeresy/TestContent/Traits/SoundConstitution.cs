@@ -1,8 +1,10 @@
 ﻿using HeresyCore.Entities;
 using HeresyCore.Entities.Data.Traits;
+using System.Runtime.Serialization;
 
 namespace TestContent.Traits
 {
+    [DataContract]
     public sealed class SoundConstitution : Trait<int>
     {
         public override string Id => nameof(SoundConstitution);

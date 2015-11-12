@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HeresyCore.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
-  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" />
+  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
+  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" />
   <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Properties" />
+  <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Properties" />
   <xs:complexType name="Token">
     <xs:sequence>
       <xs:element minOccurs="0" name="Expiration" type="xs:dateTime" />
@@ -11,6 +11,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Token" nillable="true" type="tns:Token" />
+  <xs:complexType name="Entity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Entity" nillable="true" type="tns:Entity" />
   <xs:complexType name="Character">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Entity">
@@ -31,11 +38,4 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Character" nillable="true" type="tns:Character" />
-  <xs:complexType name="Entity">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Entity" nillable="true" type="tns:Entity" />
 </xs:schema>

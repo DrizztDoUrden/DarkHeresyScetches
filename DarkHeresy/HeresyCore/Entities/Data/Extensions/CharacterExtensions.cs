@@ -64,7 +64,9 @@ namespace HeresyCore.Entities.Data.Extensions
         {
             var charStat = character.Stats[stat];
 
-            var roll = (IntAddModdifier)charStat.Moddifiers[Race.GroupType];
+            var roll = (IntAddModdifier)charStat.Moddifiers[$@"{Race.GroupType}\StatRoll"];
+#warning вынести ролл 2d10 куда-то из рерола
+            roll.Value = new Dice(2, 10).Roll();
 
             return character;
         }

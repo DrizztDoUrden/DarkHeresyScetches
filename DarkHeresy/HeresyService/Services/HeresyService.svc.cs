@@ -1,4 +1,6 @@
-﻿using HeresyCore.Entities;
+﻿using HeresyCore.Descriptions;
+using HeresyCore.Entities;
+using HeresyCore.Utilities;
 using HeresyService.Entities;
 using HeresyService.ServiceInterfaces;
 using HeresyService.Utilities;
@@ -34,6 +36,13 @@ namespace HeresyService.Services
         }
 
         #endregion
+
+        public IDictionary<string, CharacterDescription> GetCharacterDescriptionList(Token token) =>
+            GetCharacterList(token)
+                ?.Remap(c => (CharacterDescription)c);
+
+        public CharacterDescription GetCharacterDescription(Token token, string charId) =>
+            GetCharacter(token, charId);
 
         public IDictionary<string, Character> GetCharacterList(Token token) =>
             Users.All

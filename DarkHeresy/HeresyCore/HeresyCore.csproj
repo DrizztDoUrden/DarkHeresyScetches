@@ -42,6 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authorization\Rights.cs" />
+    <Compile Include="Descriptions\CharacterDescription.cs" />
+    <Compile Include="Descriptions\EntityDescription.cs" />
+    <Compile Include="Descriptions\GroupDescription.cs" />
+    <Compile Include="Descriptions\ClassDescription.cs" />
+    <Compile Include="Descriptions\BackgroundDescription.cs" />
+    <Compile Include="Descriptions\RaceDescription.cs" />
+    <Compile Include="Descriptions\TraitDataDescription.cs" />
+    <Compile Include="Descriptions\WorldDescription.cs" />
     <Compile Include="Entities\Character.cs" />
     <Compile Include="Entities\Data\Background.cs" />
     <Compile Include="Entities\Data\Dice.cs" />
@@ -70,7 +78,9 @@
     <Compile Include="Entities\LoginSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AppSecret.cs" />
+    <Compile Include="Utilities\IDicitionaryExtensions.cs" />
     <Compile Include="Utilities\TypeComparer.cs" />
+    <Compile Include="Utilities\WcfContext.cs" />
     <Compile Include="Utilities\WcfExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,35 +5,13 @@ namespace HeresyCore.Utilities
 {
     public static class WcfExtensions
     {
-        public static void Using<T>(Action<T> work)
-            where T : ICommunicationObject, new()
-        {
-            var client = new T();
-            client.Using(work);
-        }
+        public static void Using<TService>(Action<TService> worker) where TService : ICommunicationObject, new() =>
+            WcfContext<TService>.Using(new TService(), worker);
 
-        public static void Using<T>(this T client, Action<T> work)
-            where T : ICommunicationObject
-        {
-            try
-            {
-                work(client);
+        public static void Using<TService>(Action<WcfContext<TService>> worker) where TService : ICommunicationObject, new() =>
+            WcfContext<TService>.Using(new TService(), worker);
 
-                try
-                {
-                    client.Close();
-                }
-                catch (CommunicationException)
-                {
-                }
-                catch (TimeoutException)
-                {
-                }
-            }
-            finally
-            {
-                client.Abort();
-            }
-        }
+        public static void Using<TService>(Action<TService, WcfContext<TService>> worker) where TService : ICommunicationObject, new() =>
+            WcfContext<TService>.Using(new TService(), worker);
     }
 }

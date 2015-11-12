@@ -1,5 +1,5 @@
-﻿using HeresyCore.Entities;
-using HeresyCore.Entities.Data;
+﻿using HeresyCore.Descriptions;
+using HeresyCore.Entities;
 using HeresyCore.Entities.Enums;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -10,37 +10,39 @@ namespace HeresyService.ServiceInterfaces
     public interface IHeresyService
     {
         [OperationContract]
-        IDictionary<string, Character> GetCharacterList(Token token);
+        IDictionary<string, CharacterDescription> GetCharacterDescriptionList(Token token);
+        [OperationContract]
+        CharacterDescription GetCharacterDescription(Token token, string charId);
 
         #region Data getters
 
         [OperationContract]
-        Dictionary<string, World> GetWorlds();
+        IDictionary<string, WorldDescription> GetWorldDescriptions();
         [OperationContract]
-        World GetWorld(string id);
+        WorldDescription GetWorldDescription(string id);
         [OperationContract]
-        bool TryGetWorld(string id, out World world);
+        bool TryGetWorldDescription(string id, out WorldDescription world);
 
         [OperationContract]
-        Dictionary<string, Race> GetRaces();
+        IDictionary<string, RaceDescription> GetRaceDescriptions();
         [OperationContract]
-        Race GetRace(string id);
+        RaceDescription GetRaceDescription(string id);
         [OperationContract]
-        bool TryGetRace(string id, out Race race);
+        bool TryGetRaceDescription(string id, out RaceDescription race);
 
         [OperationContract]
-        Dictionary<string, Class> GetClasses();
+        IDictionary<string, ClassDescription> GetClassDescriptions();
         [OperationContract]
-        Class GetClass(string id);
+        ClassDescription GetClassDescription(string id);
         [OperationContract]
-        bool TryGetClass(string id, out Class c);
-        
+        bool TryGetClassDescription(string id, out ClassDescription c);
+
         [OperationContract]
-        Dictionary<string, Background> GetBackgrounds();
+        IDictionary<string, BackgroundDescription> GetBackgroundDescriptions();
         [OperationContract]
-        Background GetBackground(string id);
+        BackgroundDescription GetBackgroundDescription(string id);
         [OperationContract]
-        bool TryGetBackground(string id, out Background c);
+        bool TryGetBackgroundDescription(string id, out BackgroundDescription c);
 
         #endregion
 

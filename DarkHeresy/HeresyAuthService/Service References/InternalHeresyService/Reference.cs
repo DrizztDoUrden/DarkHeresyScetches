@@ -15,87 +15,101 @@ namespace HeresyAuthService.InternalHeresyService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="InternalHeresyService.IInternalHeresyService")]
     public interface IInternalHeresyService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetCharacterList", ReplyAction="http://tempuri.org/IHeresyService/GetCharacterListResponse")]
-        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character> GetCharacterList(HeresyCore.Entities.Token token);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetCharacterDescriptionList", ReplyAction="http://tempuri.org/IHeresyService/GetCharacterDescriptionListResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.CharacterDescription> GetCharacterDescriptionList(HeresyCore.Entities.Token token);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetCharacterList", ReplyAction="http://tempuri.org/IHeresyService/GetCharacterListResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character>> GetCharacterListAsync(HeresyCore.Entities.Token token);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetCharacterDescriptionList", ReplyAction="http://tempuri.org/IHeresyService/GetCharacterDescriptionListResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.CharacterDescription>> GetCharacterDescriptionListAsync(HeresyCore.Entities.Token token);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetWorlds", ReplyAction="http://tempuri.org/IHeresyService/GetWorldsResponse")]
-        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.World> GetWorlds();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetCharacterDescription", ReplyAction="http://tempuri.org/IHeresyService/GetCharacterDescriptionResponse")]
+        HeresyCore.Descriptions.CharacterDescription GetCharacterDescription(HeresyCore.Entities.Token token, string charId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetWorlds", ReplyAction="http://tempuri.org/IHeresyService/GetWorldsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.World>> GetWorldsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetCharacterDescription", ReplyAction="http://tempuri.org/IHeresyService/GetCharacterDescriptionResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Descriptions.CharacterDescription> GetCharacterDescriptionAsync(HeresyCore.Entities.Token token, string charId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetWorld", ReplyAction="http://tempuri.org/IHeresyService/GetWorldResponse")]
-        HeresyCore.Entities.Data.World GetWorld(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetWorldDescriptions", ReplyAction="http://tempuri.org/IHeresyService/GetWorldDescriptionsResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.WorldDescription> GetWorldDescriptions();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetWorld", ReplyAction="http://tempuri.org/IHeresyService/GetWorldResponse")]
-        System.Threading.Tasks.Task<HeresyCore.Entities.Data.World> GetWorldAsync(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetWorldDescriptions", ReplyAction="http://tempuri.org/IHeresyService/GetWorldDescriptionsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.WorldDescription>> GetWorldDescriptionsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetWorld", ReplyAction="http://tempuri.org/IHeresyService/TryGetWorldResponse")]
-        HeresyAuthService.InternalHeresyService.TryGetWorldResponse TryGetWorld(HeresyAuthService.InternalHeresyService.TryGetWorldRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetWorldDescription", ReplyAction="http://tempuri.org/IHeresyService/GetWorldDescriptionResponse")]
+        HeresyCore.Descriptions.WorldDescription GetWorldDescription(string id);
         
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetWorld", ReplyAction="http://tempuri.org/IHeresyService/TryGetWorldResponse")]
-        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetWorldResponse> TryGetWorldAsync(HeresyAuthService.InternalHeresyService.TryGetWorldRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetWorldDescription", ReplyAction="http://tempuri.org/IHeresyService/GetWorldDescriptionResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Descriptions.WorldDescription> GetWorldDescriptionAsync(string id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetRaces", ReplyAction="http://tempuri.org/IHeresyService/GetRacesResponse")]
-        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Race> GetRaces();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetRaces", ReplyAction="http://tempuri.org/IHeresyService/GetRacesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Race>> GetRacesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetRace", ReplyAction="http://tempuri.org/IHeresyService/GetRaceResponse")]
-        HeresyCore.Entities.Data.Race GetRace(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetRace", ReplyAction="http://tempuri.org/IHeresyService/GetRaceResponse")]
-        System.Threading.Tasks.Task<HeresyCore.Entities.Data.Race> GetRaceAsync(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetRace", ReplyAction="http://tempuri.org/IHeresyService/TryGetRaceResponse")]
-        HeresyAuthService.InternalHeresyService.TryGetRaceResponse TryGetRace(HeresyAuthService.InternalHeresyService.TryGetRaceRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetWorldDescription", ReplyAction="http://tempuri.org/IHeresyService/TryGetWorldDescriptionResponse")]
+        HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionResponse TryGetWorldDescription(HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetRace", ReplyAction="http://tempuri.org/IHeresyService/TryGetRaceResponse")]
-        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetRaceResponse> TryGetRaceAsync(HeresyAuthService.InternalHeresyService.TryGetRaceRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetWorldDescription", ReplyAction="http://tempuri.org/IHeresyService/TryGetWorldDescriptionResponse")]
+        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionResponse> TryGetWorldDescriptionAsync(HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetClasses", ReplyAction="http://tempuri.org/IHeresyService/GetClassesResponse")]
-        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Class> GetClasses();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetRaceDescriptions", ReplyAction="http://tempuri.org/IHeresyService/GetRaceDescriptionsResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.GroupDescription> GetRaceDescriptions();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetClasses", ReplyAction="http://tempuri.org/IHeresyService/GetClassesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Class>> GetClassesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetRaceDescriptions", ReplyAction="http://tempuri.org/IHeresyService/GetRaceDescriptionsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.GroupDescription>> GetRaceDescriptionsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetClass", ReplyAction="http://tempuri.org/IHeresyService/GetClassResponse")]
-        HeresyCore.Entities.Data.Class GetClass(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetRaceDescription", ReplyAction="http://tempuri.org/IHeresyService/GetRaceDescriptionResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HeresyCore.Descriptions.WorldDescription))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HeresyCore.Descriptions.ClassDescription))]
+        HeresyCore.Descriptions.GroupDescription GetRaceDescription(string id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetClass", ReplyAction="http://tempuri.org/IHeresyService/GetClassResponse")]
-        System.Threading.Tasks.Task<HeresyCore.Entities.Data.Class> GetClassAsync(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetRaceDescription", ReplyAction="http://tempuri.org/IHeresyService/GetRaceDescriptionResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Descriptions.GroupDescription> GetRaceDescriptionAsync(string id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetClass", ReplyAction="http://tempuri.org/IHeresyService/TryGetClassResponse")]
-        HeresyAuthService.InternalHeresyService.TryGetClassResponse TryGetClass(HeresyAuthService.InternalHeresyService.TryGetClassRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetClass", ReplyAction="http://tempuri.org/IHeresyService/TryGetClassResponse")]
-        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetClassResponse> TryGetClassAsync(HeresyAuthService.InternalHeresyService.TryGetClassRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetBackgrounds", ReplyAction="http://tempuri.org/IHeresyService/GetBackgroundsResponse")]
-        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Background> GetBackgrounds();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetBackgrounds", ReplyAction="http://tempuri.org/IHeresyService/GetBackgroundsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Background>> GetBackgroundsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetBackground", ReplyAction="http://tempuri.org/IHeresyService/GetBackgroundResponse")]
-        HeresyCore.Entities.Data.Background GetBackground(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetBackground", ReplyAction="http://tempuri.org/IHeresyService/GetBackgroundResponse")]
-        System.Threading.Tasks.Task<HeresyCore.Entities.Data.Background> GetBackgroundAsync(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetBackground", ReplyAction="http://tempuri.org/IHeresyService/TryGetBackgroundResponse")]
-        HeresyAuthService.InternalHeresyService.TryGetBackgroundResponse TryGetBackground(HeresyAuthService.InternalHeresyService.TryGetBackgroundRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetRaceDescription", ReplyAction="http://tempuri.org/IHeresyService/TryGetRaceDescriptionResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HeresyCore.Descriptions.WorldDescription))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HeresyCore.Descriptions.ClassDescription))]
+        HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionResponse TryGetRaceDescription(HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetBackground", ReplyAction="http://tempuri.org/IHeresyService/TryGetBackgroundResponse")]
-        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetBackgroundResponse> TryGetBackgroundAsync(HeresyAuthService.InternalHeresyService.TryGetBackgroundRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetRaceDescription", ReplyAction="http://tempuri.org/IHeresyService/TryGetRaceDescriptionResponse")]
+        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionResponse> TryGetRaceDescriptionAsync(HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetClassDescriptions", ReplyAction="http://tempuri.org/IHeresyService/GetClassDescriptionsResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.ClassDescription> GetClassDescriptions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetClassDescriptions", ReplyAction="http://tempuri.org/IHeresyService/GetClassDescriptionsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.ClassDescription>> GetClassDescriptionsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetClassDescription", ReplyAction="http://tempuri.org/IHeresyService/GetClassDescriptionResponse")]
+        HeresyCore.Descriptions.ClassDescription GetClassDescription(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetClassDescription", ReplyAction="http://tempuri.org/IHeresyService/GetClassDescriptionResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Descriptions.ClassDescription> GetClassDescriptionAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetClassDescription", ReplyAction="http://tempuri.org/IHeresyService/TryGetClassDescriptionResponse")]
+        HeresyAuthService.InternalHeresyService.TryGetClassDescriptionResponse TryGetClassDescription(HeresyAuthService.InternalHeresyService.TryGetClassDescriptionRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetClassDescription", ReplyAction="http://tempuri.org/IHeresyService/TryGetClassDescriptionResponse")]
+        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetClassDescriptionResponse> TryGetClassDescriptionAsync(HeresyAuthService.InternalHeresyService.TryGetClassDescriptionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetBackgroundDescriptions", ReplyAction="http://tempuri.org/IHeresyService/GetBackgroundDescriptionsResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.GroupDescription> GetBackgroundDescriptions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetBackgroundDescriptions", ReplyAction="http://tempuri.org/IHeresyService/GetBackgroundDescriptionsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.GroupDescription>> GetBackgroundDescriptionsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetBackgroundDescription", ReplyAction="http://tempuri.org/IHeresyService/GetBackgroundDescriptionResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HeresyCore.Descriptions.WorldDescription))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HeresyCore.Descriptions.ClassDescription))]
+        HeresyCore.Descriptions.GroupDescription GetBackgroundDescription(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetBackgroundDescription", ReplyAction="http://tempuri.org/IHeresyService/GetBackgroundDescriptionResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Descriptions.GroupDescription> GetBackgroundDescriptionAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetBackgroundDescription", ReplyAction="http://tempuri.org/IHeresyService/TryGetBackgroundDescriptionResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HeresyCore.Descriptions.WorldDescription))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(HeresyCore.Descriptions.ClassDescription))]
+        HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionResponse TryGetBackgroundDescription(HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/TryGetBackgroundDescription", ReplyAction="http://tempuri.org/IHeresyService/TryGetBackgroundDescriptionResponse")]
+        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionResponse> TryGetBackgroundDescriptionAsync(HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/CreateCharacter", ReplyAction="http://tempuri.org/IHeresyService/CreateCharacterResponse")]
         string CreateCharacter(HeresyCore.Entities.Token token, string name);
@@ -150,6 +164,238 @@ namespace HeresyAuthService.InternalHeresyService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/RegisterUser", ReplyAction="http://tempuri.org/IInternalHeresyService/RegisterUserResponse")]
         System.Threading.Tasks.Task RegisterUserAsync(string id, string appSecret);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetCharacterList", ReplyAction="http://tempuri.org/IInternalHeresyService/GetCharacterListResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character> GetCharacterList(HeresyCore.Entities.Token token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetCharacterList", ReplyAction="http://tempuri.org/IInternalHeresyService/GetCharacterListResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character>> GetCharacterListAsync(HeresyCore.Entities.Token token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetCharacter", ReplyAction="http://tempuri.org/IInternalHeresyService/GetCharacterResponse")]
+        HeresyCore.Entities.Character GetCharacter(HeresyCore.Entities.Token token, string charId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetCharacter", ReplyAction="http://tempuri.org/IInternalHeresyService/GetCharacterResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Entities.Character> GetCharacterAsync(HeresyCore.Entities.Token token, string charId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetWorlds", ReplyAction="http://tempuri.org/IInternalHeresyService/GetWorldsResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.World> GetWorlds();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetWorlds", ReplyAction="http://tempuri.org/IInternalHeresyService/GetWorldsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.World>> GetWorldsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetWorld", ReplyAction="http://tempuri.org/IInternalHeresyService/GetWorldResponse")]
+        HeresyCore.Entities.Data.World GetWorld(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetWorld", ReplyAction="http://tempuri.org/IInternalHeresyService/GetWorldResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Entities.Data.World> GetWorldAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/TryGetWorld", ReplyAction="http://tempuri.org/IInternalHeresyService/TryGetWorldResponse")]
+        HeresyAuthService.InternalHeresyService.TryGetWorldResponse TryGetWorld(HeresyAuthService.InternalHeresyService.TryGetWorldRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/TryGetWorld", ReplyAction="http://tempuri.org/IInternalHeresyService/TryGetWorldResponse")]
+        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetWorldResponse> TryGetWorldAsync(HeresyAuthService.InternalHeresyService.TryGetWorldRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetRaces", ReplyAction="http://tempuri.org/IInternalHeresyService/GetRacesResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Race> GetRaces();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetRaces", ReplyAction="http://tempuri.org/IInternalHeresyService/GetRacesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Race>> GetRacesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetRace", ReplyAction="http://tempuri.org/IInternalHeresyService/GetRaceResponse")]
+        HeresyCore.Entities.Data.Race GetRace(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetRace", ReplyAction="http://tempuri.org/IInternalHeresyService/GetRaceResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Entities.Data.Race> GetRaceAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/TryGetRace", ReplyAction="http://tempuri.org/IInternalHeresyService/TryGetRaceResponse")]
+        HeresyAuthService.InternalHeresyService.TryGetRaceResponse TryGetRace(HeresyAuthService.InternalHeresyService.TryGetRaceRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/TryGetRace", ReplyAction="http://tempuri.org/IInternalHeresyService/TryGetRaceResponse")]
+        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetRaceResponse> TryGetRaceAsync(HeresyAuthService.InternalHeresyService.TryGetRaceRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetClasses", ReplyAction="http://tempuri.org/IInternalHeresyService/GetClassesResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Class> GetClasses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetClasses", ReplyAction="http://tempuri.org/IInternalHeresyService/GetClassesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Class>> GetClassesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetClass", ReplyAction="http://tempuri.org/IInternalHeresyService/GetClassResponse")]
+        HeresyCore.Entities.Data.Class GetClass(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetClass", ReplyAction="http://tempuri.org/IInternalHeresyService/GetClassResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Entities.Data.Class> GetClassAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/TryGetClass", ReplyAction="http://tempuri.org/IInternalHeresyService/TryGetClassResponse")]
+        HeresyAuthService.InternalHeresyService.TryGetClassResponse TryGetClass(HeresyAuthService.InternalHeresyService.TryGetClassRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/TryGetClass", ReplyAction="http://tempuri.org/IInternalHeresyService/TryGetClassResponse")]
+        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetClassResponse> TryGetClassAsync(HeresyAuthService.InternalHeresyService.TryGetClassRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetBackgrounds", ReplyAction="http://tempuri.org/IInternalHeresyService/GetBackgroundsResponse")]
+        System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Background> GetBackgrounds();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetBackgrounds", ReplyAction="http://tempuri.org/IInternalHeresyService/GetBackgroundsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.Background>> GetBackgroundsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetBackground", ReplyAction="http://tempuri.org/IInternalHeresyService/GetBackgroundResponse")]
+        HeresyCore.Entities.Data.Background GetBackground(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/GetBackground", ReplyAction="http://tempuri.org/IInternalHeresyService/GetBackgroundResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Entities.Data.Background> GetBackgroundAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/TryGetBackground", ReplyAction="http://tempuri.org/IInternalHeresyService/TryGetBackgroundResponse")]
+        HeresyAuthService.InternalHeresyService.TryGetBackgroundResponse TryGetBackground(HeresyAuthService.InternalHeresyService.TryGetBackgroundRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInternalHeresyService/TryGetBackground", ReplyAction="http://tempuri.org/IInternalHeresyService/TryGetBackgroundResponse")]
+        System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetBackgroundResponse> TryGetBackgroundAsync(HeresyAuthService.InternalHeresyService.TryGetBackgroundRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TryGetWorldDescription", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TryGetWorldDescriptionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string id;
+        
+        public TryGetWorldDescriptionRequest() {
+        }
+        
+        public TryGetWorldDescriptionRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TryGetWorldDescriptionResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TryGetWorldDescriptionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool TryGetWorldDescriptionResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public HeresyCore.Descriptions.WorldDescription world;
+        
+        public TryGetWorldDescriptionResponse() {
+        }
+        
+        public TryGetWorldDescriptionResponse(bool TryGetWorldDescriptionResult, HeresyCore.Descriptions.WorldDescription world) {
+            this.TryGetWorldDescriptionResult = TryGetWorldDescriptionResult;
+            this.world = world;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TryGetRaceDescription", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TryGetRaceDescriptionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string id;
+        
+        public TryGetRaceDescriptionRequest() {
+        }
+        
+        public TryGetRaceDescriptionRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TryGetRaceDescriptionResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TryGetRaceDescriptionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool TryGetRaceDescriptionResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public HeresyCore.Descriptions.GroupDescription race;
+        
+        public TryGetRaceDescriptionResponse() {
+        }
+        
+        public TryGetRaceDescriptionResponse(bool TryGetRaceDescriptionResult, HeresyCore.Descriptions.GroupDescription race) {
+            this.TryGetRaceDescriptionResult = TryGetRaceDescriptionResult;
+            this.race = race;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TryGetClassDescription", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TryGetClassDescriptionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string id;
+        
+        public TryGetClassDescriptionRequest() {
+        }
+        
+        public TryGetClassDescriptionRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TryGetClassDescriptionResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TryGetClassDescriptionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool TryGetClassDescriptionResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public HeresyCore.Descriptions.ClassDescription c;
+        
+        public TryGetClassDescriptionResponse() {
+        }
+        
+        public TryGetClassDescriptionResponse(bool TryGetClassDescriptionResult, HeresyCore.Descriptions.ClassDescription c) {
+            this.TryGetClassDescriptionResult = TryGetClassDescriptionResult;
+            this.c = c;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TryGetBackgroundDescription", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TryGetBackgroundDescriptionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string id;
+        
+        public TryGetBackgroundDescriptionRequest() {
+        }
+        
+        public TryGetBackgroundDescriptionRequest(string id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TryGetBackgroundDescriptionResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TryGetBackgroundDescriptionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool TryGetBackgroundDescriptionResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public HeresyCore.Descriptions.GroupDescription c;
+        
+        public TryGetBackgroundDescriptionResponse() {
+        }
+        
+        public TryGetBackgroundDescriptionResponse(bool TryGetBackgroundDescriptionResult, HeresyCore.Descriptions.GroupDescription c) {
+            this.TryGetBackgroundDescriptionResult = TryGetBackgroundDescriptionResult;
+            this.c = c;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -323,12 +569,240 @@ namespace HeresyAuthService.InternalHeresyService {
                 base(binding, remoteAddress) {
         }
         
+        public System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.CharacterDescription> GetCharacterDescriptionList(HeresyCore.Entities.Token token) {
+            return base.Channel.GetCharacterDescriptionList(token);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.CharacterDescription>> GetCharacterDescriptionListAsync(HeresyCore.Entities.Token token) {
+            return base.Channel.GetCharacterDescriptionListAsync(token);
+        }
+        
+        public HeresyCore.Descriptions.CharacterDescription GetCharacterDescription(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.GetCharacterDescription(token, charId);
+        }
+        
+        public System.Threading.Tasks.Task<HeresyCore.Descriptions.CharacterDescription> GetCharacterDescriptionAsync(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.GetCharacterDescriptionAsync(token, charId);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.WorldDescription> GetWorldDescriptions() {
+            return base.Channel.GetWorldDescriptions();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.WorldDescription>> GetWorldDescriptionsAsync() {
+            return base.Channel.GetWorldDescriptionsAsync();
+        }
+        
+        public HeresyCore.Descriptions.WorldDescription GetWorldDescription(string id) {
+            return base.Channel.GetWorldDescription(id);
+        }
+        
+        public System.Threading.Tasks.Task<HeresyCore.Descriptions.WorldDescription> GetWorldDescriptionAsync(string id) {
+            return base.Channel.GetWorldDescriptionAsync(id);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionResponse HeresyAuthService.InternalHeresyService.IInternalHeresyService.TryGetWorldDescription(HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionRequest request) {
+            return base.Channel.TryGetWorldDescription(request);
+        }
+        
+        public bool TryGetWorldDescription(string id, out HeresyCore.Descriptions.WorldDescription world) {
+            HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionRequest inValue = new HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionRequest();
+            inValue.id = id;
+            HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionResponse retVal = ((HeresyAuthService.InternalHeresyService.IInternalHeresyService)(this)).TryGetWorldDescription(inValue);
+            world = retVal.world;
+            return retVal.TryGetWorldDescriptionResult;
+        }
+        
+        public System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionResponse> TryGetWorldDescriptionAsync(HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionRequest request) {
+            return base.Channel.TryGetWorldDescriptionAsync(request);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.GroupDescription> GetRaceDescriptions() {
+            return base.Channel.GetRaceDescriptions();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.GroupDescription>> GetRaceDescriptionsAsync() {
+            return base.Channel.GetRaceDescriptionsAsync();
+        }
+        
+        public HeresyCore.Descriptions.GroupDescription GetRaceDescription(string id) {
+            return base.Channel.GetRaceDescription(id);
+        }
+        
+        public System.Threading.Tasks.Task<HeresyCore.Descriptions.GroupDescription> GetRaceDescriptionAsync(string id) {
+            return base.Channel.GetRaceDescriptionAsync(id);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionResponse HeresyAuthService.InternalHeresyService.IInternalHeresyService.TryGetRaceDescription(HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionRequest request) {
+            return base.Channel.TryGetRaceDescription(request);
+        }
+        
+        public bool TryGetRaceDescription(string id, out HeresyCore.Descriptions.GroupDescription race) {
+            HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionRequest inValue = new HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionRequest();
+            inValue.id = id;
+            HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionResponse retVal = ((HeresyAuthService.InternalHeresyService.IInternalHeresyService)(this)).TryGetRaceDescription(inValue);
+            race = retVal.race;
+            return retVal.TryGetRaceDescriptionResult;
+        }
+        
+        public System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionResponse> TryGetRaceDescriptionAsync(HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionRequest request) {
+            return base.Channel.TryGetRaceDescriptionAsync(request);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.ClassDescription> GetClassDescriptions() {
+            return base.Channel.GetClassDescriptions();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.ClassDescription>> GetClassDescriptionsAsync() {
+            return base.Channel.GetClassDescriptionsAsync();
+        }
+        
+        public HeresyCore.Descriptions.ClassDescription GetClassDescription(string id) {
+            return base.Channel.GetClassDescription(id);
+        }
+        
+        public System.Threading.Tasks.Task<HeresyCore.Descriptions.ClassDescription> GetClassDescriptionAsync(string id) {
+            return base.Channel.GetClassDescriptionAsync(id);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HeresyAuthService.InternalHeresyService.TryGetClassDescriptionResponse HeresyAuthService.InternalHeresyService.IInternalHeresyService.TryGetClassDescription(HeresyAuthService.InternalHeresyService.TryGetClassDescriptionRequest request) {
+            return base.Channel.TryGetClassDescription(request);
+        }
+        
+        public bool TryGetClassDescription(string id, out HeresyCore.Descriptions.ClassDescription c) {
+            HeresyAuthService.InternalHeresyService.TryGetClassDescriptionRequest inValue = new HeresyAuthService.InternalHeresyService.TryGetClassDescriptionRequest();
+            inValue.id = id;
+            HeresyAuthService.InternalHeresyService.TryGetClassDescriptionResponse retVal = ((HeresyAuthService.InternalHeresyService.IInternalHeresyService)(this)).TryGetClassDescription(inValue);
+            c = retVal.c;
+            return retVal.TryGetClassDescriptionResult;
+        }
+        
+        public System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetClassDescriptionResponse> TryGetClassDescriptionAsync(HeresyAuthService.InternalHeresyService.TryGetClassDescriptionRequest request) {
+            return base.Channel.TryGetClassDescriptionAsync(request);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.GroupDescription> GetBackgroundDescriptions() {
+            return base.Channel.GetBackgroundDescriptions();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Descriptions.GroupDescription>> GetBackgroundDescriptionsAsync() {
+            return base.Channel.GetBackgroundDescriptionsAsync();
+        }
+        
+        public HeresyCore.Descriptions.GroupDescription GetBackgroundDescription(string id) {
+            return base.Channel.GetBackgroundDescription(id);
+        }
+        
+        public System.Threading.Tasks.Task<HeresyCore.Descriptions.GroupDescription> GetBackgroundDescriptionAsync(string id) {
+            return base.Channel.GetBackgroundDescriptionAsync(id);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionResponse HeresyAuthService.InternalHeresyService.IInternalHeresyService.TryGetBackgroundDescription(HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionRequest request) {
+            return base.Channel.TryGetBackgroundDescription(request);
+        }
+        
+        public bool TryGetBackgroundDescription(string id, out HeresyCore.Descriptions.GroupDescription c) {
+            HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionRequest inValue = new HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionRequest();
+            inValue.id = id;
+            HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionResponse retVal = ((HeresyAuthService.InternalHeresyService.IInternalHeresyService)(this)).TryGetBackgroundDescription(inValue);
+            c = retVal.c;
+            return retVal.TryGetBackgroundDescriptionResult;
+        }
+        
+        public System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionResponse> TryGetBackgroundDescriptionAsync(HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionRequest request) {
+            return base.Channel.TryGetBackgroundDescriptionAsync(request);
+        }
+        
+        public string CreateCharacter(HeresyCore.Entities.Token token, string name) {
+            return base.Channel.CreateCharacter(token, name);
+        }
+        
+        public System.Threading.Tasks.Task<string> CreateCharacterAsync(HeresyCore.Entities.Token token, string name) {
+            return base.Channel.CreateCharacterAsync(token, name);
+        }
+        
+        public bool SelectRace(HeresyCore.Entities.Token token, string charId, string raceId) {
+            return base.Channel.SelectRace(token, charId, raceId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SelectRaceAsync(HeresyCore.Entities.Token token, string charId, string raceId) {
+            return base.Channel.SelectRaceAsync(token, charId, raceId);
+        }
+        
+        public bool RerollStat(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat) {
+            return base.Channel.RerollStat(token, charId, stat);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RerollStatAsync(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat) {
+            return base.Channel.RerollStatAsync(token, charId, stat);
+        }
+        
+        public bool SkipReroll(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.SkipReroll(token, charId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SkipRerollAsync(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.SkipRerollAsync(token, charId);
+        }
+        
+        public bool SelectWorld(HeresyCore.Entities.Token token, string charId, string worldId) {
+            return base.Channel.SelectWorld(token, charId, worldId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SelectWorldAsync(HeresyCore.Entities.Token token, string charId, string worldId) {
+            return base.Channel.SelectWorldAsync(token, charId, worldId);
+        }
+        
+        public bool SelectClass(HeresyCore.Entities.Token token, string charId, string classId) {
+            return base.Channel.SelectClass(token, charId, classId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SelectClassAsync(HeresyCore.Entities.Token token, string charId, string classId) {
+            return base.Channel.SelectClassAsync(token, charId, classId);
+        }
+        
+        public bool SelectBackground(HeresyCore.Entities.Token token, string charId, string backgroundId) {
+            return base.Channel.SelectBackground(token, charId, backgroundId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SelectBackgroundAsync(HeresyCore.Entities.Token token, string charId, string backgroundId) {
+            return base.Channel.SelectBackgroundAsync(token, charId, backgroundId);
+        }
+        
+        public bool SkipBackground(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.SkipBackground(token, charId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SkipBackgroundAsync(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.SkipBackgroundAsync(token, charId);
+        }
+        
+        public void RegisterUser(string id, string appSecret) {
+            base.Channel.RegisterUser(id, appSecret);
+        }
+        
+        public System.Threading.Tasks.Task RegisterUserAsync(string id, string appSecret) {
+            return base.Channel.RegisterUserAsync(id, appSecret);
+        }
+        
         public System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character> GetCharacterList(HeresyCore.Entities.Token token) {
             return base.Channel.GetCharacterList(token);
         }
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Character>> GetCharacterListAsync(HeresyCore.Entities.Token token) {
             return base.Channel.GetCharacterListAsync(token);
+        }
+        
+        public HeresyCore.Entities.Character GetCharacter(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.GetCharacter(token, charId);
+        }
+        
+        public System.Threading.Tasks.Task<HeresyCore.Entities.Character> GetCharacterAsync(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.GetCharacterAsync(token, charId);
         }
         
         public System.Collections.Generic.Dictionary<string, HeresyCore.Entities.Data.World> GetWorlds() {
@@ -461,78 +935,6 @@ namespace HeresyAuthService.InternalHeresyService {
         
         public System.Threading.Tasks.Task<HeresyAuthService.InternalHeresyService.TryGetBackgroundResponse> TryGetBackgroundAsync(HeresyAuthService.InternalHeresyService.TryGetBackgroundRequest request) {
             return base.Channel.TryGetBackgroundAsync(request);
-        }
-        
-        public string CreateCharacter(HeresyCore.Entities.Token token, string name) {
-            return base.Channel.CreateCharacter(token, name);
-        }
-        
-        public System.Threading.Tasks.Task<string> CreateCharacterAsync(HeresyCore.Entities.Token token, string name) {
-            return base.Channel.CreateCharacterAsync(token, name);
-        }
-        
-        public bool SelectRace(HeresyCore.Entities.Token token, string charId, string raceId) {
-            return base.Channel.SelectRace(token, charId, raceId);
-        }
-        
-        public System.Threading.Tasks.Task<bool> SelectRaceAsync(HeresyCore.Entities.Token token, string charId, string raceId) {
-            return base.Channel.SelectRaceAsync(token, charId, raceId);
-        }
-        
-        public bool RerollStat(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat) {
-            return base.Channel.RerollStat(token, charId, stat);
-        }
-        
-        public System.Threading.Tasks.Task<bool> RerollStatAsync(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat) {
-            return base.Channel.RerollStatAsync(token, charId, stat);
-        }
-        
-        public bool SkipReroll(HeresyCore.Entities.Token token, string charId) {
-            return base.Channel.SkipReroll(token, charId);
-        }
-        
-        public System.Threading.Tasks.Task<bool> SkipRerollAsync(HeresyCore.Entities.Token token, string charId) {
-            return base.Channel.SkipRerollAsync(token, charId);
-        }
-        
-        public bool SelectWorld(HeresyCore.Entities.Token token, string charId, string worldId) {
-            return base.Channel.SelectWorld(token, charId, worldId);
-        }
-        
-        public System.Threading.Tasks.Task<bool> SelectWorldAsync(HeresyCore.Entities.Token token, string charId, string worldId) {
-            return base.Channel.SelectWorldAsync(token, charId, worldId);
-        }
-        
-        public bool SelectClass(HeresyCore.Entities.Token token, string charId, string classId) {
-            return base.Channel.SelectClass(token, charId, classId);
-        }
-        
-        public System.Threading.Tasks.Task<bool> SelectClassAsync(HeresyCore.Entities.Token token, string charId, string classId) {
-            return base.Channel.SelectClassAsync(token, charId, classId);
-        }
-        
-        public bool SelectBackground(HeresyCore.Entities.Token token, string charId, string backgroundId) {
-            return base.Channel.SelectBackground(token, charId, backgroundId);
-        }
-        
-        public System.Threading.Tasks.Task<bool> SelectBackgroundAsync(HeresyCore.Entities.Token token, string charId, string backgroundId) {
-            return base.Channel.SelectBackgroundAsync(token, charId, backgroundId);
-        }
-        
-        public bool SkipBackground(HeresyCore.Entities.Token token, string charId) {
-            return base.Channel.SkipBackground(token, charId);
-        }
-        
-        public System.Threading.Tasks.Task<bool> SkipBackgroundAsync(HeresyCore.Entities.Token token, string charId) {
-            return base.Channel.SkipBackgroundAsync(token, charId);
-        }
-        
-        public void RegisterUser(string id, string appSecret) {
-            base.Channel.RegisterUser(id, appSecret);
-        }
-        
-        public System.Threading.Tasks.Task RegisterUserAsync(string id, string appSecret) {
-            return base.Channel.RegisterUserAsync(id, appSecret);
         }
     }
 }

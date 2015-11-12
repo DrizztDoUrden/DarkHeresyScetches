@@ -6,17 +6,162 @@
       <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities" />
       <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
-      <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" />
-      <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Properties" />
+      <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Descriptions" />
+      <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
+      <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" />
       <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" />
+      <xsd:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Properties" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IInternalHeresyService_GetCharacterDescriptionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharacterDescriptionList" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetCharacterDescriptionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharacterDescriptionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetCharacterDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharacterDescription" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetCharacterDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharacterDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetWorldDescriptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorldDescriptions" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetWorldDescriptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorldDescriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetWorldDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorldDescription" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetWorldDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorldDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_TryGetWorldDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:TryGetWorldDescription" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_TryGetWorldDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TryGetWorldDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetRaceDescriptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRaceDescriptions" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetRaceDescriptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRaceDescriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetRaceDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRaceDescription" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetRaceDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRaceDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_TryGetRaceDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:TryGetRaceDescription" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_TryGetRaceDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TryGetRaceDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetClassDescriptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassDescriptions" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetClassDescriptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassDescriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetClassDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassDescription" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetClassDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_TryGetClassDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:TryGetClassDescription" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_TryGetClassDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TryGetClassDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetBackgroundDescriptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBackgroundDescriptions" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetBackgroundDescriptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBackgroundDescriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetBackgroundDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBackgroundDescription" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetBackgroundDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBackgroundDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_TryGetBackgroundDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:TryGetBackgroundDescription" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_TryGetBackgroundDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TryGetBackgroundDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_CreateCharacter_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCharacter" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_CreateCharacter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCharacterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SelectRace_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRace" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SelectRace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_RerollStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:RerollStat" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_RerollStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RerollStatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SkipReroll_InputMessage">
+    <wsdl:part name="parameters" element="tns:SkipReroll" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SkipReroll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SkipRerollResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SelectWorld_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWorld" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SelectWorld_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SelectClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectClass" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SelectClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SelectBackground_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectBackground" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SelectBackground_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectBackgroundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SkipBackground_InputMessage">
+    <wsdl:part name="parameters" element="tns:SkipBackground" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_SkipBackground_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SkipBackgroundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IInternalHeresyService_GetCharacterList_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCharacterList" />
   </wsdl:message>
   <wsdl:message name="IInternalHeresyService_GetCharacterList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCharacterListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetCharacter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharacter" />
+  </wsdl:message>
+  <wsdl:message name="IInternalHeresyService_GetCharacter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharacterResponse" />
   </wsdl:message>
   <wsdl:message name="IInternalHeresyService_GetWorlds_InputMessage">
     <wsdl:part name="parameters" element="tns:GetWorlds" />
@@ -90,112 +235,62 @@
   <wsdl:message name="IInternalHeresyService_TryGetBackground_OutputMessage">
     <wsdl:part name="parameters" element="tns:TryGetBackgroundResponse" />
   </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_CreateCharacter_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCharacter" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_CreateCharacter_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateCharacterResponse" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SelectRace_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectRace" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SelectRace_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectRaceResponse" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_RerollStat_InputMessage">
-    <wsdl:part name="parameters" element="tns:RerollStat" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_RerollStat_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RerollStatResponse" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SkipReroll_InputMessage">
-    <wsdl:part name="parameters" element="tns:SkipReroll" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SkipReroll_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SkipRerollResponse" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SelectWorld_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectWorld" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SelectWorld_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectWorldResponse" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SelectClass_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectClass" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SelectClass_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectClassResponse" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SelectBackground_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectBackground" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SelectBackground_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectBackgroundResponse" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SkipBackground_InputMessage">
-    <wsdl:part name="parameters" element="tns:SkipBackground" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_SkipBackground_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SkipBackgroundResponse" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_RegisterUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:RegisterUser" />
-  </wsdl:message>
-  <wsdl:message name="IInternalHeresyService_RegisterUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
-  </wsdl:message>
   <wsdl:portType name="IInternalHeresyService">
-    <wsdl:operation name="GetCharacterList">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetCharacterList" message="tns:IInternalHeresyService_GetCharacterList_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetCharacterListResponse" message="tns:IInternalHeresyService_GetCharacterList_OutputMessage" />
+    <wsdl:operation name="GetCharacterDescriptionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetCharacterDescriptionList" message="tns:IInternalHeresyService_GetCharacterDescriptionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetCharacterDescriptionListResponse" message="tns:IInternalHeresyService_GetCharacterDescriptionList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetWorlds">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetWorlds" message="tns:IInternalHeresyService_GetWorlds_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetWorldsResponse" message="tns:IInternalHeresyService_GetWorlds_OutputMessage" />
+    <wsdl:operation name="GetCharacterDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetCharacterDescription" message="tns:IInternalHeresyService_GetCharacterDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetCharacterDescriptionResponse" message="tns:IInternalHeresyService_GetCharacterDescription_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetWorld">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetWorld" message="tns:IInternalHeresyService_GetWorld_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetWorldResponse" message="tns:IInternalHeresyService_GetWorld_OutputMessage" />
+    <wsdl:operation name="GetWorldDescriptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetWorldDescriptions" message="tns:IInternalHeresyService_GetWorldDescriptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetWorldDescriptionsResponse" message="tns:IInternalHeresyService_GetWorldDescriptions_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="TryGetWorld">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/TryGetWorld" message="tns:IInternalHeresyService_TryGetWorld_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/TryGetWorldResponse" message="tns:IInternalHeresyService_TryGetWorld_OutputMessage" />
+    <wsdl:operation name="GetWorldDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetWorldDescription" message="tns:IInternalHeresyService_GetWorldDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetWorldDescriptionResponse" message="tns:IInternalHeresyService_GetWorldDescription_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetRaces">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetRaces" message="tns:IInternalHeresyService_GetRaces_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetRacesResponse" message="tns:IInternalHeresyService_GetRaces_OutputMessage" />
+    <wsdl:operation name="TryGetWorldDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/TryGetWorldDescription" message="tns:IInternalHeresyService_TryGetWorldDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/TryGetWorldDescriptionResponse" message="tns:IInternalHeresyService_TryGetWorldDescription_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetRace">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetRace" message="tns:IInternalHeresyService_GetRace_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetRaceResponse" message="tns:IInternalHeresyService_GetRace_OutputMessage" />
+    <wsdl:operation name="GetRaceDescriptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetRaceDescriptions" message="tns:IInternalHeresyService_GetRaceDescriptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetRaceDescriptionsResponse" message="tns:IInternalHeresyService_GetRaceDescriptions_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="TryGetRace">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/TryGetRace" message="tns:IInternalHeresyService_TryGetRace_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/TryGetRaceResponse" message="tns:IInternalHeresyService_TryGetRace_OutputMessage" />
+    <wsdl:operation name="GetRaceDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetRaceDescription" message="tns:IInternalHeresyService_GetRaceDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetRaceDescriptionResponse" message="tns:IInternalHeresyService_GetRaceDescription_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetClasses">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetClasses" message="tns:IInternalHeresyService_GetClasses_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetClassesResponse" message="tns:IInternalHeresyService_GetClasses_OutputMessage" />
+    <wsdl:operation name="TryGetRaceDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/TryGetRaceDescription" message="tns:IInternalHeresyService_TryGetRaceDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/TryGetRaceDescriptionResponse" message="tns:IInternalHeresyService_TryGetRaceDescription_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetClass">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetClass" message="tns:IInternalHeresyService_GetClass_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetClassResponse" message="tns:IInternalHeresyService_GetClass_OutputMessage" />
+    <wsdl:operation name="GetClassDescriptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetClassDescriptions" message="tns:IInternalHeresyService_GetClassDescriptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetClassDescriptionsResponse" message="tns:IInternalHeresyService_GetClassDescriptions_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="TryGetClass">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/TryGetClass" message="tns:IInternalHeresyService_TryGetClass_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/TryGetClassResponse" message="tns:IInternalHeresyService_TryGetClass_OutputMessage" />
+    <wsdl:operation name="GetClassDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetClassDescription" message="tns:IInternalHeresyService_GetClassDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetClassDescriptionResponse" message="tns:IInternalHeresyService_GetClassDescription_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetBackgrounds">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetBackgrounds" message="tns:IInternalHeresyService_GetBackgrounds_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetBackgroundsResponse" message="tns:IInternalHeresyService_GetBackgrounds_OutputMessage" />
+    <wsdl:operation name="TryGetClassDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/TryGetClassDescription" message="tns:IInternalHeresyService_TryGetClassDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/TryGetClassDescriptionResponse" message="tns:IInternalHeresyService_TryGetClassDescription_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetBackground">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetBackground" message="tns:IInternalHeresyService_GetBackground_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetBackgroundResponse" message="tns:IInternalHeresyService_GetBackground_OutputMessage" />
+    <wsdl:operation name="GetBackgroundDescriptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetBackgroundDescriptions" message="tns:IInternalHeresyService_GetBackgroundDescriptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetBackgroundDescriptionsResponse" message="tns:IInternalHeresyService_GetBackgroundDescriptions_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="TryGetBackground">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/TryGetBackground" message="tns:IInternalHeresyService_TryGetBackground_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/TryGetBackgroundResponse" message="tns:IInternalHeresyService_TryGetBackground_OutputMessage" />
+    <wsdl:operation name="GetBackgroundDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetBackgroundDescription" message="tns:IInternalHeresyService_GetBackgroundDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetBackgroundDescriptionResponse" message="tns:IInternalHeresyService_GetBackgroundDescription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TryGetBackgroundDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/TryGetBackgroundDescription" message="tns:IInternalHeresyService_TryGetBackgroundDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/TryGetBackgroundDescriptionResponse" message="tns:IInternalHeresyService_TryGetBackgroundDescription_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateCharacter">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/CreateCharacter" message="tns:IInternalHeresyService_CreateCharacter_InputMessage" />
@@ -233,11 +328,67 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/RegisterUser" message="tns:IInternalHeresyService_RegisterUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/RegisterUserResponse" message="tns:IInternalHeresyService_RegisterUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCharacterList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetCharacterList" message="tns:IInternalHeresyService_GetCharacterList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetCharacterListResponse" message="tns:IInternalHeresyService_GetCharacterList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetCharacter" message="tns:IInternalHeresyService_GetCharacter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetCharacterResponse" message="tns:IInternalHeresyService_GetCharacter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorlds">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetWorlds" message="tns:IInternalHeresyService_GetWorlds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetWorldsResponse" message="tns:IInternalHeresyService_GetWorlds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorld">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetWorld" message="tns:IInternalHeresyService_GetWorld_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetWorldResponse" message="tns:IInternalHeresyService_GetWorld_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TryGetWorld">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/TryGetWorld" message="tns:IInternalHeresyService_TryGetWorld_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/TryGetWorldResponse" message="tns:IInternalHeresyService_TryGetWorld_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRaces">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetRaces" message="tns:IInternalHeresyService_GetRaces_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetRacesResponse" message="tns:IInternalHeresyService_GetRaces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetRace" message="tns:IInternalHeresyService_GetRace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetRaceResponse" message="tns:IInternalHeresyService_GetRace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TryGetRace">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/TryGetRace" message="tns:IInternalHeresyService_TryGetRace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/TryGetRaceResponse" message="tns:IInternalHeresyService_TryGetRace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClasses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetClasses" message="tns:IInternalHeresyService_GetClasses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetClassesResponse" message="tns:IInternalHeresyService_GetClasses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetClass" message="tns:IInternalHeresyService_GetClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetClassResponse" message="tns:IInternalHeresyService_GetClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TryGetClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/TryGetClass" message="tns:IInternalHeresyService_TryGetClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/TryGetClassResponse" message="tns:IInternalHeresyService_TryGetClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBackgrounds">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetBackgrounds" message="tns:IInternalHeresyService_GetBackgrounds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetBackgroundsResponse" message="tns:IInternalHeresyService_GetBackgrounds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBackground">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/GetBackground" message="tns:IInternalHeresyService_GetBackground_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/GetBackgroundResponse" message="tns:IInternalHeresyService_GetBackground_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TryGetBackground">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInternalHeresyService/TryGetBackground" message="tns:IInternalHeresyService_TryGetBackground_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInternalHeresyService/TryGetBackgroundResponse" message="tns:IInternalHeresyService_TryGetBackground_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IInternalHeresyService" type="tns:IInternalHeresyService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetCharacterList">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetCharacterList" style="document" />
+    <wsdl:operation name="GetCharacterDescriptionList">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetCharacterDescriptionList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -245,8 +396,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetWorlds">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetWorlds" style="document" />
+    <wsdl:operation name="GetCharacterDescription">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetCharacterDescription" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -254,8 +405,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetWorld">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetWorld" style="document" />
+    <wsdl:operation name="GetWorldDescriptions">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetWorldDescriptions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -263,8 +414,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="TryGetWorld">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/TryGetWorld" style="document" />
+    <wsdl:operation name="GetWorldDescription">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetWorldDescription" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -272,8 +423,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRaces">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetRaces" style="document" />
+    <wsdl:operation name="TryGetWorldDescription">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/TryGetWorldDescription" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -281,8 +432,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRace">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetRace" style="document" />
+    <wsdl:operation name="GetRaceDescriptions">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetRaceDescriptions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -290,8 +441,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="TryGetRace">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/TryGetRace" style="document" />
+    <wsdl:operation name="GetRaceDescription">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetRaceDescription" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -299,8 +450,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetClasses">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetClasses" style="document" />
+    <wsdl:operation name="TryGetRaceDescription">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/TryGetRaceDescription" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -308,8 +459,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetClass">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetClass" style="document" />
+    <wsdl:operation name="GetClassDescriptions">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetClassDescriptions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -317,8 +468,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="TryGetClass">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/TryGetClass" style="document" />
+    <wsdl:operation name="GetClassDescription">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetClassDescription" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -326,8 +477,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetBackgrounds">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetBackgrounds" style="document" />
+    <wsdl:operation name="TryGetClassDescription">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/TryGetClassDescription" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -335,8 +486,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetBackground">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetBackground" style="document" />
+    <wsdl:operation name="GetBackgroundDescriptions">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetBackgroundDescriptions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -344,8 +495,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="TryGetBackground">
-      <soap:operation soapAction="http://tempuri.org/IHeresyService/TryGetBackground" style="document" />
+    <wsdl:operation name="GetBackgroundDescription">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetBackgroundDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryGetBackgroundDescription">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/TryGetBackgroundDescription" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -427,6 +587,132 @@
     </wsdl:operation>
     <wsdl:operation name="RegisterUser">
       <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacterList">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetCharacterList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacter">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetCharacter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorlds">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetWorlds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorld">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryGetWorld">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/TryGetWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRaces">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetRaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRace">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetRace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryGetRace">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/TryGetRace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClasses">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetClasses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClass">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryGetClass">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/TryGetClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBackgrounds">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetBackgrounds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBackground">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/GetBackground" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TryGetBackground">
+      <soap:operation soapAction="http://tempuri.org/IInternalHeresyService/TryGetBackground" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

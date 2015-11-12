@@ -3,12 +3,10 @@ using System.Runtime.Serialization;
 
 namespace HeresyCore.Entities.Properties
 {
-    [DataContract]
     public class Property<TContent>
     {
         [DataMember]
         public TContent PureContent { get; set; }
-        [DataMember]
         public TContent Content => GetContent(null);
         public IDictionary<string, PropertyModdifier<TContent>> Moddifiers { get; private set; }
 

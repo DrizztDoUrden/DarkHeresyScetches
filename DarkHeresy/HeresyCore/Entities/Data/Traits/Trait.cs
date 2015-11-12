@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeresyCore.Descriptions;
+using System;
 using System.Runtime.Serialization;
 
 namespace HeresyCore.Entities.Data.Traits
@@ -13,6 +14,8 @@ namespace HeresyCore.Entities.Data.Traits
         protected abstract TraitData GetDefaultData();
 
         protected abstract TraitData GetData(object content);
+
+        public EntityDescription GetDescription() => new EntityDescription(this);
 
         public Character Add(Character character)
         {
@@ -58,6 +61,7 @@ namespace HeresyCore.Entities.Data.Traits
         }
     }
 
+    [DataContract]
     public abstract class Trait<TContent> : Trait
     {
         public abstract void OnAdd(Character character, TraitData<TContent> traitData);

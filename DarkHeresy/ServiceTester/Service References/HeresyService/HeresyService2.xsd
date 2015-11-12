@@ -15,10 +15,4 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Trait" nillable="true" type="tns:Trait" />
-  <xs:complexType name="ArrayOfTrait">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Trait" nillable="true" type="tns:Trait" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTrait" nillable="true" type="tns:ArrayOfTrait" />
 </xs:schema>

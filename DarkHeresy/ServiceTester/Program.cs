@@ -1,9 +1,7 @@
-﻿using HeresyCore.Entities;
-using HeresyCore.Entities.Data;
-using HeresyCore.Entities.Properties;
-using HeresyCore.Utilities;
-using ServiceTester.HeresyAuthService;
+﻿using HeresyCore.Descriptions;
+using HeresyCore.Entities.Enums;
 using ServiceTester.HeresyService;
+using ServiceTester.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,62 +15,50 @@ namespace ServiceTester
         private static readonly string _testLogin = ConfigurationManager.AppSettings["TestLogin"];
         private static readonly string _testPassword = ConfigurationManager.AppSettings["TestPassword"];
 
-        private static int TestWoundModdifier(int baseValue, ICollection<string> conditions) => baseValue + 1;
+        private static TGroup GetRndGroup<TKey, TGroup>(this IDictionary<TKey, TGroup> groups) where TGroup : GroupDescription =>
+            groups.Values.ElementAt(_rnd.Next(groups.Count()));
 
-        private static Token TestAuth()
+        private static void Login(AuthorizedContext auth)
         {
-            Token token = null;
-
-            WcfExtensions.Using<AuthServiceClient>(auth =>
+            if (!auth.Login(_testLogin, _testPassword))
             {
-                token = auth.Login(_testLogin, _testPassword);
-
-                if (token != null)
-                    return;
-
                 if (!auth.Register(_testLogin, _testPassword))
                     throw new Exception("Не удалось зарегистрироваться");
 
-                token = auth.Login(_testLogin, _testPassword);
-            });
-
-            if (token == null)
-                throw new Exception("Не удалось войти");
-
-            return token;
+                if (!auth.Login(_testLogin, _testPassword))
+                    throw new Exception("Не удалось войти после успешной регистрации");
+            }
         }
 
-        private static Group GetRndGroup<T>(IEnumerable<T> groups) where T : Group =>
-            groups.ElementAt(_rnd.Next(groups.Count()));
-
-        private static Character AddRndGroup<T>(this Character c, IDictionary<string, T> groups) where T : Group =>
-            c.AddGroup(GetRndGroup(groups.Values));
-
-        private static void TestService(Token token)
+        private static void CreateCharacter(AuthorizedContext auth, IHeresyService dataContext)
         {
-            var c = new Character();
+            var race = dataContext.GetRaceDescriptions().GetRndGroup();
+            var world = dataContext.GetWorldDescriptions().GetRndGroup();
+            var cclass = dataContext.GetClassDescriptions().GetRndGroup();
+            var background = dataContext.GetBackgroundDescriptions().GetRndGroup();
+            var character = auth.CreateCharacter("Tester");
 
-            WcfExtensions.Using<HeresyServiceClient>(service =>
+            character.SelectRace(race);
+            character.RerollStat(ECharacterStat.WeaponSkill);
+            character.SelectWorld(world);
+            character.SelectClass(cclass);
+            character.SelectBackground(background);
+        }
+
+        private static void TestService()
+        {
+            AuthorizedContext.Using((service, auth) =>
             {
-                var chars = service.GetCharacterList(token);
+                Login(auth);
+                CreateCharacter(auth, service);
 
-                if (chars == null)
-                    throw new Exception("Не удалось получить список персонажей");
-
-                c.AddRndGroup(service.GetRaces());
-                c.AddRndGroup(service.GetWorlds());
-                c.AddRndGroup(service.GetClasses());
-                c.AddRndGroup(service.GetBackgrounds());
+                var chars = auth.GetCharacterList();
             });
-
-            c.MaxWounds.Moddifiers.Add("Test", (PropertyModdifier<int>)TestWoundModdifier);
-            c.MaxWounds.Moddifiers.Add("Test2", 1);
         }
 
         public static void Main()
         {
-            var token = TestAuth();
-            TestService(token);
+            TestService();
         }
     }
 }

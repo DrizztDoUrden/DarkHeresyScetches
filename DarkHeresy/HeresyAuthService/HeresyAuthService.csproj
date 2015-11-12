@@ -78,6 +78,22 @@
     <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetWorldResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Properties\DataSources\HeresyCore.Descriptions.CharacterDescription.datasource" />
+    <Content Include="Properties\DataSources\HeresyCore.Descriptions.ClassDescription.datasource" />
+    <Content Include="Properties\DataSources\HeresyCore.Descriptions.GroupDescription.datasource" />
+    <Content Include="Properties\DataSources\HeresyCore.Descriptions.WorldDescription.datasource" />
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetClassDescriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\InternalHeresyService\InternalHeresyService.disco" />
     <None Include="Service References\InternalHeresyService\configuration91.svcinfo" />
     <None Include="Service References\InternalHeresyService\configuration.svcinfo" />
@@ -91,6 +107,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\InternalHeresyService\InternalHeresyService43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService5.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\InternalHeresyService\Reference.svcmap">

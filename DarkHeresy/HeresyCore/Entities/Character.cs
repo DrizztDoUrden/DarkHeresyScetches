@@ -1,4 +1,5 @@
-﻿using HeresyCore.Entities.Data;
+﻿using HeresyCore.Descriptions;
+using HeresyCore.Entities.Data;
 using HeresyCore.Entities.Data.Traits;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties;
@@ -18,9 +19,9 @@ namespace HeresyCore.Entities
         public ECreationStage CreationStage { get; set; } = ECreationStage.RaceSelection;
 
         [DataMember]
-        public int Wounds { get; set; } = 1;
+        public int Wounds { get; set; } = 0;
         [DataMember]
-        public Property<int> MaxWounds { get; set; } = 1;
+        public Property<int> MaxWounds { get; set; } = 0;
 
         [DataMember]
         public int FatePoints { get; set; } = 0;
@@ -28,24 +29,24 @@ namespace HeresyCore.Entities
         public Property<int> MaxFatePoints { get; set; } = 0;
 
         [DataMember]
-        public IDictionary<ECharacterStat, Property<int>> Stats { get; } = Enum.GetValues(typeof(ECharacterStat))
+        public Dictionary<ECharacterStat, Property<int>> Stats { get; } = Enum.GetValues(typeof(ECharacterStat))
             .Cast<ECharacterStat>()
             .ToDictionary(stat => stat, stat => new Property<int>());
 
         [DataMember]
-        public IDictionary<string, string> Groups { get; } = new Dictionary<string, string>();
+        public Dictionary<string, string> Groups { get; } = new Dictionary<string, string>();
 
         [DataMember]
-        public IDictionary<string, ESkillMastery> Skills { get; } = new Dictionary<string, ESkillMastery>();
+        public Dictionary<string, ESkillMastery> Skills { get; } = new Dictionary<string, ESkillMastery>();
 
         [DataMember]
-        public IDictionary<string, Property<int>> TestBonuses { get; } = new Dictionary<string, Property<int>>();
+        public Dictionary<string, Property<int>> TestBonuses { get; } = new Dictionary<string, Property<int>>();
 
         [DataMember]
-        public IDictionary<string, TraitData> Traits { get; } = new Dictionary<string, TraitData>();
+        public Dictionary<string, TraitData> Traits { get; } = new Dictionary<string, TraitData>();
         
         [DataMember]
-        public ICollection<Freebie> Freebies { get; } = new List<Freebie>();
+        public List<Freebie> Freebies { get; } = new List<Freebie>();
 
         #endregion
 
@@ -54,6 +55,12 @@ namespace HeresyCore.Entities
         public Character AddTrait(Trait trait) => trait.Add(this);
 
         public Character AddGroup(Group group) => group.Add(this);
+
+        #endregion
+
+        #region Description
+
+        public CharacterDescription GetDescription() => new CharacterDescription(this);
 
         #endregion
     }
