@@ -46,7 +46,7 @@ namespace ServiceTester
             character.SelectBackground(background);
         }
 
-        private static void TryUpdateCharacter(ICharacterManagementContext character)
+        private static void ManageCharacter(ICharacterManagementContext character)
         {
             while (character.Character.Freebies.Any())
             {
@@ -56,23 +56,18 @@ namespace ServiceTester
             character.UpgradeStat(ECharacterStat.WeaponSkill, 1);
         }
 
-        private static void TestService()
+        private static void TestService() => AuthorizedContext.Using((service, auth) =>
         {
-            AuthorizedContext.Using((service, auth) =>
+            Login(auth);
+
+            if (!auth.CharacterList.Any())
             {
-                Login(auth);
+                CreateCharacter(auth, service);
+            }
 
-                var chars = auth.GetCharacterList();
-
-                if (!chars.Any())
-                {
-                    CreateCharacter(auth, service);
-                }
-
-                chars = auth.GetCharacterList();
-                TryUpdateCharacter(chars.Values.First());
-            });
-        }
+            var c = auth.CharacterList.First().Value;
+            ManageCharacter(c);
+        });
 
         public static void Main()
         {
