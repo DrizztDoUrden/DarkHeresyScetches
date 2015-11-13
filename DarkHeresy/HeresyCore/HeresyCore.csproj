@@ -62,6 +62,10 @@
     <Compile Include="Entities\Data\Interfaces\IFreebiesContainer.cs" />
     <Compile Include="Entities\Data\Interfaces\ITraitsContainer.cs" />
     <Compile Include="Entities\Data\Class.cs" />
+    <Compile Include="Entities\Data\Learning\LearningItemBase.cs" />
+    <Compile Include="Entities\Data\Learning\LearningPackage.cs" />
+    <Compile Include="Entities\Data\Learning\SkillToLearn.cs" />
+    <Compile Include="Entities\Data\Learning\TraitToLearn.cs" />
     <Compile Include="Entities\Data\Race.cs" />
     <Compile Include="Entities\Data\Roll.cs" />
     <Compile Include="Entities\Data\Traits\Trait.cs" />

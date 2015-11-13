@@ -58,7 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\AuthorizationContext.cs" />
+    <Compile Include="Utilities\AuthorizedContext.cs" />
     <Compile Include="Utilities\CharacterContext.cs" />
     <Compile Include="Utilities\Interfaces\ICharacterBaseContext.cs" />
     <Compile Include="Utilities\Interfaces\ICharacterCreationContext.cs" />
