@@ -13,6 +13,9 @@ namespace HeresyCore.Descriptions
         public string GroupTypeName { get; set; }
 
         [DataMember]
+        public int FreeExp { get; set; }
+
+        [DataMember]
         public Dice WoundsBase { get; set; }
 
         [DataMember]
@@ -22,7 +25,7 @@ namespace HeresyCore.Descriptions
         public IEnumerable<EntityDescription> Traits { get; set; }
 
         [DataMember]
-        public IEnumerable<Freebie> Freebies { get; set; }
+        public IEnumerable<FreebieDescription> Freebies { get; set; }
 
         [DataMember]
         public IDictionary<string, ESkillMastery> Skills { get; set; }
@@ -32,10 +35,11 @@ namespace HeresyCore.Descriptions
         public GroupDescription(Group group) : base(group)
         {
             GroupTypeName = group.GroupTypeName;
+            FreeExp = group.FreeExp;
             WoundsBase = group.WoundsBase;
             Stats = group.Stats;
-            Traits = group.Traits.Select(t => t.GetDescription());
-            Freebies = group.Freebies;
+            Traits = group.Traits.Select(t => (EntityDescription)t);
+            Freebies = group.Freebies.Select(f => (FreebieDescription)f);
             Skills = group.Skills;
         }
     }

@@ -9,7 +9,6 @@
       <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Descriptions" />
       <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
       <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" />
-      <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IHeresyService_GetCharacterDescriptionList_InputMessage">
@@ -144,6 +143,18 @@
   <wsdl:message name="IHeresyService_SkipBackground_OutputMessage">
     <wsdl:part name="parameters" element="tns:SkipBackgroundResponse" />
   </wsdl:message>
+  <wsdl:message name="IHeresyService_SelectFreebie_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFreebie" />
+  </wsdl:message>
+  <wsdl:message name="IHeresyService_SelectFreebie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectFreebieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeresyService_UpgradeStat_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpgradeStat" />
+  </wsdl:message>
+  <wsdl:message name="IHeresyService_UpgradeStat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpgradeStatResponse" />
+  </wsdl:message>
   <wsdl:portType name="IHeresyService">
     <wsdl:operation name="GetCharacterDescriptionList">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetCharacterDescriptionList" message="tns:IHeresyService_GetCharacterDescriptionList_InputMessage" />
@@ -232,6 +243,14 @@
     <wsdl:operation name="SkipBackground">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/SkipBackground" message="tns:IHeresyService_SkipBackground_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/SkipBackgroundResponse" message="tns:IHeresyService_SkipBackground_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectFreebie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/SelectFreebie" message="tns:IHeresyService_SelectFreebie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/SelectFreebieResponse" message="tns:IHeresyService_SelectFreebie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpgradeStat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/UpgradeStat" message="tns:IHeresyService_UpgradeStat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/UpgradeStatResponse" message="tns:IHeresyService_UpgradeStat_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IHeresyService" type="tns:IHeresyService">
@@ -427,6 +446,24 @@
     </wsdl:operation>
     <wsdl:operation name="SkipBackground">
       <soap:operation soapAction="http://tempuri.org/IHeresyService/SkipBackground" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFreebie">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/SelectFreebie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpgradeStat">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/UpgradeStat" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

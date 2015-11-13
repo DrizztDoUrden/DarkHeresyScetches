@@ -5,6 +5,6 @@ namespace HeresyCore.Entities.Data.Interfaces
 {
     public interface ISkillsContainer
     {
-        Dictionary<string, ESkillMastery> Skills { get; }
+        IDictionary<string, ESkillMastery> Skills { get; }
     }
 }

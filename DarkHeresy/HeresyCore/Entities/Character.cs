@@ -1,11 +1,10 @@
-﻿using HeresyCore.Descriptions;
-using HeresyCore.Entities.Data;
+﻿using HeresyCore.Entities.Data;
 using HeresyCore.Entities.Data.Traits;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties;
-using System;
+using HeresyCore.Entities.Properties.Moddifiers;
+using HeresyCore.Utilities;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 
 namespace HeresyCore.Entities
@@ -13,6 +12,9 @@ namespace HeresyCore.Entities
     [DataContract]
     public class Character : Entity
     {
+        public const int DefaultStatCost = 30;
+        public const int StatLimit = 60;
+        
         #region Properties
 
         [DataMember]
@@ -23,45 +25,93 @@ namespace HeresyCore.Entities
         [DataMember]
         public Property<int> MaxWounds { get; set; } = 0;
 
+        public int FreeExp { get; set; } = 0;
+
+        public int SpentExp { get; set; } = 0;
+
         [DataMember]
         public int FatePoints { get; set; } = 0;
         [DataMember]
         public Property<int> MaxFatePoints { get; set; } = 0;
 
         [DataMember]
-        public Dictionary<ECharacterStat, Property<int>> Stats { get; } = Enum.GetValues(typeof(ECharacterStat))
-            .Cast<ECharacterStat>()
-            .ToDictionary(stat => stat, stat => new Property<int>());
+        public IDictionary<ECharacterStat, Property<int>> Stats { get; } = ECharacterStatExtensions.GetStatsDictionary(stat => new Property<int>());
 
         [DataMember]
-        public Dictionary<string, string> Groups { get; } = new Dictionary<string, string>();
+        public IDictionary<ECharacterStat, int> StatCosts { get; set; } = ECharacterStatExtensions.GetStatsDictionary(stat => DefaultStatCost);
 
         [DataMember]
-        public Dictionary<string, ESkillMastery> Skills { get; } = new Dictionary<string, ESkillMastery>();
+        public IDictionary<string, string> Groups { get; } = new Dictionary<string, string>();
 
         [DataMember]
-        public Dictionary<string, Property<int>> TestBonuses { get; } = new Dictionary<string, Property<int>>();
+        public IDictionary<string, ESkillMastery> Skills { get; } = new Dictionary<string, ESkillMastery>();
 
         [DataMember]
-        public Dictionary<string, TraitData> Traits { get; } = new Dictionary<string, TraitData>();
+        public IDictionary<string, Property<int>> TestBonuses { get; } = new Dictionary<string, Property<int>>();
+
+        [DataMember]
+        public IDictionary<string, TraitData> Traits { get; } = new Dictionary<string, TraitData>();
         
         [DataMember]
         public List<Freebie> Freebies { get; } = new List<Freebie>();
 
         #endregion
 
-        #region helpers
+        #region Helpers
 
         public Character AddTrait(Trait trait) => trait.Add(this);
 
         public Character AddGroup(Group group) => group.Add(this);
 
+        public bool SpendExp(int amount)
+        {
+            if (FreeExp < amount)
+                return false;
+
+            FreeExp -= amount;
+            SpentExp += amount;
+            return true;
+        }
+
+        #region Stat upgrades
+
+        public class StatUpgradesCollection
+        {
+            private Character _owner;
+
+            public StatUpgradesCollection(Character owner)
+            {
+                _owner = owner;
+            }
+            
+            public int this[ECharacterStat stat]
+            {
+                get
+                {
+                    IntAddModdifier mod;
+
+                    _owner.Stats[stat].Moddifiers
+                        .TryGetConverted("Upgrades", out mod, m => (IntAddModdifier)m);
+
+                    return mod?.Value ?? 0;
+                }
+                set
+                {
+                    var prop = _owner.Stats[stat];
+                    prop.Moddifiers["Upgrades"] = value;
+                }
+            }
+        }
+
+        public StatUpgradesCollection StatUpgrades { get; }
+
         #endregion
 
-        #region Description
-
-        public CharacterDescription GetDescription() => new CharacterDescription(this);
-
         #endregion
+
+        public Character()
+        {
+             StatUpgrades = new StatUpgradesCollection(this);
+        }
     }
 }

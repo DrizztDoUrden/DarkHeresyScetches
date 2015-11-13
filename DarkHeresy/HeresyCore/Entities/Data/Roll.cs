@@ -23,5 +23,8 @@ namespace HeresyCore.Entities.Data
         {
             Dice = dice;
         }
+
+        public static implicit operator int(Roll roll)
+            => roll.Sum;
     }
 }

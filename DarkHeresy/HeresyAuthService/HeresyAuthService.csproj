@@ -66,52 +66,39 @@
     <Content Include="Properties\DataSources\HeresyCore.Entities.Data.Class.datasource" />
     <Content Include="Properties\DataSources\HeresyCore.Entities.Data.Race.datasource" />
     <Content Include="Properties\DataSources\HeresyCore.Entities.Data.World.datasource" />
-    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetBackgroundResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetClassResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetRaceResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetWorldResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Properties\DataSources\HeresyCore.Descriptions.CharacterDescription.datasource" />
     <Content Include="Properties\DataSources\HeresyCore.Descriptions.ClassDescription.datasource" />
     <Content Include="Properties\DataSources\HeresyCore.Descriptions.GroupDescription.datasource" />
     <Content Include="Properties\DataSources\HeresyCore.Descriptions.WorldDescription.datasource" />
+    <Content Include="Properties\DataSources\HeresyCore.Descriptions.BackgroundDescription.datasource" />
+    <Content Include="Properties\DataSources\HeresyCore.Descriptions.RaceDescription.datasource" />
     <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetBackgroundDescriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetBackgroundResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetClassDescriptionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetClassResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetRaceDescriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetRaceResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetWorldDescriptionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\InternalHeresyService\HeresyAuthService.InternalHeresyService.TryGetWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\InternalHeresyService\InternalHeresyService.disco" />
     <None Include="Service References\InternalHeresyService\configuration91.svcinfo" />
     <None Include="Service References\InternalHeresyService\configuration.svcinfo" />
-    <None Include="Service References\InternalHeresyService\InternalHeresyService4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\InternalHeresyService\InternalHeresyService41.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\InternalHeresyService\InternalHeresyService42.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\InternalHeresyService\InternalHeresyService43.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\InternalHeresyService\InternalHeresyService5.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\InternalHeresyService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -158,6 +145,21 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\InternalHeresyService\InternalHeresyService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InternalHeresyService\InternalHeresyService8.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Web.Debug.config">

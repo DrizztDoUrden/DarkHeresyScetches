@@ -17,19 +17,22 @@ namespace HeresyCore.Entities.Data
         protected virtual void AddCore(Character character) { }
 
         [DataMember]
+        public int FreeExp { get; set; } = 0;
+
+        [DataMember]
         public Dice WoundsBase { get; set; } = 0;
 
         [DataMember]
-        public Dictionary<ECharacterStat, Dice> Stats { get; set; }
+        public IDictionary<ECharacterStat, Dice> Stats { get; }
 
         [DataMember]
-        public List<Trait> Traits { get; set; } = new List<Trait>();
+        public List<Trait> Traits { get; } = new List<Trait>();
 
         [DataMember]
-        public List<Freebie> Freebies { get; set; } = new List<Freebie>();
+        public List<Freebie> Freebies { get; } = new List<Freebie>();
 
         [DataMember]
-        public Dictionary<string, ESkillMastery> Skills { get; set; } = new Dictionary<string, ESkillMastery>();
+        public IDictionary<string, ESkillMastery> Skills { get; } = new Dictionary<string, ESkillMastery>();
 
         public Group()
         {
@@ -44,8 +47,8 @@ namespace HeresyCore.Entities.Data
                 throw new Exception($"Попытка добавить группу типа <{GroupTypeName}> персонажу {character.GetDebugIdString()}, у которого уже есть группа этого типа");
 
             character.Groups.Add(GroupTypeName, Id);
-
             character.MaxWounds.Moddifiers.Add(GroupTypeName, WoundsBase.Roll().Sum);
+            character.FreeExp += FreeExp;
 
             AddCore(character);
 

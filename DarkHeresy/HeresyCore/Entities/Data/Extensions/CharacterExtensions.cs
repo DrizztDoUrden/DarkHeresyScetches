@@ -1,4 +1,5 @@
 ﻿using HeresyCore.Entities.Data.Interfaces;
+using HeresyCore.Entities.Data.Traits;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties.Moddifiers;
 using System.Collections.Generic;
@@ -7,6 +8,10 @@ namespace HeresyCore.Entities.Data.Extensions
 {
     public static class CharacterExtensions
     {
+        #region Creation
+
+        #region Group adding
+
         public static Character AddStats(this Character character, IStatsContainer stats)
         {
             foreach (var stat in stats.Stats)
@@ -14,7 +19,10 @@ namespace HeresyCore.Entities.Data.Extensions
                 var charStat = character.Stats[stat.Key];
                 var statDice = stat.Value;
 
-                charStat.Moddifiers.Add(stats.GroupTypeName, stat.Value.Constant);
+                if (stat.Value.Constant != 0)
+                {
+                    charStat.Moddifiers.Add(stats.GroupTypeName, stat.Value.Constant);
+                }
 
                 if (statDice.DieNumber == 0 || statDice.DieSides == 0)
                     continue;
@@ -60,6 +68,8 @@ namespace HeresyCore.Entities.Data.Extensions
             return character;
         }
 
+        #endregion
+
         public static Character RerollStat(this Character character, ECharacterStat stat)
         {
             var charStat = character.Stats[stat];
@@ -76,8 +86,8 @@ namespace HeresyCore.Entities.Data.Extensions
             [ECreationStage.RaceSelection] = ECreationStage.StatReroll,
             [ECreationStage.StatReroll] = ECreationStage.WorldSelection,
             [ECreationStage.WorldSelection] = ECreationStage.ClassSelection,
-
-            [ECreationStage.ClassSelection] = ECreationStage.Finished,
+            [ECreationStage.ClassSelection] = ECreationStage.BackgroundSelection,
+            [ECreationStage.BackgroundSelection] = ECreationStage.Finished,
         };
 
         public static bool TryIncraseCreationStage(this Character character, ECreationStage requiredStage)
@@ -92,5 +102,57 @@ namespace HeresyCore.Entities.Data.Extensions
 
             return true;
         }
+
+        #endregion
+
+        #region Management
+
+        public static void SelectFreebie(this Character character, int freebieId, int optionId)
+        {
+            var freebie = character.Freebies[freebieId];
+            var option = freebie.Options[optionId];
+
+            character.Freebies.Remove(freebie);
+
+            foreach (var item in option)
+            {
+                if (item.Value is Trait)
+                    character.AddTrait((Trait)item.Value);
+                else if (item.Value is ESkillMastery)
+                    character.Skills.Add(item.Key, (ESkillMastery)item.Value);
+            }
+        }
+
+        private static int GetStatCost(this Character character, ECharacterStat stat, int points)
+        {
+            var curValue = character.Stats[stat];
+            var price = character.StatCosts[stat];
+            var sum = 0;
+
+            while (points > 0)
+            {
+                var dif = 10 - curValue % 10;
+
+                if (dif > points)
+                    dif = points;
+
+                var cost = (curValue / 10) * dif * price;
+
+                sum += cost;
+                points -= dif;
+                curValue += dif;
+            }
+
+            return sum;
+        }
+
+        public static bool IsStatUpgradeAvaible(this Character character, ECharacterStat stat, int points) =>
+            character.Stats[stat] + points <= Character.StatLimit &&
+            character.SpendExp(character.GetStatCost(stat, points));
+
+        public static void UpgradeStat(this Character character, ECharacterStat stat, int points) =>
+            character.StatUpgrades[stat] += points;
+
+        #endregion
     }
 }

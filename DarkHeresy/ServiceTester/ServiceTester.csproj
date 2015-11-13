@@ -60,6 +60,9 @@
     </Compile>
     <Compile Include="Utilities\AuthorizationContext.cs" />
     <Compile Include="Utilities\CharacterContext.cs" />
+    <Compile Include="Utilities\Interfaces\ICharacterBaseContext.cs" />
+    <Compile Include="Utilities\Interfaces\ICharacterCreationContext.cs" />
+    <Compile Include="Utilities\Interfaces\ICharacterManagementContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -107,9 +110,6 @@
     <None Include="Service References\HeresyService\HeresyService6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\HeresyService\HeresyService7.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetBackgroundDescriptionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -125,6 +125,16 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HeresyCore\HeresyCore.csproj">
+      <Project>{604947f5-5f1d-4a60-a3d0-949841cba083}</Project>
+      <Name>HeresyCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestContent\TestContent.csproj">
+      <Project>{936a0357-212b-4803-8598-0c45d6cd48aa}</Project>
+      <Name>TestContent</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\HeresyAuthService\" />
@@ -146,16 +156,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HeresyCore\HeresyCore.csproj">
-      <Project>{604947f5-5f1d-4a60-a3d0-949841cba083}</Project>
-      <Name>HeresyCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestContent\TestContent.csproj">
-      <Project>{936a0357-212b-4803-8598-0c45d6cd48aa}</Project>
-      <Name>TestContent</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\HeresyService\HeresyService.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +170,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -9,7 +9,7 @@ namespace HeresyCore.Descriptions
     public class ClassDescription : GroupDescription
     {
         [DataMember]
-        public Dictionary<ECharacterStat, int> StatCosts { get; set; }
+        public IDictionary<ECharacterStat, int> StatCosts { get; set; }
 
         public ClassDescription() { }
 

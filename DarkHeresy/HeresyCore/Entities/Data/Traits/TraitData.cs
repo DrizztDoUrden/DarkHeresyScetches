@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using HeresyCore.Descriptions;
+using System.Runtime.Serialization;
 
 namespace HeresyCore.Entities.Data.Traits
 {
@@ -9,6 +10,8 @@ namespace HeresyCore.Entities.Data.Traits
         public Trait Trait { get; private set; }
 
         public abstract object TraitContent { get; set; }
+
+        public abstract TraitDataDescription GetDescription();
 
         #region Constructors
 
@@ -42,6 +45,10 @@ namespace HeresyCore.Entities.Data.Traits
                 Content = (TContent)value;
             }
         }
+
+        public override TraitDataDescription GetDescription() => (TraitDataDescription<TContent>)this;
+
+        public static implicit operator TContent(TraitData<TContent> data) => data.Content;
 
         #region Constructors
 

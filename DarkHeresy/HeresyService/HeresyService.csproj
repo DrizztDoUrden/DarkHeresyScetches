@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="ServiceInterfaces\IInternalHeresyService.cs" />
     <Compile Include="Services\CharacterCreation.cs" />
+    <Compile Include="Services\CharacterManagement.cs" />
     <Compile Include="Services\CommonDataGetters.cs" />
     <Compile Include="Services\InternalHeresyService.svc.cs">
       <DependentUpon>InternalHeresyService.svc</DependentUpon>

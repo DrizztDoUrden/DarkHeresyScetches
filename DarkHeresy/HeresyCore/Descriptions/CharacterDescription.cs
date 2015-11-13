@@ -1,18 +1,23 @@
 ﻿using HeresyCore.Entities;
-using HeresyCore.Entities.Data;
-using HeresyCore.Entities.Data.Traits;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Utilities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace HeresyCore.Descriptions
 {
-    [DataContract]
+    [DataContract, KnownType("GetKnownTypes")]
     public class CharacterDescription : EntityDescription
     {
         [DataMember]
         public ECreationStage CreationStage { get; set; }
+
+        [DataMember]
+        public int FreeExp { get; set; }
+        [DataMember]
+        public int SpentExp { get; set; }
 
         [DataMember]
         public int Wounds { get; set; }
@@ -28,6 +33,9 @@ namespace HeresyCore.Descriptions
         public IDictionary<ECharacterStat, int> Stats { get; set; }
 
         [DataMember]
+        public IDictionary<ECharacterStat, int> StatCosts { get; set; }
+
+        [DataMember]
         public IDictionary<string, string> Groups { get; set; }
 
         [DataMember]
@@ -37,29 +45,36 @@ namespace HeresyCore.Descriptions
         public IDictionary<string, int> TestBonuses { get; set; }
 
         [DataMember]
-        public IDictionary<string, TraitData> Traits { get; set; }
+        public IDictionary<string, TraitDataDescription> Traits { get; set; }
 
         [DataMember]
-        public ICollection<Freebie> Freebies { get; set; }
+        public IEnumerable<FreebieDescription> Freebies { get; set; }
 
         public CharacterDescription() { }
 
         public CharacterDescription(Character character) : base(character)
         {
             CreationStage = character.CreationStage;
+            FreeExp = character.FreeExp;
+            SpentExp = character.SpentExp;
             FatePoints = character.FatePoints;
-            Freebies = character.Freebies;
+            Freebies = character.Freebies.Select(f => (FreebieDescription)f);
             Groups = character.Groups;
             MaxFatePoints = character.MaxFatePoints;
             MaxWounds = character.MaxWounds;
             Skills = character.Skills;
             Stats = character.Stats.ToPlainDictionary();
+            StatCosts = character.StatCosts;
             TestBonuses = character.TestBonuses.ToPlainDictionary();
-            Traits = character.Traits;
+            Traits = character.Traits.Remap(data => (TraitDataDescription)data);
             Wounds = character.Wounds;
         }
 
-        public static implicit operator CharacterDescription(Character c) =>
-            new CharacterDescription(c);
+        public static implicit operator CharacterDescription(Character c) => new CharacterDescription(c);
+
+        public static Type[] GetKnownTypes() => new[]
+        {
+            TraitDataDescription.GenericsFamily,
+        }.SelectMany(t => t).ToArray();
     }
 }

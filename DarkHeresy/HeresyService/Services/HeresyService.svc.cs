@@ -41,8 +41,7 @@ namespace HeresyService.Services
             GetCharacterList(token)
                 ?.Remap(c => (CharacterDescription)c);
 
-        public CharacterDescription GetCharacterDescription(Token token, string charId) =>
-            GetCharacter(token, charId);
+        public CharacterDescription GetCharacterDescription(Token token, string charId) => GetCharacter(token, charId);
 
         public IDictionary<string, Character> GetCharacterList(Token token) =>
             Users.All

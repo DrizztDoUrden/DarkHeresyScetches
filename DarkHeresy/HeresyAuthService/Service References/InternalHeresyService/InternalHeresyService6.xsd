@@ -3,18 +3,6 @@
   <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" />
   <xs:import schemaLocation="http://localhost:50305/Services/InternalHeresyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities" />
-  <xs:complexType name="ArrayOfFreebie">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Freebie" nillable="true" type="tns:Freebie" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfFreebie" nillable="true" type="tns:ArrayOfFreebie" />
-  <xs:complexType name="Freebie">
-    <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Choises" nillable="true" type="q1:ArrayOfArrayOfanyType" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Freebie" nillable="true" type="tns:Freebie" />
   <xs:complexType name="Dice">
     <xs:sequence>
       <xs:element minOccurs="0" name="Constant" type="xs:int" />
@@ -23,6 +11,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Dice" nillable="true" type="tns:Dice" />
+  <xs:complexType name="ArrayOfFreebie">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Freebie" nillable="true" type="tns:Freebie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFreebie" nillable="true" type="tns:ArrayOfFreebie" />
+  <xs:complexType name="Freebie">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Options" nillable="true" type="q1:ArrayOfArrayOfKeyValueOfstringanyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Freebie" nillable="true" type="tns:Freebie" />
   <xs:complexType name="World">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Group">

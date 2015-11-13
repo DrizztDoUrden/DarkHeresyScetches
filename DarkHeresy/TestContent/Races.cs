@@ -10,6 +10,7 @@ namespace TestContent
             Id = "Race-Human",
             Name = "Человек",
             WoundsBase = new Dice(1, 5),
+            FreeExp = 600,
 
             Skills =
             {

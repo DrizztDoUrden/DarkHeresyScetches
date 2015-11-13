@@ -7,6 +7,6 @@ namespace HeresyCore.Entities.Data.Interfaces
     {
         string GroupTypeName { get; }
 
-        Dictionary<ECharacterStat, Dice> Stats { get; }
+        IDictionary<ECharacterStat, Dice> Stats { get; }
     }
 }

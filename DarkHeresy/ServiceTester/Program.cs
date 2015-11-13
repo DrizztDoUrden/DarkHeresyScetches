@@ -2,6 +2,7 @@
 using HeresyCore.Entities.Enums;
 using ServiceTester.HeresyService;
 using ServiceTester.Utilities;
+using ServiceTester.Utilities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -45,14 +46,31 @@ namespace ServiceTester
             character.SelectBackground(background);
         }
 
+        private static void TryUpdateCharacter(ICharacterManagementContext character)
+        {
+            while (character.Character.Freebies.Any())
+            {
+                character.SelectFreebie(0, 0);
+            }
+
+            character.UpgradeStat(ECharacterStat.WeaponSkill, 1);
+        }
+
         private static void TestService()
         {
             AuthorizedContext.Using((service, auth) =>
             {
                 Login(auth);
-                CreateCharacter(auth, service);
 
                 var chars = auth.GetCharacterList();
+
+                if (!chars.Any())
+                {
+                    CreateCharacter(auth, service);
+                }
+
+                chars = auth.GetCharacterList();
+                TryUpdateCharacter(chars.Values.First());
             });
         }
 

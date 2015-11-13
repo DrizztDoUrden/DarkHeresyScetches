@@ -67,5 +67,15 @@ namespace HeresyService.ServiceInterfaces
         bool SkipBackground(Token token, string charId);
 
         #endregion
+
+        #region Character Management
+
+        [OperationContract]
+        bool SelectFreebie(Token token, string charId, int freebieId, int optionId);
+
+        [OperationContract]
+        bool UpgradeStat(Token token, string charId, ECharacterStat stat, int points);
+
+        #endregion
     }
 }

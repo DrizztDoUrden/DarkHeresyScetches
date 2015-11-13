@@ -150,6 +150,18 @@ namespace ServiceTester.HeresyService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/SkipBackground", ReplyAction="http://tempuri.org/IHeresyService/SkipBackgroundResponse")]
         System.Threading.Tasks.Task<bool> SkipBackgroundAsync(HeresyCore.Entities.Token token, string charId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/SelectFreebie", ReplyAction="http://tempuri.org/IHeresyService/SelectFreebieResponse")]
+        bool SelectFreebie(HeresyCore.Entities.Token token, string charId, int freebieId, int optionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/SelectFreebie", ReplyAction="http://tempuri.org/IHeresyService/SelectFreebieResponse")]
+        System.Threading.Tasks.Task<bool> SelectFreebieAsync(HeresyCore.Entities.Token token, string charId, int freebieId, int optionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/UpgradeStat", ReplyAction="http://tempuri.org/IHeresyService/UpgradeStatResponse")]
+        bool UpgradeStat(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat, int points);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/UpgradeStat", ReplyAction="http://tempuri.org/IHeresyService/UpgradeStatResponse")]
+        System.Threading.Tasks.Task<bool> UpgradeStatAsync(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat, int points);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -533,6 +545,22 @@ namespace ServiceTester.HeresyService {
         
         public System.Threading.Tasks.Task<bool> SkipBackgroundAsync(HeresyCore.Entities.Token token, string charId) {
             return base.Channel.SkipBackgroundAsync(token, charId);
+        }
+        
+        public bool SelectFreebie(HeresyCore.Entities.Token token, string charId, int freebieId, int optionId) {
+            return base.Channel.SelectFreebie(token, charId, freebieId, optionId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SelectFreebieAsync(HeresyCore.Entities.Token token, string charId, int freebieId, int optionId) {
+            return base.Channel.SelectFreebieAsync(token, charId, freebieId, optionId);
+        }
+        
+        public bool UpgradeStat(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat, int points) {
+            return base.Channel.UpgradeStat(token, charId, stat, points);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpgradeStatAsync(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat, int points) {
+            return base.Channel.UpgradeStatAsync(token, charId, stat, points);
         }
     }
 }

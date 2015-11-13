@@ -44,15 +44,14 @@ namespace HeresyService.Services
             );
         }
 
-        private GroupGetter CreateGroupGetter<T>(GroupExtGetter<T> getter) where T : Group =>
-            (string id, out Group group) =>
-            {
-                T result;
-                var found = getter(id, out result);
-                group = result;
+        private GroupGetter CreateGroupGetter<T>(GroupExtGetter<T> getter) where T : Group => (string id, out Group group) =>
+        {
+            T result;
+            var found = getter(id, out result);
+            group = result;
 
-                return found;
-            };
+            return found;
+        };
 
         private GroupGetter RaceGetter;
         private GroupGetter WorldGetter;
@@ -92,10 +91,9 @@ namespace HeresyService.Services
         public bool SelectRace(Token token, string charId, string raceId) =>
             SelectGroup(token, charId, raceId, ECreationStage.RaceSelection, RaceGetter);
 
-        public bool RerollStat(Token token, string charId, ECharacterStat stat) =>
-            CreationStage(token, charId, ECreationStage.StatReroll,
-                action: c => c.RerollStat(stat)
-            );
+        public bool RerollStat(Token token, string charId, ECharacterStat stat) => CreationStage(token, charId, ECreationStage.StatReroll,
+            action: c => c.RerollStat(stat)
+        );
 
         public bool SkipReroll(Token token, string charId) =>
             CreationStage(token, charId, ECreationStage.StatReroll);
