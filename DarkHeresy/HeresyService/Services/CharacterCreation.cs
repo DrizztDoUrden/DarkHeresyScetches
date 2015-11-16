@@ -92,7 +92,7 @@ namespace HeresyService.Services
             SelectGroup(token, charId, raceId, ECreationStage.RaceSelection, RaceGetter);
 
         public bool RerollStat(Token token, string charId, ECharacterStat stat) => CreationStage(token, charId, ECreationStage.StatReroll,
-            action: c => c.RerollStat(stat)
+            action: c => c.RerollStat(GetRace, stat)
         );
 
         public bool SkipReroll(Token token, string charId) =>

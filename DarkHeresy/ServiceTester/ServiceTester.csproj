@@ -70,6 +70,7 @@
     <None Include="Properties\DataSources\HeresyCore.Descriptions.CharacterDescription.datasource" />
     <None Include="Properties\DataSources\HeresyCore.Descriptions.ClassDescription.datasource" />
     <None Include="Properties\DataSources\HeresyCore.Descriptions.GroupDescription.datasource" />
+    <None Include="Properties\DataSources\HeresyCore.Descriptions.Learning.LearningPackageDescription.datasource" />
     <None Include="Properties\DataSources\HeresyCore.Descriptions.RaceDescription.datasource" />
     <None Include="Properties\DataSources\HeresyCore.Descriptions.WorldDescription.datasource" />
     <None Include="Properties\DataSources\HeresyCore.Entities.Character.datasource" />
@@ -108,6 +109,15 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\HeresyService\HeresyService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyService\HeresyService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyService\HeresyService71.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HeresyService\HeresyService72.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\HeresyService\ServiceTester.HeresyService.TryGetBackgroundDescriptionResponse.datasource">

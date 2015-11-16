@@ -4,6 +4,7 @@
   <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Descriptions" />
   <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
+  <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Descriptions.Learning" />
   <xs:element name="GetCharacterDescriptionList">
     <xs:complexType>
       <xs:sequence>
@@ -353,6 +354,37 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="UpgradeStatResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvaibleLearningPackages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/HeresyCore.Entities" minOccurs="0" name="token" nillable="true" type="q29:Token" />
+        <xs:element minOccurs="0" name="charId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvaibleLearningPackagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/HeresyCore.Descriptions.Learning" minOccurs="0" name="GetAvaibleLearningPackagesResult" nillable="true" type="q30:ArrayOfLearningPackageDescription" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectLearningPackages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/HeresyCore.Entities" minOccurs="0" name="token" nillable="true" type="q31:Token" />
+        <xs:element minOccurs="0" name="charId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="packageId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectLearningPackagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SelectLearningPackagesResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

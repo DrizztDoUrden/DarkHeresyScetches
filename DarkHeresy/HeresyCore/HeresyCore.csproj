@@ -48,6 +48,8 @@
     <Compile Include="Descriptions\GroupDescription.cs" />
     <Compile Include="Descriptions\ClassDescription.cs" />
     <Compile Include="Descriptions\BackgroundDescription.cs" />
+    <Compile Include="Descriptions\Learning\LearningPackageDescription.cs" />
+    <Compile Include="Descriptions\Learning\TraitToLearnDescription.cs" />
     <Compile Include="Descriptions\RaceDescription.cs" />
     <Compile Include="Descriptions\TraitDataDescription.cs" />
     <Compile Include="Descriptions\WorldDescription.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Utilities\WcfContext.cs" />
     <Compile Include="Utilities\WcfExtensions.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

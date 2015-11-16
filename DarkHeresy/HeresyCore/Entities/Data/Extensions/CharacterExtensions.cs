@@ -1,8 +1,11 @@
 ﻿using HeresyCore.Entities.Data.Interfaces;
+using HeresyCore.Entities.Data.Learning;
 using HeresyCore.Entities.Data.Traits;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties.Moddifiers;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HeresyCore.Entities.Data.Extensions
 {
@@ -70,13 +73,13 @@ namespace HeresyCore.Entities.Data.Extensions
 
         #endregion
 
-        public static Character RerollStat(this Character character, ECharacterStat stat)
+        public static Character RerollStat(this Character character, Func<string, Race> raceGetter, ECharacterStat stat)
         {
             var charStat = character.Stats[stat];
 
             var roll = (IntAddModdifier)charStat.Moddifiers[$@"{Race.GroupType}\StatRoll"];
-#warning вынести ролл 2d10 куда-то из рерола
-            roll.Value = new Dice(2, 10).Roll();
+            var race = raceGetter(character.Groups[Race.GroupType]);
+            roll.Value = race.Stats[stat].Roll().PureSum;
 
             return character;
         }
@@ -107,6 +110,34 @@ namespace HeresyCore.Entities.Data.Extensions
 
         #region Management
 
+        public static IEnumerable<LearningPackage> GetAvaibleLearningPackages(this Character character, Func<string, Class> classGetter)
+        {
+            var cls = classGetter(character.Groups[Class.GroupType]);
+            var rank = character.RanksTaken + 1;
+            var packages = cls.LearningPackages
+                .Where(p => p.Key <= rank)
+                .SelectMany(p => p.Value)
+                .Where(p => p.IsAvaible(character));
+
+            return packages;
+        }
+
+        public static void SelectLearningPackage(this Character character, Func<string, Class> classGetter, string packageId)
+        {
+            var package = character
+                .GetAvaibleLearningPackages(classGetter)
+                .FirstOrDefault(p => p.Id == packageId);
+
+            package.Apply(character);
+        }
+
+        public static bool IsLearningPackageAvaible(this Character character, Func<string, Class> classGetter, string packageId)
+        {
+            return character
+                .GetAvaibleLearningPackages(classGetter)
+                .Any(p => p.Id == packageId);
+        }
+
         public static void SelectFreebie(this Character character, int freebieId, int optionId)
         {
             var freebie = character.Freebies[freebieId];
@@ -123,7 +154,7 @@ namespace HeresyCore.Entities.Data.Extensions
             }
         }
 
-        private static int GetStatCost(this Character character, ECharacterStat stat, int points)
+        public static int GetStatCost(this Character character, ECharacterStat stat, int points)
         {
             var curValue = character.Stats[stat];
             var price = character.StatCosts[stat];

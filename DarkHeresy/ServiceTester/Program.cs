@@ -53,6 +53,10 @@ namespace ServiceTester
                 character.SelectFreebie(0, 0);
             }
 
+            var packages = character.GetAvaibleLearningPackages();
+            var rndPack = packages.ElementAt(_rnd.Next(0, packages.Count()));
+
+            character.SelectLearningPackages(rndPack);
             character.UpgradeStat(ECharacterStat.WeaponSkill, 1);
         }
 

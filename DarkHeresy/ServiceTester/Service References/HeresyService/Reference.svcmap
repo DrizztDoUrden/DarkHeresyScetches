@@ -23,14 +23,17 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="HeresyService.xsd" MetadataType="Schema" ID="fce5c2c6-436a-4536-8a9a-1dd6a52dc64e" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd4" />
-    <MetadataFile FileName="HeresyService1.xsd" MetadataType="Schema" ID="72c2b383-43a6-4de5-a88b-c39f9c6a9fd6" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd6" />
-    <MetadataFile FileName="HeresyService.disco" MetadataType="Disco" ID="54a7de7a-1c2c-4d96-830f-a5841fb4bbff" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?disco" />
-    <MetadataFile FileName="HeresyService2.xsd" MetadataType="Schema" ID="81aa5ff6-e0ab-4c2d-8554-79230c61b643" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd1" />
     <MetadataFile FileName="HeresyService3.xsd" MetadataType="Schema" ID="d1126a74-4a23-4d7e-99ba-9fd9434ae5c3" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd0" />
-    <MetadataFile FileName="HeresyService.wsdl" MetadataType="Wsdl" ID="49f7a4fa-75ab-40ac-8908-c0d52fc42f5c" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?wsdl" />
+    <MetadataFile FileName="HeresyService7.xsd" MetadataType="Schema" ID="c682dc0a-8d9d-46ac-a1da-f7bcfc549450" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd8" />
+    <MetadataFile FileName="HeresyService2.xsd" MetadataType="Schema" ID="81aa5ff6-e0ab-4c2d-8554-79230c61b643" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HeresyService71.xsd" MetadataType="Schema" ID="24635fd0-7d46-4e9b-82a4-660b68eeac2a" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd7" />
     <MetadataFile FileName="HeresyService4.xsd" MetadataType="Schema" ID="824a5b0f-d375-45ec-9109-e0c2b66fbff1" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd3" />
+    <MetadataFile FileName="HeresyService1.xsd" MetadataType="Schema" ID="72c2b383-43a6-4de5-a88b-c39f9c6a9fd6" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd6" />
     <MetadataFile FileName="HeresyService5.xsd" MetadataType="Schema" ID="0a716a74-1d74-4529-8a2f-e9f7bc9c0d56" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HeresyService.disco" MetadataType="Disco" ID="54a7de7a-1c2c-4d96-830f-a5841fb4bbff" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?disco" />
     <MetadataFile FileName="HeresyService6.xsd" MetadataType="Schema" ID="e1e9f858-53af-4082-85ff-1447a23d2bcb" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd5" />
+    <MetadataFile FileName="HeresyService.wsdl" MetadataType="Wsdl" ID="49f7a4fa-75ab-40ac-8908-c0d52fc42f5c" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?wsdl" />
+    <MetadataFile FileName="HeresyService72.xsd" MetadataType="Schema" ID="e6c94018-7051-4ead-bf19-a6d55122af0c" SourceId="1" SourceUrl="http://localhost:50305/Services/HeresyService.svc?xsd=xsd9" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

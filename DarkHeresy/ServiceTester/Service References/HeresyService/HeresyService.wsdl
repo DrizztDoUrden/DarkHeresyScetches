@@ -8,7 +8,10 @@
       <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Descriptions" />
       <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
-      <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" />
+      <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Descriptions.Learning" />
+      <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Learning" />
+      <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" />
+      <xsd:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IHeresyService_GetCharacterDescriptionList_InputMessage">
@@ -155,6 +158,18 @@
   <wsdl:message name="IHeresyService_UpgradeStat_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpgradeStatResponse" />
   </wsdl:message>
+  <wsdl:message name="IHeresyService_GetAvaibleLearningPackages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvaibleLearningPackages" />
+  </wsdl:message>
+  <wsdl:message name="IHeresyService_GetAvaibleLearningPackages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvaibleLearningPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeresyService_SelectLearningPackages_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectLearningPackages" />
+  </wsdl:message>
+  <wsdl:message name="IHeresyService_SelectLearningPackages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectLearningPackagesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IHeresyService">
     <wsdl:operation name="GetCharacterDescriptionList">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetCharacterDescriptionList" message="tns:IHeresyService_GetCharacterDescriptionList_InputMessage" />
@@ -251,6 +266,14 @@
     <wsdl:operation name="UpgradeStat">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/UpgradeStat" message="tns:IHeresyService_UpgradeStat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/UpgradeStatResponse" message="tns:IHeresyService_UpgradeStat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvaibleLearningPackages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/GetAvaibleLearningPackages" message="tns:IHeresyService_GetAvaibleLearningPackages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/GetAvaibleLearningPackagesResponse" message="tns:IHeresyService_GetAvaibleLearningPackages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLearningPackages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeresyService/SelectLearningPackages" message="tns:IHeresyService_SelectLearningPackages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeresyService/SelectLearningPackagesResponse" message="tns:IHeresyService_SelectLearningPackages_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IHeresyService" type="tns:IHeresyService">
@@ -464,6 +487,24 @@
     </wsdl:operation>
     <wsdl:operation name="UpgradeStat">
       <soap:operation soapAction="http://tempuri.org/IHeresyService/UpgradeStat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvaibleLearningPackages">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/GetAvaibleLearningPackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLearningPackages">
+      <soap:operation soapAction="http://tempuri.org/IHeresyService/SelectLearningPackages" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

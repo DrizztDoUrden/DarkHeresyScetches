@@ -1,4 +1,5 @@
 ﻿using HeresyCore.Descriptions;
+using HeresyCore.Descriptions.Learning;
 using HeresyCore.Entities;
 using HeresyCore.Entities.Enums;
 using System.Collections.Generic;
@@ -75,6 +76,12 @@ namespace HeresyService.ServiceInterfaces
 
         [OperationContract]
         bool UpgradeStat(Token token, string charId, ECharacterStat stat, int points);
+
+        [OperationContract]
+        IEnumerable<LearningPackageDescription> GetAvaibleLearningPackages(Token token, string charId);
+
+        [OperationContract]
+        bool SelectLearningPackages(Token token, string charId, string packageId);
 
         #endregion
     }

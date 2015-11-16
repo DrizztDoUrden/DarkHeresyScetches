@@ -1,9 +1,11 @@
 ﻿using HeresyCore.Descriptions;
+using HeresyCore.Descriptions.Learning;
 using HeresyCore.Entities;
 using HeresyCore.Entities.Enums;
 using ServiceTester.HeresyService;
 using ServiceTester.Utilities.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace ServiceTester.Utilities
 {
@@ -98,6 +100,14 @@ namespace ServiceTester.Utilities
 
         public bool UpgradeStat(ECharacterStat stat, int points) => CharacterRelated(() =>
             Main.UpgradeStat(Token, Id, stat, points)
+        );
+
+        public IEnumerable<LearningPackageDescription> GetAvaibleLearningPackages() => CharacterRelated(() =>
+            Main.GetAvaibleLearningPackages(Token, Id)
+        );
+
+        public bool SelectLearningPackages(LearningPackageDescription package) => CharacterRelated(() =>
+            Main.SelectLearningPackages(Token, Id, package.Id)
         );
 
         #endregion

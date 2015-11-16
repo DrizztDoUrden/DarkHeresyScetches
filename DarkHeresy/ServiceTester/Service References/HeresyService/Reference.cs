@@ -162,6 +162,18 @@ namespace ServiceTester.HeresyService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/UpgradeStat", ReplyAction="http://tempuri.org/IHeresyService/UpgradeStatResponse")]
         System.Threading.Tasks.Task<bool> UpgradeStatAsync(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat, int points);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetAvaibleLearningPackages", ReplyAction="http://tempuri.org/IHeresyService/GetAvaibleLearningPackagesResponse")]
+        HeresyCore.Descriptions.Learning.LearningPackageDescription[] GetAvaibleLearningPackages(HeresyCore.Entities.Token token, string charId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/GetAvaibleLearningPackages", ReplyAction="http://tempuri.org/IHeresyService/GetAvaibleLearningPackagesResponse")]
+        System.Threading.Tasks.Task<HeresyCore.Descriptions.Learning.LearningPackageDescription[]> GetAvaibleLearningPackagesAsync(HeresyCore.Entities.Token token, string charId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/SelectLearningPackages", ReplyAction="http://tempuri.org/IHeresyService/SelectLearningPackagesResponse")]
+        bool SelectLearningPackages(HeresyCore.Entities.Token token, string charId, string packageId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeresyService/SelectLearningPackages", ReplyAction="http://tempuri.org/IHeresyService/SelectLearningPackagesResponse")]
+        System.Threading.Tasks.Task<bool> SelectLearningPackagesAsync(HeresyCore.Entities.Token token, string charId, string packageId);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -561,6 +573,22 @@ namespace ServiceTester.HeresyService {
         
         public System.Threading.Tasks.Task<bool> UpgradeStatAsync(HeresyCore.Entities.Token token, string charId, HeresyCore.Entities.Enums.ECharacterStat stat, int points) {
             return base.Channel.UpgradeStatAsync(token, charId, stat, points);
+        }
+        
+        public HeresyCore.Descriptions.Learning.LearningPackageDescription[] GetAvaibleLearningPackages(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.GetAvaibleLearningPackages(token, charId);
+        }
+        
+        public System.Threading.Tasks.Task<HeresyCore.Descriptions.Learning.LearningPackageDescription[]> GetAvaibleLearningPackagesAsync(HeresyCore.Entities.Token token, string charId) {
+            return base.Channel.GetAvaibleLearningPackagesAsync(token, charId);
+        }
+        
+        public bool SelectLearningPackages(HeresyCore.Entities.Token token, string charId, string packageId) {
+            return base.Channel.SelectLearningPackages(token, charId, packageId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SelectLearningPackagesAsync(HeresyCore.Entities.Token token, string charId, string packageId) {
+            return base.Channel.SelectLearningPackagesAsync(token, charId, packageId);
         }
     }
 }

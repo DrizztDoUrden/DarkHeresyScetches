@@ -1,4 +1,5 @@
 ﻿using HeresyCore.Entities.Data;
+using HeresyCore.Entities.Data.Learning;
 using HeresyCore.Entities.Data.Traits;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Entities.Properties;
@@ -25,9 +26,13 @@ namespace HeresyCore.Entities
         [DataMember]
         public Property<int> MaxWounds { get; set; } = 0;
 
+        [DataMember]
         public int FreeExp { get; set; } = 0;
-
+        [DataMember]
         public int SpentExp { get; set; } = 0;
+
+        [DataMember]
+        public int RanksTaken { get; set; } = 0;
 
         [DataMember]
         public int FatePoints { get; set; } = 0;
@@ -51,7 +56,10 @@ namespace HeresyCore.Entities
 
         [DataMember]
         public IDictionary<string, TraitData> Traits { get; } = new Dictionary<string, TraitData>();
-        
+
+        [DataMember]
+        public List<LearningPackage> LearningPackages { get; } = new List<LearningPackage>();
+
         [DataMember]
         public List<Freebie> Freebies { get; } = new List<Freebie>();
 

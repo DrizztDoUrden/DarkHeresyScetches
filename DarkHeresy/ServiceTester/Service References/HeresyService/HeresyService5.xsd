@@ -7,4 +7,11 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Token" nillable="true" type="tns:Token" />
+  <xs:complexType name="Entity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Entity" nillable="true" type="tns:Entity" />
 </xs:schema>

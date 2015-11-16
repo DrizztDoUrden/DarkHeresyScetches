@@ -1,4 +1,5 @@
-﻿using HeresyCore.Entities;
+﻿using HeresyCore.Descriptions.Learning;
+using HeresyCore.Entities;
 using HeresyCore.Entities.Enums;
 using HeresyCore.Utilities;
 using System;
@@ -23,6 +24,9 @@ namespace HeresyCore.Descriptions
         public int Wounds { get; set; }
         [DataMember]
         public int MaxWounds { get; set; }
+
+        [DataMember]
+        public int RanksTaken { get; set; }
 
         [DataMember]
         public int FatePoints { get; set; }
@@ -50,6 +54,9 @@ namespace HeresyCore.Descriptions
         [DataMember]
         public IEnumerable<FreebieDescription> Freebies { get; set; }
 
+        [DataMember]
+        public IEnumerable<LearningPackageDescription> LearningPackages { get; set; }
+
         public CharacterDescription() { }
 
         public CharacterDescription(Character character) : base(character)
@@ -57,6 +64,7 @@ namespace HeresyCore.Descriptions
             CreationStage = character.CreationStage;
             FreeExp = character.FreeExp;
             SpentExp = character.SpentExp;
+            RanksTaken = character.RanksTaken;
             FatePoints = character.FatePoints;
             Freebies = character.Freebies.Select(f => (FreebieDescription)f);
             Groups = character.Groups;
@@ -68,6 +76,7 @@ namespace HeresyCore.Descriptions
             TestBonuses = character.TestBonuses.ToPlainDictionary();
             Traits = character.Traits.Remap(data => (TraitDataDescription)data);
             Wounds = character.Wounds;
+            LearningPackages = character.LearningPackages.Select(p => (LearningPackageDescription)p);
         }
 
         public static implicit operator CharacterDescription(Character c) => new CharacterDescription(c);

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Learning" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Learning" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" />
+  <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" />
+  <xs:complexType name="ArrayOfLearningItemBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LearningItemBase" nillable="true" type="tns:LearningItemBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLearningItemBase" nillable="true" type="tns:ArrayOfLearningItemBase" />
+  <xs:complexType name="LearningItemBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExpCost" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SkillRequirements" nillable="true" type="q1:ArrayOfKeyValueOfstringESkillMasteryDXh3s7kc" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatRequirements" nillable="true" type="q2:ArrayOfKeyValueOfECharacterStatintDKGBQfRt" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" minOccurs="0" name="TraitRequirements" nillable="true" type="q3:ArrayOfTrait" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LearningItemBase" nillable="true" type="tns:LearningItemBase" />
+  <xs:complexType name="SkillToLearn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LearningItemBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Enums" minOccurs="0" name="Mastery" type="q4:ESkillMastery" />
+          <xs:element minOccurs="0" name="SkillId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SkillToLearn" nillable="true" type="tns:SkillToLearn" />
+</xs:schema>

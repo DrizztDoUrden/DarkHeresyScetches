@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities.Data.Traits" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50305/Services/HeresyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HeresyCore.Entities" />
+  <xs:complexType name="ArrayOfTrait">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Trait" nillable="true" type="tns:Trait" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrait" nillable="true" type="tns:ArrayOfTrait" />
+  <xs:complexType name="Trait">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HeresyCore.Entities" base="q1:Entity">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Trait" nillable="true" type="tns:Trait" />
+</xs:schema>
