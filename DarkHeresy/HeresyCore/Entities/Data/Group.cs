@@ -15,9 +15,13 @@ namespace HeresyCore.Entities.Data
         public abstract string GroupTypeName { get; }
         protected virtual Dice GetDefaultStatValue(ECharacterStat stat) => 0;
         protected virtual void AddCore(Character character) { }
+        protected virtual bool IsAvaibleCore(Character character) => true;
 
         [DataMember]
         public int FreeExp { get; set; } = 0;
+
+        [DataMember]
+        public int ExpCost { get; set; } = 0;
 
         [DataMember]
         public Dice WoundsBase { get; set; } = 0;
@@ -41,14 +45,15 @@ namespace HeresyCore.Entities.Data
                 .ToDictionary(stat => stat, GetDefaultStatValue);
         }
 
-        public Character Add(Character character)
+        public bool Add(Character character)
         {
-            if (character.Groups.ContainsKey(GroupTypeName))
-                throw new Exception($"Попытка добавить группу типа <{GroupTypeName}> персонажу {character.GetDebugIdString()}, у которого уже есть группа этого типа");
+            if (character.Groups.ContainsKey(GroupTypeName) ||
+                character.FreeExp + FreeExp < ExpCost)
+                return false;
 
             character.Groups.Add(GroupTypeName, Id);
             character.MaxWounds.Moddifiers.Add(GroupTypeName, WoundsBase.Roll().Sum);
-            character.FreeExp += FreeExp;
+            character.FreeExp += FreeExp - ExpCost;
 
             AddCore(character);
 
@@ -58,7 +63,7 @@ namespace HeresyCore.Entities.Data
                 .AddSkills(this)
                 .AddFreebies(this);
 
-            return character;
+            return true;
         }
     }
 }

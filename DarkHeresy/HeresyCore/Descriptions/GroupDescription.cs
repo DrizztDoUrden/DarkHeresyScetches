@@ -16,6 +16,9 @@ namespace HeresyCore.Descriptions
         public int FreeExp { get; set; }
 
         [DataMember]
+        public int ExpCost { get; set; }
+
+        [DataMember]
         public Dice WoundsBase { get; set; }
 
         [DataMember]
@@ -36,6 +39,7 @@ namespace HeresyCore.Descriptions
         {
             GroupTypeName = group.GroupTypeName;
             FreeExp = group.FreeExp;
+            ExpCost = group.ExpCost;
             WoundsBase = group.WoundsBase;
             Stats = group.Stats;
             Traits = group.Traits.Select(t => (EntityDescription)t);

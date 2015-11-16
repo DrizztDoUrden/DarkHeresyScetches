@@ -36,11 +36,9 @@ namespace HeresyService.Services
 
         private bool SelectGroup(Token token, string charId, string groupId, ECreationStage stage, GroupGetter getter)
         {
-            Group group = null;
-
+            Group group;
             return CreationStage(token, charId, stage,
-                c => getter(groupId, out group),
-                c => c.AddGroup(group)
+                c => getter(groupId, out group) && c.AddGroup(group)
             );
         }
 

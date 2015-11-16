@@ -69,7 +69,7 @@ namespace HeresyCore.Entities
 
         public Character AddTrait(Trait trait) => trait.Add(this);
 
-        public Character AddGroup(Group group) => group.Add(this);
+        public bool AddGroup(Group group) => group.Add(this);
 
         public bool SpendExp(int amount)
         {
